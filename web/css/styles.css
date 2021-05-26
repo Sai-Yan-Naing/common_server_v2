@@ -1,0 +1,260 @@
+.main_container .container {
+    /*margin-top: 60px;*/
+    width: calc(100% - 225px);
+    /*margin-left: 225px;*/
+    padding: 10px 10px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.main_container .container .item {
+    background: #fff;
+    border: 1px solid #E0F2F1;
+    margin-bottom: 30px;
+    padding: 20px;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+
+/* after adding active class */
+
+.wrapper.active .sidebar {
+    width: 80px;
+}
+
+.wrapper.active .sidebar ul li a span.title,
+.wrapper.active .profile_info {
+    display: none;
+}
+
+.wrapper.active .main_container .container {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+}
+
+.container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form-input {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 40px;
+}
+
+.form-input label {
+    padding-right: 200px;
+}
+
+.form-input input {
+    padding: 5px 20px;
+    text-align: center;
+}
+
+.server {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+
+}
+.add-server {
+    text-align: center;
+}
+.server-type {
+    display: flex;
+    border: 2px solid #dddddd;
+    padding: 40px 0px;
+}
+.add-server span,
+.server-type span {
+    border: 1px solid #444444;
+    padding: 5px 10px;
+}
+.server-type .server-name {
+    padding: 0px 40px;
+    text-align: center;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    background-color: #4472c4;
+    border: 1px solid #ccc;
+}
+.vps-tab {
+    margin-top: 2px;
+}
+.wd-tab {
+    margin-top: 6px;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+/*Start Site Setting*/
+.site_setting {
+    display: flex;
+    margin-left: 160px!important;
+    text-align: left!important;
+}
+.site_setting .left-view {
+    width: 15%;
+    text-align: left;
+}
+.site_setting .right-view {
+    width: 70%;
+    height: auto;
+}
+.site_setting .left-view .domain-icon {
+    font-size: 50px;
+    margin-left: 15%;
+}
+.site_setting .left-view .text-center {
+    margin-left: 15%;
+}
+.site_setting .left-view li,
+.site_setting .right-view li {
+    display: inline-block;
+}
+.left-view div {
+    padding-bottom: 5px;
+}
+.site_setting .tab-bar {
+    background: #fff;
+    overflow: hidden;
+}
+.right-view .tab-bar li {
+    padding: 8px 20px;
+    cursor: pointer;
+}
+.right-view .tab-bar #tab2,
+.right-view .tab-bar #tab3 {
+    padding: 9px 20px 11px 20px;
+    margin-left: -5px;
+}
+.right-view .tab-bar .tabs {
+    border: 1px solid #f5f5f5;
+    /*margin-left: -5px;*/
+}
+.right-view .panel {
+    padding: 15px;
+    background: #f5f5f5 !important;
+}
+.right-view .tab-bar #tab1 {
+    background: #f5f5f5;
+}
+.right-view .tab-bar #tab2 {
+    background: #fff;
+}
+.right-view .tab-bar #tab3 {
+    background: #fff;
+}
+.right-view #basic-setting,
+.right-view #app-setting {
+    display: none;
+}
+.app label {
+    padding-right: 75px;
+}
+.ver label {
+    padding-right: 104px;
+}
+.application,
+.install-method,
+.version,
+.url,
+.s-name,
+.mail,
+.user,
+.pass,
+.db,
+.db-user,
+.db-pass,
+.db-user {
+    padding-left: 20px;
+}
+.application,
+.install-method {
+    padding-right: 160px;
+}
+.version {
+    padding-right: 209px;
+}
+.url {
+    padding-right: 202px;
+}
+.s-name {
+    padding-right: 171px;
+}
+.mail {
+    padding-right: 123px;
+}
+.user,
+.pass {
+    padding-right: 155px;
+}
+.db {
+    padding-right: 134px;
+}
+.db-name {
+    padding-right: 87px;
+}
+.db-user {
+    padding-right: 123px;
+    padding-left: 250px;
+}
+.db-pass {
+    padding-right: 123px;
+    padding-left: 250px;
+}
+.install-app #url,
+.install-app #site-name,
+.install-app #user-name,
+.install-app #mail,
+.install-app #password {
+    padding: 5px 0px;
+    width: 60%;
+}
+.install-app #database-name,
+.install-app #database-user,
+.install-app #database-pass {
+    /*padding: 5px 74px;*/
+    
+    padding: 5px 0px;
+    width: 37%;
+}
+.install-app .button {
+    text-align: end;
+    margin-right: 90px;
+    padding-top: 25px;
+}
+.install-app .button input {
+    width: 15%;
+}

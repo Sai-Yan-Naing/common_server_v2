@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+/* ==============================
+
+	ログイン画面
+
+=============================== */
+
+html,
+body{
+	background:#FFF;
+}
+#loginWrapper{
+	width:500px;
+	margin:100px auto;
+	text-align:center;
+}
+#loginWrapper table{
+	width:100%;
+	margin:30px 0;
+}
+#loginWrapper th,
+#loginWrapper td{
+	padding:7px 5px;
+	text-align:center;
+}
+#loginWrapper th{
+	width:120px;
+}
+#loginWrapper input{
+	border:solid 1px #666666;
+	padding:5px 7px;
+	width:100%;
+}
+#loginWrapper input:focus{
+	padding:5px 7px;
+	background:#FC0;
+}
+
+input#btnLogin{
+	width:200px;
+	height:40px;
+	margin:20px 0;
+}
+
+input#btnReset{
+	width:250px;
+	height:40px;
+	margin:10px 10px;
+}
+
+ a#btnBack{
+	width:80px;
+	height:40px;
+	margin:10px 10px;
+}

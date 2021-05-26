@@ -1,0 +1,214 @@
+@charset "utf-8";
+
+/* ==============================
+
+	TOPページ
+
+=============================== */
+
+/* ------------------------------
+	機能一覧テーブル
+------------------------------ */
+
+#functionList th{
+	width:230px;
+}
+
+/* ------------------------------
+	機能一覧リンクアイコン
+------------------------------ */
+
+.itemTable a{
+	padding:5px 5px 0 35px;
+	display:block;
+	line-height:23px;
+	font-weight:bold;
+}
+#navMyspl{
+	background:url(../img/index/nav_ic_mysql.png) no-repeat 0 0;
+}
+#navMyspl:hover{
+	background-position:0 -29px;
+}
+#navMsspl{
+	background:url(../img/index/nav_ic_mssql.png) no-repeat 0 0;
+}
+#navMsspl:hover{
+	background-position:0 -29px;
+}
+#navSite{
+	background:url(../img/index/nav_ic_site.png) no-repeat 0 0;
+}
+#navSite:hover{
+	background-position:0 -29px;
+}
+#navApplication{
+	background:url(../img/index/nav_ic_application.png) no-repeat 0 0;
+}
+#navApplication:hover{
+	background-position:0 -29px;
+}
+#navPassword{
+	background:url(../img/index/nav_ic_password.png) no-repeat 0 0;
+}
+#navPassword:hover{
+	background-position:0 -29px;
+}
+#navSiteGuard{
+	background:url(../img/index/nav_ic_siteguard.png) no-repeat 0 0;
+}
+#navSiteGuard:hover{
+	background-position:0 -29px;
+}
+#navEasyInstall{
+	background:url(../img/index/nav_ic_easyinstall.png) no-repeat 0 0;
+}
+#navEasyInstall:hover{
+	background-position:0 -29px;
+}
+
+
+/* ==============================
+
+	MySQL追加
+
+=============================== */
+
+#mySqlBtn{
+	width:220px;
+	height:40px;
+}
+
+/* ==============================
+
+	Microsoft SQL Server追加
+
+=============================== */
+
+#msSqlBtn{
+	width:220px;
+	height:40px;
+}
+
+/* ==============================
+
+	サイト管理
+
+=============================== */
+
+#siteManage{
+	overflow:hidden;
+	_zoom:1;
+}
+#siteManage form{
+	width:200px;
+	float:left;
+	margin:0 20px 0 0;
+}
+#siteManage form input{
+	width:100%;
+	height:40px;
+}
+
+
+/* ==============================
+
+	アプリケーション管理
+
+=============================== */
+
+#appPool td{
+	padding:5px 20px 5px 0;
+}
+#appPool input{
+	height:40px;
+}
+
+.appListTable{
+	margin:20px 0;
+	min-width:300px;
+}
+.appListTable th,
+.appListTable td{
+	padding:5px 10px;
+}
+.appListTable caption{
+	background:#33CCFF;
+	padding:5px 10px;
+	border-top:solid 1px #333333;
+}
+.appListTable td{
+	text-align:right;
+}
+.appListTable tr{
+	border-top:solid 1px #CCCCCC;
+	border-bottom:solid 1px #CCCCCC;
+}
+.appListTable tr:last-child{
+	border-bottom:solid 1px #333333;
+}
+
+.sqlServerInfo{
+	width:50%;
+	background:#0099CC;
+	color:#FFF;
+	font-weight:bold;
+	padding:20px;
+	margin:20px 0;
+}
+
+
+/* ==============================
+
+	パスワード変更
+
+=============================== */
+
+#siteCangeBtn{
+	width:220px;
+	height:40px;
+}
+
+
+/* ==============================
+
+	SiteGuard
+
+=============================== */
+
+.siteGuard input{
+	padding: 0 0.25em;
+}
+
+.siteGuard table{
+	border-collapse: collapse;
+	border: solid 2px #000;
+	margin-bottom: 1em;
+}
+
+.siteGuard table tr td,
+.siteGuard table tr th{
+	border: solid 1px #000;
+	font-size: 14px;
+	padding: 3px 5px;
+	text-align: center;
+	padding: 0.5em;
+}
+
+.siteGuard table tr th{
+	background: aqua;
+	color: black;
+	font-weight: bold;
+}
+
+
+/* ==============================
+
+	簡単インストール
+
+=============================== */
+
+#itemTableEasy_install th{
+	width:120px;
+}
+

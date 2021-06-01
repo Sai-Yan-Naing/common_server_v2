@@ -6,11 +6,9 @@ $(document).on('click','.delete_filedir',function(){
 
 	$common_path=$("#common_path").attr('path');
 	$action = $(this).attr('action');
-
-	// document.getElementById("display_modal").innerHTML = "loading";
 	$.ajax({
 	    type: "POST",
-	    url: $url+"/"+$re_url+".php",
+	    url: $url+"/share/servers/filemanager/confirm",
 	    data: {path:$path,common_path:$common_path,action:$action},
 	    success: function(data){
 	    	// alert(data)
@@ -34,11 +32,10 @@ $(document).on('click','.open_file',function(){
 	$common_path=$("#common_path").attr('path');
 	if(fileExtension.indexOf(extension) > -1)
 	{
-		
-		document.getElementById("file_open").innerHTML = "loading";
+		document.getElementById("file_open").innerHTML = $('#display_modal').html();
 			$.ajax({
 			    type: "POST",
-			    url: $url+"/"+$re_url+".php",
+			    url: $url+"/share/servers/filemanager/confirm",
 			    data: {file_name:$file_name,common_path:$common_path, action:'open_file'},
 			    success: function(data){
 			    	document.getElementById("file_open").innerHTML = data;
@@ -51,39 +48,6 @@ $(document).on('click','.open_file',function(){
 	}
 });
 
-function openFile(file) {
-    var extension = file.substr( (file.lastIndexOf('.') +1) );
-     switch(extension) {
-        case 'jpg':
-        case 'png':
-        case 'gif':
-            alert('was jpg png gif');  // There's was a typo in the example where
-        break;                         // the alert ended with pdf instead of gif.
-        case 'zip':
-            $error="Zip";
-        break;
-        case 'rar':
-            $error="Rar";
-        break;
-        case 'pdf':
-            alert('was pdf');
-        break;
-        case 'php':
-            alert('was php');
-        break;
-        case 'html':
-            alert('was html');
-        break;
-        case 'js':
-            alert('was js');
-        break;
-        default:
-            alert('This File is unsupported format');
-    }
-};
-
-
-
 $(document).on('click','#save_file', function(){
 	$text_editor_open = $("#text_editor_open").val();
 	$openfile_name=$(this).attr('file_name');
@@ -95,7 +59,7 @@ $(document).on('click','#save_file', function(){
 
 	$.ajax({
 	    type: "POST",
-	    url: $url+"/"+$re_url+'.php',
+	    url: $url+"/share/servers/filemanager/confirm",
 	    data: {text_editor_open:$text_editor_open,openfile_name:$openfile_name,common_path:$common_path, action:'save_file'},
 	    success: function(data){
 	    	alert(data)
@@ -192,7 +156,7 @@ $(function () {
 		//  event.preventDefault();
 			$.ajax({
 			    type: "POST",
-			    url: $url+"/"+$re_url+".php",
+			    url: $url+"/share/servers/filemanager/confirm",
 			    data:  $formdata,
 			   contentType: false,
 			         cache: false,
@@ -229,7 +193,7 @@ $(document).on('click',".folder_click",function(){
 	$url=$url[0]+"//"+$url[2];
 	$.ajax({
 		type:"POST",
-		url: $url+"/filemanager_confirm.php",
+		url: $url+"/share/servers/filemanager/confirm",
 		data:{foldername:$foldername},
 		success:function(data){
 			// alert(data)

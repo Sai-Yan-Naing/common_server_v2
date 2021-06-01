@@ -17,17 +17,21 @@ class Account{
 			$stmt = $pdo_account->prepare("SELECT * FROM customer WHERE `user_id` = ? AND `password` = ?");
 			$stmt->execute(array($domain_userid,$pass_encrypted));
 			$data = $stmt->fetch(PDO::FETCH_ASSOC);
-
+			$attemp=1;
 			if (count($data['user_id']) ==1) {
-				setcookie("customer", $domain_userid);
+				setcookie("admin", $domain_userid);
 				setcookie("password", $pass_encrypted);
 				header("location: admin");
+				unset($_SESSION["locked"]);
+        unset($_SESSION["login_attempts"]);
 			}else if(count($ddata['domain'])==1){
 				setcookie("domain", $domain_userid);
 				setcookie("password", $pass_encrypted);
 				header("location: share");
+				unset($_SESSION["locked"]);
+        unset($_SESSION["login_attempts"]);
 			}else{
-				$_SESSION["login_attempts"] += 1;
+				$_SESSION["login_attempts"] += $attemp;
 				return false;
 			}
 
@@ -175,6 +179,161 @@ class Account{
 
 		} catch (PDOException $e) {
 			print('Error ' . $e->getMessage());
+			$pdo_account = NULL;
+			die();
+		}
+	}
+
+		// error pages
+	function getErrorPages($domain)
+	{
+		try {
+					$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
+
+					$epstmt = $pdo_account->prepare("SELECT error_pages FROM web_account WHERE `domain` = ?");
+					$epstmt->execute(array($domain));
+					$epdata = $epstmt->fetchAll(PDO::FETCH_ASSOC);
+					return $epdata;
+
+				} catch (PDOException $e) {
+					$pdo_account = NULL;
+					die();
+				}
+	}
+
+	function errorPages($domain, $action,$statuscode,$url_spec)
+	{
+		// $pass_encrypted = hash_hmac('sha256', $password, PASS_KEY);
+
+		try {
+			$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
+
+			// for domain
+			$stmt = $pdo_account->prepare("SELECT * FROM web_account WHERE `domain` = ?");
+			$stmt->execute(array($domain));
+			$data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+				if(count($data)>0)
+				{
+					if($action=="new")
+					{
+						$temp=json_decode($data['error_pages']);
+						// $test=$data['error_pages'];
+						$error_pages['statuscode'] = $statuscode;
+						$error_pages['url'] =  $url_spec;
+						$error_pages['stopped'] =  1;
+						$temp[]=$error_pages;
+					}
+					
+					$error_pages=json_encode($temp);
+					$upstmt = $pdo_account->prepare("UPDATE web_account SET `error_pages` = ? WHERE `domain` = ?");
+					echo $upstmt->execute(array($error_pages,$domain));
+				}
+			} catch (PDOException $e) {
+			$pdo_account = NULL;
+			die();
+		}
+	}
+	function getErrorData($domain,$ekey)
+	{
+		$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
+
+			// for domain
+			$stmt = $pdo_account->prepare("SELECT * FROM web_account WHERE `domain` = ?");
+			$stmt->execute(array($domain));
+			$data = $stmt->fetch(PDO::FETCH_ASSOC);
+			// return count($data);
+			
+			if(count($data)>0)
+				{
+						$test=$data['error_pages'];
+						foreach (json_decode($test) as $key => $value) {
+							if((int)$key==(int)$ekey){
+								$temp[$key]['statuscode']=$value->statuscode;
+								$temp[$key]['url']=$value->url;
+								$temp[$key]['stopped']=$value->stopped;
+							}
+						}
+				}
+					return $temp;
+
+	}
+	function editErrorPages($domain, $action,$statuscode,$url_spec,$ekey)
+	{
+		// $pass_encrypted = hash_hmac('sha256', $password, PASS_KEY);
+
+		try {
+			$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
+
+			// for domain
+			$stmt = $pdo_account->prepare("SELECT * FROM web_account WHERE `domain` = ?");
+			$stmt->execute(array($domain));
+			$data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+				if(count($data)>0)
+				{
+						$test=$data['error_pages'];
+						foreach (json_decode($test) as $key => $value) {
+							if((int)$key==(int)$ekey){
+								$temp[$key]['statuscode']=$statuscode;
+								$temp[$key]['url']=$url_spec;
+								$temp[$key]['stopped']=$value->stopped;
+							}else{
+								$temp[$key]['statuscode']=$value->statuscode;
+								$temp[$key]['url']=$value->url;
+								$temp[$key]['stopped']=$value->stopped;
+							}
+							
+							// echo "string";
+						}
+					$error_pages=json_encode($temp);
+					$upstmt = $pdo_account->prepare("UPDATE web_account SET `error_pages` = ? WHERE `domain` = ?");
+					$upstmt->execute(array($error_pages,$domain));
+				}
+				return true;
+			} catch (PDOException $e) {
+			$pdo_account = NULL;
+			die();
+		}
+	}
+
+	function onoffErrorPages($domain, $error,$ekey,$status)
+	{
+		// $pass_encrypted = hash_hmac('sha256', $password, PASS_KEY);
+
+		try {
+			$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
+
+			// for domain
+			$stmt = $pdo_account->prepare("SELECT * FROM web_account WHERE `domain` = ?");
+			$stmt->execute(array($domain));
+			$data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+				if(count($data)>0)
+				{
+						$test=$data['error_pages'];
+						foreach (json_decode($test) as $key => $value) {
+							if((int)$key==(int)$ekey){
+								$temp[$key]['statuscode']=$value->statuscode;
+								$temp[$key]['url']=$value->url;
+								if($status==1){
+									$temp[$key]['stopped']=1;
+									// echo Shell_Exec ("c:/laragon/www/app/error/onoff.cmd ". $data['user']." ". $value->statuscode);
+								}else{
+									$temp[$key]['stopped']=0;
+									// echo Shell_Exec ("c:/laragon/www/app/error.cmd ". $data['user']." ". $value->statuscode." ".$value->url);
+								}
+							}else{
+								$temp[$key]['statuscode']=$value->statuscode;
+								$temp[$key]['url']=$value->url;
+								$temp[$key]['stopped']=$value->stopped;
+							}
+						}
+					$error_pages=json_encode($temp);
+					$upstmt = $pdo_account->prepare("UPDATE web_account SET `error_pages` = ? WHERE `domain` = ?");
+					echo $upstmt->execute(array($error_pages,$domain));
+				}
+			} catch (PDOException $e) {
 			$pdo_account = NULL;
 			die();
 		}

@@ -1,4 +1,4 @@
-<?php if(!isset($_COOKIE['customer'])){header('location: login');} ?>
+<?php if(!isset($_COOKIE['admin'])){header('location: login');} ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
@@ -29,10 +29,11 @@
 	<div id="header" class="pt-3">
 	<div id="headerBox" class="boxHeader">
 		<div id="subNav">
-			<p id="logo"><a href="home.php"><img src="img/common/header/logo.png" width="135" height="30" alt="Winserver" /></a></p>
+			<p id="logo"><a href="/"><img src="img/common/header/logo.png" width="135" height="30" alt="Winserver" /></a></p>
 			<ul id="subNavMenu">
 				<li>
-					<form action="logout.php" method="post" />
+					<form action="logout" method="get" />
+					<input type="hidden" name="user" value="admin">
 					<input type="submit" value="ログアウト" id="logout" />
 					</form>
 				</li>
@@ -40,5 +41,4 @@
 		</div>
 	</div>
 </div>
-
 <?php require_once("common_modal.php") ?>

@@ -1,3 +1,3 @@
-
+<!-- common footer -->
 </body>
 </html>

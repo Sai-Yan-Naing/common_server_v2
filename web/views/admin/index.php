@@ -12,7 +12,7 @@
         <nav id="sidebar"  style="margin-top: 85px;">
             <ul class="list-unstyled components">
                 <li class="active">
-                    <a href="home.php">
+                    <a href="/">
                         <span class="icon"><i class="fas fa-tv"></i></span><br>
                         <span class="title">サーバー設定</span>
                     </a>
@@ -35,7 +35,7 @@
 
         <!-- Start of Page Content  -->
         <div id="content" class="home"  style="margin-top: 80px;">
-        	<h3 class="win-cpanel fs-1">Winserver Control Panel</h3>
+        	<h3 class="win-cpanel fs-1 text-center p-2">Winserver Control Panel</h3>
                 <div class="row">
                     <div class="col-sm-2">
                         <label for="contract-id">契約ID</label>
@@ -107,9 +107,9 @@
 							</table>
 							<div class="conButton">
                                 <!-- <a href="add_multi_domain.php" class="domainAdd btn btn-outline-primary btn-sm" role="button">マルチドメイン追加</a> -->
-								<button class="domainAdd btn btn-outline-primary btn-sm common_modal"  data-toggle="modal" data-target="#common_modal" re_url="add_multi_domain">マルチドメイン追加</button>
+								<button class="domainAdd btn btn-outline-primary btn-sm common_modal"  data-toggle="modal" data-target="#common_modal" gourl="/add_multi_domain">マルチドメイン追加</button>
 								<a href="#"  class="domainAcq btn btn-outline-secondary btn-sm">ドメイン取得</a>
-								<a href="add_server.php" class="addServer btn btn-outline-primary btn-sm">サーバー追加</a>
+								<a href="admin/servers" class="addServer btn btn-outline-primary btn-sm">サーバー追加</a>
 							</div>
                         </div>
                         <div id="vps-desktop" class="tab-pane fade"><br>

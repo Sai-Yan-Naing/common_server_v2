@@ -12,16 +12,13 @@ $(document).on('click','.common_modal',function(){
 	}else{
 		$db = "db";
 	}
-	
 	// $origin_url = $(this).attr('origin_url');
-	$re_url = $(this).attr('re_url');
+	$gourl = $(this).attr('gourl');
 	$url = document.URL.split('/');
 	$url=$url[0]+"//"+$url[2];
-	// alert($url)
-	document.getElementById("display_modal").innerHTML = "loading";
 	$.ajax({
 	    type: "POST",
-	    url: $url+"/"+$re_url,
+	    url: $url+$gourl,
 	    data: {edit_id: $edit_id, db:$db},
 	    success: function(data){
 	    	// alert(1)
@@ -29,7 +26,6 @@ $(document).on('click','.common_modal',function(){
 	    }
 	});
 });
-
 $(document).on('change','#full_control',function(){ //"select all" change 
 	var status = this.checked; // "select all" checked status
 	$('.permission').each(function(){ //iterate all listed checkbox items
@@ -48,7 +44,6 @@ $(document).on('change','.permission',function(){//".checkbox" change
 		$("#full_control")[0].checked = true; //change "select all" checked status to true
 	}
 });
-
 $(document).on('click','.common_modal_delete',function(){
 
 	$delete_id = $(this).attr('delete_id');
@@ -60,15 +55,12 @@ $(document).on('click','.common_modal_delete',function(){
 		$db = "db";
 	}
 	
-	$origin_url = $(this).attr('origin_url');
-	$re_url = $(this).attr('re_url');
+	$gourl = $(this).attr('gourl');
 	$url = document.URL.split('/');
 	$url=$url[0]+"//"+$url[2];
-	// alert($url)
-	document.getElementById("display_modal").innerHTML = "loading";
 	$.ajax({
 	    type: "POST",
-	    url: $url+"/"+$re_url,
+	    url: $url+$gourl,
 	    data: {delete_id: $delete_id, db:$db},
 	    success: function(data){
 	    	// alert(1)

@@ -68,10 +68,6 @@ input.inputText:focus,Select:focus{
 	padding:5px 7px;
 	background:#FC0;
 }
-label{
-	cursor:pointer;
-}
-
 
 /* ------------------------------
 	装飾

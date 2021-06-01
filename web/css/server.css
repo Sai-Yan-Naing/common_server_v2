@@ -140,6 +140,13 @@ span {
     color: #000000;
     font-weight: 300;
 }
+.dhome .active a.setting_menu{
+    color: #fff !important;
+}
+.hovar-color
+{
+    background-color: #e6e6e6;
+}
 
 .dhome .tab-content>.active {
     background: #f5f5f5;
@@ -211,7 +218,6 @@ span {
 .home .win-cpanel {
     text-align: center;
     margin-bottom: 15px;
-    font-weight: 400;
 }
 
 .home a {

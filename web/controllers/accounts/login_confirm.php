@@ -9,7 +9,6 @@ if(isset($_POST['domain_userid']) and isset($_POST['password']))
 	$account = new Account;
 
 	if (!$account->login($domain_userid, $password)) {
-		echo "string";
 		require_once('views/login.php');
 	}
 

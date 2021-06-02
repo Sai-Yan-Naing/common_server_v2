@@ -3,7 +3,7 @@ define("PASS_KEY", "cee358b7cd218370be64e518934687be");
 
 define("ROOT", 'root');
 define("ROOT_PASS", "");
-define("DSN", 'mysql:host=localhost:3306;dbname=japan_system_development');
+define("DSN", 'mysql:host=localhost:3306;dbname=japan_system_development3');
 
 define("MAROOT", 'root');
 define("MAROOT_PASS", "");

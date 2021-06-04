@@ -149,6 +149,7 @@ switch ($request['path']) {
 
 
     case '/testing' : include 'views/testing.php'; break;
+    case '/mwdm' : include 'views/mwdm.php'; break;
 //default
     
     default: http_response_code(404); include'views/404.php'; break;

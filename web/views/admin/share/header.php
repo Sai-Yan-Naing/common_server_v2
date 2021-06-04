@@ -1,4 +1,19 @@
-<?php if(!isset($_COOKIE['admin'])){header('location:'.call_ass().'login');} ?>
+<?php if(!isset($_COOKIE['admin'])){header("location: ".call_ass()."login");} ?>
+<?php 
+if(isset($_GET['id'])){$id=$_GET['id'];}
+else if(isset($_POST['id'])){$id=$_POST['id'];}
+else{header("location: ".call_ass()."admin");}
+ ?>
+<?php 
+require_once('config/all.php');
+require_once('models/common.php');
+require_once('common/common.php');
+$admin = $_COOKIE['admin'];
+$getweball = new Common;
+$getWeb = $getweball->getWebaccountById($admin,$id);
+$domain = $getWeb['domain'];
+ ?>
+<?php if(!isset($domain)){header("location: ".call_ass()."admin");} ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
@@ -15,10 +30,14 @@
 <script type="text/javascript" src="<?= call_ass() ?>js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="<?= call_ass() ?>js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?= call_ass() ?>js/bootstrap4-toggle.min.js"></script>
+<script type="text/javascript" src="<?= call_ass() ?>js/canvasjs.min.js"></script>
 <script type="text/javascript" src="<?= call_ass() ?>js/iis-service.js"></script>
 <script type="text/javascript" src="<?= call_ass() ?>js/synformvalidator.js"></script>
 <script type="text/javascript" src="<?= call_ass() ?>js/common_validate.js"></script>
 <script type="text/javascript" src="<?= call_ass() ?>js/common_modal.js"></script>
+<script type="text/javascript" src="<?= call_ass() ?>js/common_ajax.js"></script>
+<script type="text/javascript" src="<?= call_ass() ?>js/common.js"></script>
+<script type="text/javascript" src="<?= call_ass() ?>js/filemanager.js"></script>
 <style type="text/css">
 	.error{
 		color: red;
@@ -41,6 +60,7 @@
 		</div>
 	</div>
 </div>
+
 <?php 
  function call_ass()
  {

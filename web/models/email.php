@@ -8,10 +8,10 @@ class Email{
 		// $password = hash_hmac('sha256', $password, PASS_KEY);
 
 	try {
-			$isexist=false;
+			$isexist='noexist';
 			if(count($this->getAll($domain)) > 0 )
 			{
-				$isexist=true;
+				$isexist='exist';
 			}
 			// die();
 			$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
@@ -19,12 +19,19 @@ class Email{
 			$stmt->bindParam(":domain", $domain, PDO::PARAM_STR);
 			$stmt->bindParam(":email", $email, PDO::PARAM_STR);
 			$stmt->bindParam(":password", $password, PDO::PARAM_STR);
-			$stmt->execute();
-			$pdo_account = NULL;
+			// $stmt->execute();
 			// die();
-			echo $this->openURL('http://203.137.92.161/Hoster/index.php?domain='.$domain.'&'.'password='.$password.'&'.'email='.$email.'&'.'isexist='.$isexist.'&action=new');
-			
-			return true;
+			$result = $this->openURL('http://ssl8.ethical-sai.tech/index.php?domain='.$domain.'&'.'password='.$password.'&'.'email='.$email.'&'.'isexist='.$isexist.'&action=new');
+			$data = json_decode($result);
+			// print_r($result);
+			// echo $data->ok;
+			if($data->ok)
+			{
+				if($stmt->execute())return true;
+			}
+			die();
+			$pdo_account = NULL;
+			return false;
 
 
 		} catch (PDOException $e) {
@@ -75,19 +82,24 @@ class Email{
 	function changePassword($email,$password,$eid,$domain){
 			$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
 			$stmt = $pdo_account->prepare("UPDATE add_email SET `password` = ? WHERE `id` = ?");
+			$isexist='noexist';
+			if(count($this->getAll($domain)) > 0 )
+			{
+				$isexist='exist';
+			}
 			if($stmt->execute(array($password,$eid)))
 			{
-				echo $this->openURL('http://203.137.92.161/Hoster/index.php?domain='.$domain.'&'.'password='.$password.'&'.'email='.$email.'&'.'isexist='.$isexist.'&action=edit');
+				echo $this->openURL('http://ssl8.ethical-sai.tech/index.php?domain='.$domain.'&'.'password='.$password.'&'.'email='.$email.'&'.'isexist='.$isexist.'&action=edit');
 			}
 			return true;
 	}
 
 	function deleteEmail($email,$eid,$domain)
 	{
-			$isexist=false;
+			$isexist='noexist';
 			if(count($this->getAll($domain)) > 0 )
 			{
-				$isexist=true;
+				$isexist='exist';
 			}
 			$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
 			$dstmt = $pdo_account->prepare("DELETE FROM `add_email` WHERE id = ?");
@@ -95,7 +107,7 @@ class Email{
 			{
 				return false;
 			}
-			echo $this->openURL('http://203.137.92.161/Hoster/index.php?domain='.$domain.'&email='.$email.'&isexist='.$isexist.'&action=delete');
+			echo $this->openURL('http://ssl8.ethical-sai.tech/index.php?domain='.$domain.'&email='.$email.'&isexist='.$isexist.'&action=delete');
 			return true;
 			
 	}

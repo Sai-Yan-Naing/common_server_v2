@@ -10,6 +10,24 @@ class Common{
 				return $data1;
 		}
 
+		function getWebaccountByadmin($admin){
+				$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
+				// 
+				$stmt1 = $pdo_account->prepare("SELECT * FROM web_account WHERE `customer_id` = ?");
+				$stmt1->execute(array($admin));
+				$data1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+				return $data1;
+		}
+
+		function getWebaccountById($admin,$id){
+				$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
+				// 
+				$stmt1 = $pdo_account->prepare("SELECT * FROM web_account WHERE `customer_id` = ? and `id`=?");
+				$stmt1->execute(array($admin,$id));
+				$data1 = $stmt1->fetch(PDO::FETCH_ASSOC);
+				return $data1;
+		}
+
 		function alreadyExist($table,$column,$checker){
 			// return $table.$column.$checker;
 			try {

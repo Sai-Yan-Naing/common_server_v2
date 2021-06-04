@@ -1,5 +1,5 @@
 <?php
- require ("header.php");
+ require ("views/admin/header.php");
 ?>
     <!-- Start of Wrapper  -->
     <div class="wrapper">
@@ -131,5 +131,5 @@
         }
     </script>
 <?php
-include ('footer.php');
+include ('views/admin/header.phpfooter.php');
 ?>

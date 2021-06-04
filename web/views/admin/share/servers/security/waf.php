@@ -1,34 +1,32 @@
 <?php
-require_once("views/share/header.php");
-require_once('config/all.php');
+require_once("views/admin/share/header.php");
 require_once('models/security.php');
-$domain = $_COOKIE['domain'];
 $security = new Security;
 $waf = $security->getSecurity($domain);
 ?>
 <!-- Start of Wrapper  -->
     <div class="wrapper">
-        <?php require("views/share/sidebar_menu.php") ?>
+        <?php require("views/admin/share/sidebar_menu.php") ?>
 
         <!-- Start of Page Content  -->
         <div id="content" class="site-security"  style="margin-top: 87px;">
             <div class="row">
-                <?php require("views/share/setting_menu.php") ?>
+                <?php require("views/admin/share/setting_menu.php") ?>
                 <div class="col-sm-9">
                     <h3 class="win-cpanel fs-1 text-center p-2">Winserver Share Control Panel</h3>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link" href="/share/servers/security">SSL</a>
+                            <a class="nav-link" href="/admin/share_setting/servers/security?id=<?=$id?>">SSL</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="/share/servers/security/waf">WAF</a>
+                            <a class="nav-link active" href="/admin/share_setting/servers/security/waf?id=<?=$id?>">WAF</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/share/servers/security/directory">ディレクトリアクセス</a>
+                            <a class="nav-link" href="/admin/share_setting/servers/security/directory?id=<?=$id?>">ディレクトリアクセス</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/share/servers/security/ip">IPアクセス制限</a>
+                            <a class="nav-link" href="/admin/share_setting/servers/security/ip?id=<?=$id?>">IPアクセス制限</a>
                         </li>
                     </ul>
 
@@ -37,6 +35,14 @@ $waf = $security->getSecurity($domain);
                         <div id="waf" class="pr-3 pl-3 tab-pane active"><br>
                             <div class="form-group row">
                                 <span class="col">WAF設定</span>
+                                <?php
+                                    if(isset($error))
+                                    {?>
+                                <span class="col error"><?= $error ?></span>
+                                <?php
+                                    }
+                                ?>
+                                
                             </div>
                             <div class="form-group row">
                                 <label for="usage-setting" class="col-sm-2 col-form-label">利用設定</label>
@@ -46,11 +52,13 @@ $waf = $security->getSecurity($domain);
                                 <label for="display-switch" class="col-sm-2 col-form-label">表示切替</label>
                                 <input type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="ログ" data-off="除外中" data-width="100" <?php if($waf['display']==1){echo "checked";} ?> onchange="this.form.submit()" name="onoff" form="display-onoff">
                             </div>
-                            <form action="/share/servers/security/waf-confirm" method ="post" id="usage-onoff">
+                            <form action="/admin/share_setting/servers/security/confirm" method ="post" id="usage-onoff">
                                 <input type="hidden" name="switch" value="usage">
+                                <input type="hidden" name="id" value="<?=$id?>">
                             </form>
-                            <form action="/share/servers/security/waf-confirm" method ="post" id="display-onoff">
+                            <form action="/admin/share_setting/servers/security/confirm" method ="post" id="display-onoff">
                                 <input type="hidden" name="switch" value="display">
+                                <input type="hidden" name="id" value="<?= $id?>">
                             </form>
                             <table class="table">
                                 <thead>
@@ -176,5 +184,5 @@ function wafFilter($double,$filter)
     }
 ?>
 <?php
-require_once('views/share/footer.php');
+require_once('views/admin/share/footer.php');
 ?>

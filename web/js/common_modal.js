@@ -12,6 +12,7 @@ $(document).on('click','.common_modal',function(){
 	}else{
 		$db = "db";
 	}
+	// return false;
 	// $origin_url = $(this).attr('origin_url');
 	$gourl = $(this).attr('gourl');
 	$url = document.URL.split('/');

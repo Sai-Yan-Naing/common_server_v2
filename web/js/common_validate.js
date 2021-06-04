@@ -37,26 +37,15 @@ $(document).on("submit","#add_multiple_domain",function(){
 	  
 	  // console.log(value['min'])
 	});
-
-	// $required_id=[$domain,$web_dir,$ftp_user,$password];
-	// $required_msg=[$domain_required,$web_dir_required,$ftp_user_required,$password_required];
-
-	// $min_id=[$web_dir,$ftp_user,$password];
-	// $min_length=[$web_dir_minlength,$ftp_user_minlength,$password_minlength];
-	// $min_msg=[$web_dir_minmessage,$ftp_user_minmessage,$password_minmessage];
-
-	// $max_id=[$web_dir,$ftp_user,$password];
-	// $max_length=[$web_dir_maxlength,$ftp_user_maxlength,$password_maxlength];
-	// $max_msg=[$web_dir_maxmessage,$ftp_user_maxmessage,$password_maxmessage];
-	$var1 = required($required_id,$required_msg)
-	$var2 = minLength($min_id,$min_length,$min_msg)
-	$var3 = maxLength($max_id,$max_length,$max_msg)
-	if($var1 || $var2 || $var3)
+	$required = required($required_id,$required_msg)
+	$min_l = minLength($min_id,$min_length,$min_msg)
+	$max_l = maxLength($max_id,$max_length,$max_msg)
+	if($required || $min_l || $max_l)
 	{
 		return false;
 	}
 
-	return false;
+	return true;
 });
 
 

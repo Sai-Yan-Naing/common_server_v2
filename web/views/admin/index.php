@@ -4,7 +4,7 @@
  require_once('models/account.php');
  require_once('common/common.php');
  $account = new Account;
- $multidomain=$account->getMultiDomain($_COOKIE['customer']);
+ $multidomain=$account->getMultiDomain($_COOKIE['admin']);
 ?>
 <!-- Start of Wrapper  -->
     <div class="wrapper">
@@ -41,7 +41,7 @@
                         <label for="contract-id">契約ID</label>
                     </div>
                     <div class="col-sm-10">
-                        <label><?php echo $_COOKIE['customer']; ?> <?php if(isset($result)) echo $result[1]; ?></label>
+                        <label><?php echo $_COOKIE['admin']; ?> <?php if(isset($result)) echo $result[1]; ?></label>
                     </div>
                 </div>
                 <br>
@@ -81,19 +81,28 @@
 							  	foreach($multidomain as $domain) {
                                     ?>
 							  		<tr>
-                                        <td><a href="http://<?php echo $domain['domain'] ?>" class="link-success" target="_blank"><?php echo $domain['domain'] ?></a></td>
+                                        <td><a href="http://<?php echo $domain['domain'] ?>" class="link-success" target="_blank"><?php echo $domain['domain'] ?></a>
+                                        </td>
                                         <td>
 
-                                            <button type="button" class="btn btn-outline-primary btn-sm" disable>設定</button>
+                                            <a href="/admin/share_setting?id=<?= $domain['id'] ?>" class="btn btn-outline-primary btn-sm">設定</button>
                                         </td>
                                         <td>
                                             <span><?php echo sizeFormat(folderSize("E:/webroot/LocalUser/$domain[user]")) ?></span>
                                         </td>
                                         <td>
-                                            <input type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="起動" data-off="停止" data-size="sm" class="site-onoff" id="<?php echo $domain['user'] ?>" <?php if($domain['stopped']==0){echo "checked";}  ?> app="site" re_url="site_onoff">
+                                            <form action="/admin/app_setting/confirm" method = "post">
+                                                <input type="hidden" name="app" value="site">
+                                                <input type="hidden" name="domain" value="<?=$domain['domain'] ?>">
+                                                <input type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="起動" data-off="停止" data-size="sm" <?php if($domain['stopped']==0){echo "checked";}  ?> name='onoff' onchange="this.form.submit()">
+                                            </form>
                                         </td>
                                         <td>
-                                            <input type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="起動" data-off="停止" data-size="sm" class="site-onoff" app="app" id="<?php echo $domain['user'] ?>" <?php if($domain['appstopped']==0){echo "checked";} ?> re_url="site_onoff">
+                                            <form action="/admin/app_setting/confirm" method = "post">
+                                                <input type="hidden" name="app" value="app">
+                                                <input type="hidden" name="domain" value="<?=$domain['domain'] ?>">
+                                                <input type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="起動" data-off="停止" data-size="sm" <?php if($domain['appstopped']==0){echo "checked";} ?> name='onoff' onchange="this.form.submit()">
+                                            </form>
                                         </td>
                                         <td>
                                             <!-- <a href="delete_website.php?domainid=<?php echo $domain['id'] ?>" class="btn btn-danger btn-sm">削除</a> -->
@@ -105,11 +114,14 @@
 							  	 ?>
 							  </tbody>
 							</table>
+                            
+                            
+                            
 							<div class="conButton">
                                 <!-- <a href="add_multi_domain.php" class="domainAdd btn btn-outline-primary btn-sm" role="button">マルチドメイン追加</a> -->
-								<button class="domainAdd btn btn-outline-primary btn-sm common_modal"  data-toggle="modal" data-target="#common_modal" gourl="/add_multi_domain">マルチドメイン追加</button>
+								<button class="domainAdd btn btn-outline-primary btn-sm common_modal"  data-toggle="modal" data-target="#common_modal" gourl="/admin/add_multi_domain">マルチドメイン追加</button>
 								<a href="#"  class="domainAcq btn btn-outline-secondary btn-sm">ドメイン取得</a>
-								<a href="admin/servers" class="addServer btn btn-outline-primary btn-sm">サーバー追加</a>
+								<a href="/admin/servers" class="addServer btn btn-outline-primary btn-sm">サーバー追加</a>
 							</div>
                         </div>
                         <div id="vps-desktop" class="tab-pane fade"><br>

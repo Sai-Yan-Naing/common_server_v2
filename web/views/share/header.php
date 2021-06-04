@@ -1,4 +1,4 @@
-<?php if(!isset($_COOKIE['domain'])){header('location: login');} ?>
+<?php if(!isset($_COOKIE['domain'])){header("location: ".call_ass()."login");} ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
@@ -36,7 +36,7 @@
 			<p id="logo"><a href="/share"><img src="<?= call_ass() ?>img/common/header/logo.png" width="135" height="30" alt="Winserver" /></a></p>
 			<ul id="subNavMenu">
 				<li>
-					<form action="<?= call_ass() ?>logout" method="get" />
+					<form action="<?= call_ass() ?>logout" method="post" />
 					<input type="hidden" name="user" value="domain">
 					<input type="submit" value="ログアウト" id="logout" />
 					</form>

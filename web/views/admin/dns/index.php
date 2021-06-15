@@ -54,11 +54,11 @@
                 <div class="col-sm-7">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" style="padding: .5rem 8.9rem;" data-toggle="tab" href="#shared-server">共用サーバー</a>
+                        <li class="nav-item col-sm-6" style="padding:0">
+                            <a class="nav-link active"  data-toggle="tab" href="#shared-server">共用サーバー</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" style="padding: .5rem 6.49rem;" data-toggle="tab" href="#vps-desktop">VPS/デスクトッププラン</a>
+                        <li class="nav-item col-sm-6" style="padding:0">
+                            <a class="nav-link"  data-toggle="tab" href="#vps-desktop">VPS/デスクトッププラン</a>
                         </li>
                     </ul>
                 </div>

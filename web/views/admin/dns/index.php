@@ -55,10 +55,10 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" style="padding: .5rem 3.7rem;" data-toggle="tab" href="#shared-server">共用サーバー</a>
+                            <a class="nav-link active" style="padding: .5rem 4.9rem;" data-toggle="tab" href="#shared-server">共用サーバー</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="padding: .5rem 3.7rem;" data-toggle="tab" href="#vps-desktop">VPS/デスクトッププラン</a>
+                            <a class="nav-link" style="padding: .5rem 2.5rem;" data-toggle="tab" href="#vps-desktop">VPS/デスクトッププラン</a>
                         </li>
                     </ul>
                 </div>

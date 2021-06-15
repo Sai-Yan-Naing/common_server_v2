@@ -41,7 +41,7 @@
                     <label for="contract-id">契約ID</label>
                 </div>
                 <div class="col-sm-8" >
-                    <input type="text" style="text-align: center; margin: 0 auto;" class="form-control col-sm-6"  id="contract-id" value="<?php echo $_COOKIE['admin']; ?>" readonly>
+                    <input type="text" style="text-align: center; margin: 0 auto;" class="form-control col-sm-4"  id="contract-id" value="<?php echo $_COOKIE['admin']; ?>" readonly>
                 </div>
             </div>
             <br>
@@ -51,14 +51,14 @@
                     <label for="" class="col-form-label">契約サービス</label>
                 </div>
 
-                <div class="col-sm-8">
+                <div class="col-sm-7">
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" style="padding: .5rem 4.9rem;" data-toggle="tab" href="#shared-server">共用サーバー</a>
+                            <a class="nav-link active" style="padding: .5rem 8.9rem;" data-toggle="tab" href="#shared-server">共用サーバー</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="padding: .5rem 2.5rem;" data-toggle="tab" href="#vps-desktop">VPS/デスクトッププラン</a>
+                            <a class="nav-link" style="padding: .5rem 6.49rem;" data-toggle="tab" href="#vps-desktop">VPS/デスクトッププラン</a>
                         </li>
                     </ul>
                 </div>

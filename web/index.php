@@ -29,6 +29,7 @@ switch ($request['path']) {
 // views
     case '/admin' : include 'views/admin/index.php'; break;
     case '/admin/servers' : include 'views/admin/servers/index.php'; break;
+    case '/admin/dns' : include 'views/admin/dns/index.php'; break;
 //end admin
     
 // share

@@ -22,10 +22,10 @@ $allmail=$getEmail->getAll($domain);
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs">
                             <li class="nav-item nav-border">
-                                <a class="nav-link active" href="/admin/share_setting/mails/popimap?id=<?=$id?>">ＰＯＰ/ＩＭＡＰ</a>
+                                <a class="nav-link active" href="/admin/share/mails/popimap?webid=<?=$webid?>">ＰＯＰ/ＩＭＡＰ</a>
                             </li>
                             <li class="nav-item nav-border">
-                                <a class="nav-link" href="/admin/share_setting/mails/smtp?id=<?=$id?>">ＳＭＴＰ</a>
+                                <a class="nav-link" href="/admin/share/mails/smtp?webid=<?=$webid?>">ＳＭＴＰ</a>
                             </li>
                         </ul>
 

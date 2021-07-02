@@ -46,7 +46,7 @@ class Domain
 			$this->pdo = NULL;
 
 			$ip=IP;
-			// echo system('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/test.ps1" '.$domain.' '.$ftp_user.' '.$password.' '.$ip);
+			echo system('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/test.ps1" '.$domain.' '.$ftp_user.' '.$password.' '.$ip);
 
 			return true;
 
@@ -54,6 +54,44 @@ class Domain
 			print('Error ' . $e->getMessage());
 			$this->pdo = NULL;
 			return false;
+		}
+	}
+
+	function dns($id, $action,$sub,$ip)
+	{
+
+		try {
+
+			// for domain
+			$stmt = $this->pdo->prepare("SELECT * FROM web_account WHERE `id` = ?");
+			$stmt->execute(array($id));
+			$data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+				if(count($data)>0)
+				{
+					if($action=="new")
+					{
+						$temp=json_decode($data['dns']);
+						$dns['statuscode'] = $statuscode;
+						$dns['url'] =  $url_spec;
+						$dns['stopped'] =  1;
+						$temp[]=$dns;
+					}
+					
+					$dns=json_encode($temp);
+					$upstmt = $this->pdo->prepare("UPDATE web_account SET `dns` = ? WHERE `id` = ?");
+					if($upstmt->execute(array($dns,$id)))
+					{
+						return false;
+					}
+				}else{
+					return false;
+				}
+				return true;
+			} catch (PDOException $e) {
+				return false;
+			$this->pdo = NULL;
+			die();
 		}
 	}
 }

@@ -1,7 +1,5 @@
 <?php
 require_once("views/admin/share/header.php");
-$getweball = new Common;
-$getWeb = $getweball->getWebaccount($domain);
 ?>
 <!-- Start of Wrapper  -->
     <div class="wrapper">

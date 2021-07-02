@@ -1,10 +1,7 @@
 <?php
 require_once("views/admin/share/header.php");
-require_once('models/ftp.php');
-$getweball = new Common;
-$getWeb = $getweball->getWebaccount($domain);
-$getFtp = new Ftp;
-$allftp=$getFtp->getAll($domain);
+$query = "SELECT * FROM db_ftp WHERE domain='$webdomain'";
+$getAllRow=$commons->getAllRow($query);
 ?>
 <!-- Start of Wrapper  -->
     <div class="wrapper">
@@ -33,7 +30,7 @@ $allftp=$getFtp->getAll($domain);
 	                            <label>Root Folder</label>
 	                        </div>
 	                        <div class="col-sm-5">
-	                            <label>/<?= $getWeb['user'] ?></label>
+	                            <label>/<?= $webuser ?></label>
 	                        </div>
 	                    </div>
 
@@ -42,7 +39,7 @@ $allftp=$getFtp->getAll($domain);
 	                            <span>FTPアカウント</span>
 	                        </div>
 	                        <div class="col-sm-9">
-	                            <button class="btn btn-success common_modal btn-sm" type="button" data-toggle="modal" data-target="#common_modal" gourl="/share/servers/ftp/create"><span class="add-db-icon"><i class="fas fa-plus"></i></span>ＦＴＰユーザー追加</button>
+	                            <button class="btn btn-success common_modal btn-sm" type="button" data-toggle="modal" data-target="#common_modal" gourl="/admin/share/servers/ftp?act=new&webid=<?=$webid?>"><span class="add-db-icon"><i class="fas fa-plus"></i></span>ＦＴＰユーザー追加</button>
 	                        </div>
 	                    </div>
 	                    <div class="d-flex">
@@ -58,44 +55,35 @@ $allftp=$getFtp->getAll($domain);
 		                    	?>
 		                    </div>
 	                    </div>
-	                    <div class="row mt-3 mb-3 font-weight-bold">
-	                        <div class="col-sm-3">
-	                            <span>FTP ユーザー名</span>
-	                        </div>
-	                        <div class="col-sm-3">
-	                            <span>パスワード</span>
-	                        </div>
-
-	                        <div class="col-sm-3">
-	                            <span>書き込み権限</span>
-	                        </div>
-	                        <div class="col-sm-3">
-	                            <span>Action</span>
-	                        </div>
+	                    <div class="mt-3 mb-3">
+	                    	<table class="table table-bordered">
+	                            <thead>
+	                                <tr>
+	                                    <th class="font-weight-bold">FTP ユーザー名</th>
+	                                    <th class="font-weight-bold">パスワード</th>
+	                                    <th class="font-weight-bold">書き込み権限</th>
+	                                    <th class="font-weight-bold">Action</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <?php 
+	                                    foreach ($getAllRow as $key => $ftp) {
+	                                ?>
+	                                <tr>
+	                                    <td><?php echo $ftp['ftp_user']; ?></td>
+	                                    <td><?php echo $ftp['ftp_pass']; ?></td>
+	                                    <td><?php echo $ftp['permission']; ?></td>
+	                                    <td>
+	                                        <a href="javascript:;" data-toggle="modal" data-target="#common_modal" class="btn btn-warning btn-sm common_dialog"  gourl="/admin/share/servers/ftp?webid=<?=$webid;?>&act=edit&act_id=<?=$ftp['id']?>"><i class="fas fa-edit text-white"></i></a>
+	                                        <a href="javascript:;"  data-toggle="modal" data-target="#common_modal" class="btn btn-danger btn-sm common_dialog"  gourl="/admin/share/servers/ftp?webid=<?=$webid?>&act=delete&act_id=<?=$ftp['id']?>"><i class="fas fa-trash text-white"></i></a>
+	                                    </td>
+	                                </tr>
+	                                <?php
+	                                    }
+	                                ?>
+	                            </tbody>
+	                        </table>
 	                    </div>
-	                    <?php 
-	                    foreach ($allftp as $key => $ftp) {
-	                        
-	                    ?>
-	                    <div class="form-group row">
-	                        <div class="col-sm-3">
-	                            <label for="douser" class="col-form-label"><?php echo $ftp['ftp_user'];?></label>
-	                        </div>
-	                        
-	                        <div class="col-sm-3">
-	                          <?php echo $ftp['ftp_pass'];?>
-	                        </div>
-	                        
-	                        <div class="col-sm-3">
-	                          <?php echo $ftp['permission'];?>
-	                        </div>
-
-	                        <div class="col-sm-3">
-	                            <p><button edit_id="<?php echo $ftp['id'];?>" gourl="/share/servers/ftp/edit" class="pr-2 btn btn-warning btn-sm common_modal" data-toggle="modal" data-target="#common_modal"><i class="fas fa-edit text-white"></i></button>
-	                            <button id="" href="javascript:;" class="pr-2 btn btn-danger btn-sm common_modal_delete" delete_id="<?php echo $ftp['id'];?>" data-toggle="modal" data-target="#common_modal_delete" gourl="/share/servers/ftp/delete"><i class="fas fa-trash text-white"></i></button></p>
-	                        </div>
-	                    </div>
-	                    <?php } ?>
 	                </div>
 	            </div> 
 	        </div>

@@ -29,6 +29,12 @@
                         <span class="title">マニュアル</span>
                     </a>
                 </li>
+                <li class="<?php if($url[1]=='share' && $url[2]=='contact_us'){echo 'active';} ?>">
+                    <a href="/share/contact_us">
+                        <span class="icon"><i class="fas fa-user-alt"></i></span><br>
+                        <span class="title">お問合せ</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!--End of Sidebar  -->

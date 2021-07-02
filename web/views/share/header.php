@@ -1,4 +1,5 @@
-<?php if(!isset($_COOKIE['domain'])){header("location: ".call_ass()."login");} ?>
+<?php session_start(); ?>
+<?php require_once('views/common_share.php'); ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
@@ -45,7 +46,13 @@
 		</div>
 	</div>
 </div>
-
+<?php 
+if(isset($_SESSION['message']))
+{?>
+<div class="message_box <?php echo ($_SESSION['error'])?'text-danger':'text-success';  ?>">
+	<?= $_SESSION['message']; ?>
+</div>
+<?php } ?>
 <?php 
  function call_ass()
  {

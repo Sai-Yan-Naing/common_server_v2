@@ -11,9 +11,24 @@ define("MADSN", 'mysql:host=localhost:3307');
 
 define("IP", "127.0.0.1");
 
+// For email
+
+define("MAIL_HOST", "smtp.googlemail.com");
+define("MAIL_USER", "capital.saiyannaing@gmail.com");
+define("MAIL_PASS", "saiyannaing123!");
+define("FROM", "capital.saiyannaing@gmail.com");
+define("FROMNAME", "SAI YAN NAING");
+define("MAIL_PORT", 587);
+define("TO", "saiyannaing259768648@gmail.com");
+define("TONAME", "TESTER");
+define("MAIL_SERVER","http://ssl8.ethical-sai.tech");
+
 // define("STARTER_PLAN", 1);
 // define("COMMON_PLAN", 1);
 // define("PREMIUM_PLAN", 1);
+
+define('ROOT_PATH','E:/webroot/LocalUser/');
+define('GET_PHP_VERSION','C:/Program Files/PHP/');
 
 const SQLSERVER_2016_DSN = "sqlsrv:Server=localhost\MSSQLSERVER01;Database=master";
 const SQLSERVER_2016_USER = "hello";

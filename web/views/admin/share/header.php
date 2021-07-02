@@ -1,19 +1,23 @@
-<?php if(!isset($_COOKIE['admin'])){header("location: ".call_ass()."login");} ?>
+<?php session_start(); ?>
 <?php 
-if(isset($_GET['id'])){$id=$_GET['id'];}
-else if(isset($_POST['id'])){$id=$_POST['id'];}
-else{header("location: ".call_ass()."admin");}
- ?>
+require_once('views/common_adminshare.php');
+// if(!isset($_COOKIE['admin'])){header("location: ".call_ass()."login");} 
+?>
 <?php 
-require_once('config/all.php');
-require_once('models/common.php');
-require_once('common/common.php');
-$admin = $_COOKIE['admin'];
-$getweball = new Common;
-$getWeb = $getweball->getWebaccountById($admin,$id);
-$domain = $getWeb['domain'];
+// if(isset($_GET['id'])){$id=$_GET['id'];}
+// else if(isset($_POST['id'])){$id=$_POST['id'];}
+// else{header("location: ".call_ass()."admin");}
+// require_once('config/all.php');
+// require_once('models/common.php');
+// require_once('common/common.php');
+// $admin = $_COOKIE['admin'];
+// $getweball = new Common;
+// $getWeb = $getweball->getWebaccountById($admin,$id);
+// $domain = $getWeb['domain'];
+// $user = $webuser;
+// $commons = new Common;
+// $web_acc = $commons->getRow("SELECT * FROM web_account WHERE id='$id'");
  ?>
-<?php if(!isset($domain)){header("location: ".call_ass()."admin");} ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
@@ -48,7 +52,7 @@ $domain = $getWeb['domain'];
 	<div id="header" class="pt-3">
 	<div id="headerBox" class="boxHeader">
 		<div id="subNav">
-			<p id="logo"><a href="/admin"><img src="<?= call_ass() ?>img/common/header/logo.png" width="135" height="30" alt="Winserver" /></a></p>
+			<p id="logo"><a href="/admin/share?webid=<?=$webid?>"><img src="<?= call_ass() ?>img/common/header/logo.png" width="135" height="30" alt="Winserver" /></a></p>
 			<ul id="subNavMenu">
 				<li>
 					<form action="<?= call_ass() ?>logout" method="post" />
@@ -60,7 +64,13 @@ $domain = $getWeb['domain'];
 		</div>
 	</div>
 </div>
-
+<?php 
+if(isset($_SESSION['message']))
+{?>
+<div class="message_box <?php echo ($_SESSION['error'])?'text-danger':'text-success';  ?>">
+	<?= $_SESSION['message']; ?>
+</div>
+<?php } ?>
 <?php 
  function call_ass()
  {

@@ -18,19 +18,19 @@
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a href="/admin/share_setting?id=<?=$id?>" class="nav-link active">アプリケーションインストール</a>
+                            <a href="/admin/share?webid=<?=$webid?>" class="nav-link active">アプリケーションインストール</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/share_setting/servers/sites/basic?id=<?=$id ?>" class="nav-link">基本設定</a>
+                            <a href="/admin/share/servers/sites/basic?webid=<?=$webid?>" class="nav-link">基本設定</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/share_setting/servers/sites/application?id=<?=$id ?>" class="nav-link">応用設定</a>
+                            <a href="/admin/share/servers/sites/app?webid=<?=$webid?>" class="nav-link">応用設定</a>
                         </li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div id="page-body" class="tab-pane active pr-3 pl-3"><br>
-                            <form action="/share/appinstall" method="post" />
+                            <form action="/admin/share/appinstall-confirm?webid=<?=$webid?>" method="post" id="app_install_form" />
                                 <div class="form-group row">
                                     <label for="application" class="col-sm-3 col-form-label">アプリケーション</label>
                                     <div class="col-sm-8">
@@ -75,9 +75,9 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="site-name" class="col-sm-3 col-form-label">サイト名</label>
+                                    <label for="site_name" class="col-sm-3 col-form-label">サイト名</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="site-name" name="site_name" placeholder="サイト名">
+                                        <input type="text" class="form-control" id="site_name" name="site_name" placeholder="サイト名">
                                     </div>
                                 </div>
                                 <div class="form-group row">

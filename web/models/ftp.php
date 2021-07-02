@@ -117,14 +117,14 @@ class Ftp{
 				echo $ftp_user.$ftp_pass.$ftp_folder.$per;
 				echo Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/add_ftp.ps1" '. $ftp_user." ".$ftp_pass." ".$ftp_folder." ".$per." edit");	
 			}else{
-				die("error");
+				return false;
 			}
-			die();
 			return true;
 	}
 
 	function deleteFtp($domain,$ftp_user,$id)
 	{
+		// die($domain.$ftp_user.$id);
 			$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
 
 			$webacc = $this->getWebaccount($domain);
@@ -132,9 +132,11 @@ class Ftp{
 
 			$dstmt = $pdo_account->prepare("DELETE FROM `db_ftp` WHERE id = ?");
 			// $ddata = $dstmt->fetchAll(PDO::FETCH_ASSOC);
-			$dstmt->execute(array($id));
+			if(!$dstmt->execute(array($id)))
+			{
+				return false;
+			}
 			echo Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/add_ftp.ps1" '. $ftp_user." "."noneed"." ".$ftp_folder." "."noneed"." delete");
-			// die();
 			return true;
 	}
 

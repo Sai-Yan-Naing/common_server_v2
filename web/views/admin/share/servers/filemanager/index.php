@@ -31,7 +31,7 @@ $getWeb = $getweball->getWebaccount($domain);
                     </nav>
                     <span id="common_path" path="" style="display: none;"></span>
                 <?php
-                    $dir    = 'E:/webroot/LocalUser/'.$getWeb['user'];
+                    $dir    = 'E:/webroot/LocalUser/'.$webuser;
                     $myfiles = array_diff(scandir($dir,1), array('.', '..')); 
 
                     // $dir = '/master/files';
@@ -69,7 +69,7 @@ $getWeb = $getweball->getWebaccount($domain);
                             foreach ($directories as $key => $value) {
                             ?>
                                 <tr>
-                                  <th class="align-baseline folder_click" foldername="<?= $value ?>" style="cursor: pointer;">
+                                  <th class="folder_click" foldername="<?= $value ?>" style="cursor: pointer;">
                                     <i class="fas fa-folder text-warning fa-lg "></i> 
                                     <span><?= $value ?></span>
                                   </th>
@@ -100,7 +100,7 @@ $getWeb = $getweball->getWebaccount($domain);
                                 ?>
                                 <tr>
                                   
-                                  <th class="align-baseline open_file" style="cursor: pointer;" data-toggle="modal" <?php if (in_array($extension, $ext)){ echo 'data-target="#open_file"'; } ?> file_name="<?= $value ?>" re_url="filemanager_confirm"><div><i class="fas fa-file text-secondary fa-lg"></i> <?= $value ?></div></th>
+                                  <th class="open_file" style="cursor: pointer;" data-toggle="modal" <?php if (in_array($extension, $ext)){ echo 'data-target="#open_file"'; } ?> file_name="<?= $value ?>" re_url="filemanager_confirm"><div><i class="fas fa-file text-secondary fa-lg"></i> <?= $value ?></div></th>
                                 
                                   <th><?= date("Y-m-d h:i:sA", filemtime($dir.'/'.$value)) ?></th>
                                   <th><?= filetype($dir.'/'.$value)?></th>

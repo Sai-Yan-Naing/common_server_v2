@@ -16,23 +16,23 @@ $getWeb = $getweball->getWebaccount($domain);
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/admin/share_setting/servers/security?id=<?=$id?>">SSL</a>
+                            <a class="nav-link active" href="/admin/share/servers/security?webid=<?=$webid?>">SSL</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/share_setting/servers/security/waf?id=<?=$id?>">WAF</a>
+                            <a class="nav-link" href="/admin/share/servers/security/waf?webid=<?=$webid?>">WAF</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/share_setting/servers/security/directory?id=<?=$id?>">ディレクトリアクセス</a>
+                            <a class="nav-link" href="/admin/share/servers/security/directory?webid=<?=$webid?>">ディレクトリアクセス</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/share_setting/servers/security/ip?id=<?=$id?>">IPアクセス制限</a>
+                            <a class="nav-link" href="/admin/share/servers/security/ip?webid=<?=$webid?>">IPアクセス制限</a>
                         </li>
                     </ul>
 
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div id="ssl" class=" pr-3 pl-3 tab-pane active"><br>
-                            <form action="ssl_confirm.php" method="post" id="free-ssl" />
+                            <form action="/admin/share/ssl-confirm?webid=<?=$webid?>" method="post" id="free-ssl" />
                                 <div class="form-group row">
                                     <span class="col">無料SSL設定</span>
                                 </div>

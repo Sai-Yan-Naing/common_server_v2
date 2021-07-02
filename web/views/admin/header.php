@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php if(!isset($_COOKIE['admin'])){header('location:'.call_ass().'login');} ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,7 +19,9 @@
 <script type="text/javascript" src="<?= call_ass() ?>js/iis-service.js"></script>
 <script type="text/javascript" src="<?= call_ass() ?>js/synformvalidator.js"></script>
 <script type="text/javascript" src="<?= call_ass() ?>js/common_validate.js"></script>
+<script type="text/javascript" src="<?= call_ass() ?>js/common_ajax.js"></script>
 <script type="text/javascript" src="<?= call_ass() ?>js/common_modal.js"></script>
+<script type="text/javascript" src="<?= call_ass() ?>js/common.js"></script>
 <style type="text/css">
 	.error{
 		color: red;
@@ -41,6 +44,13 @@
 		</div>
 	</div>
 </div>
+<?php 
+if(isset($_SESSION['message']))
+{?>
+<div class="message_box <?php echo ($_SESSION['error'])?'text-danger':'text-success';  ?>">
+	<?= $_SESSION['message']; ?>
+</div>
+<?php } ?>
 <?php 
  function call_ass()
  {

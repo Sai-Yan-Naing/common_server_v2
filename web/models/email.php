@@ -8,29 +8,14 @@ class Email{
 		// $password = hash_hmac('sha256', $password, PASS_KEY);
 
 	try {
-			$isexist='noexist';
-			if(count($this->getAll($domain)) > 0 )
-			{
-				$isexist='exist';
-			}
-			// die();
-			$pdo_account = new PDO(DSN, ROOT, ROOT_PASS);
-			$stmt = $pdo_account->prepare("INSERT INTO add_email (`domain`, `email`, `password`) VALUES (:domain, :email, :password)") or die("insert error <br />". print_r($pdo_account->errorInfo(), true));
-			$stmt->bindParam(":domain", $domain, PDO::PARAM_STR);
-			$stmt->bindParam(":email", $email, PDO::PARAM_STR);
-			$stmt->bindParam(":password", $password, PDO::PARAM_STR);
-			// $stmt->execute();
-			// die();
 			$result = $this->openURL('http://ssl8.ethical-sai.tech/index.php?domain='.$domain.'&'.'password='.$password.'&'.'email='.$email.'&'.'isexist='.$isexist.'&action=new');
 			$data = json_decode($result);
 			// print_r($result);
 			// echo $data->ok;
 			if($data->ok)
 			{
-				if($stmt->execute())return true;
+				return true;
 			}
-			die();
-			$pdo_account = NULL;
 			return false;
 
 

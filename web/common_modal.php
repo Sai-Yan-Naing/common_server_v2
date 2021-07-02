@@ -1,5 +1,5 @@
   <!-- The Modal -->
-  <div class="modal fade" id="common_modal">
+  <div class="modal fade" id="common_modal" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog modal-xl">
       <div class="modal-content" id="display_modal">
 					<!-- Modal Header -->

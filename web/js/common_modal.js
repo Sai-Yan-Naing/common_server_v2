@@ -12,7 +12,6 @@ $(document).on('click','.common_modal',function(){
 	}else{
 		$db = "db";
 	}
-	// $origin_url = $(this).attr('origin_url');
 	$gourl = $(this).attr('gourl');
 	$url = document.URL.split('/');
 	$url=$url[0]+"//"+$url[2];
@@ -21,8 +20,8 @@ $(document).on('click','.common_modal',function(){
 	    url: $url+$gourl,
 	    data: {edit_id: $edit_id, db:$db},
 	    success: function(data){
-	    	// alert(1)
 	        document.getElementById("display_modal").innerHTML = data;
+	        allValidate();
 	    }
 	});
 });
@@ -68,3 +67,60 @@ $(document).on('click','.common_modal_delete',function(){
 	    }
 	});
 });
+
+$(document).on('click','.common_dialog',function(){
+	$gourl = $(this).attr('gourl');
+	$url = document.URL.split('/');
+	$url=$url[0]+"//"+$url[2];
+	$.ajax({
+	    type: "POST",
+	    url: $url+$gourl,
+	    success: function(data){
+	        document.getElementById("display_modal").innerHTML = data;
+	        allValidate();
+	    }
+	});
+});
+
+$(document).on('click','#web_config_btn',function()
+{
+	$gourl = $(this).attr('gourl');
+	$url = document.URL.split('/');
+	$url=$url[0]+"//"+$url[2];
+	// $formdata = new FormData($('#web_config_fm')[0]);
+	$formdata = $("#webconfig").val();
+	$.ajax({
+	    type: "POST",
+	    url: $url+$gourl,
+		// data:  $formdata,
+        // cache : false,
+        // processData: false,
+		data:  {web_config:$formdata},
+	    success: function(data){
+	        // alert(data);
+			// console.log(data)
+			$("#webconfig_").html(data)
+	    }
+	});
+})
+
+$(document).on('click','#php_ini_btn',function()
+{
+	$gourl = $(this).attr('gourl');
+	$url = document.URL.split('/');
+	$url=$url[0]+"//"+$url[2];
+	// $formdata = new FormData($('#php_ini_fm')[0]);
+	$formdata = $("#phpini").val();
+	$.ajax({
+	    type: "POST",
+	    url: $url+$gourl,
+		data:  {php_ini:$formdata},
+        // cache : false,
+        // processData: false,
+	    success: function(data){
+	        // alert(data);
+			// console.log(data)
+			$("#phpini_").html(data)
+	    }
+	});
+})

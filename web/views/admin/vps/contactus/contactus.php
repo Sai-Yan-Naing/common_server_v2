@@ -1,19 +1,19 @@
 <?php
- require_once("views/admin/share/header.php");
+ require_once("views/admin/vps/header.php");
 ?>
 <!-- Start of Wrapper  -->
     <div class="wrapper">
         <!--Start of Sidebar  -->
-        <?php require("views/admin/share/sidebar_menu.php") ?>
+        <?php require("views/admin/vps/sidebar_menu.php") ?>
         <!--End of Sidebar  -->
 
         <!-- Start of Page Content  -->
         <div id="content" class="home"  style="margin-top: 80px;">
-				<h3 class="win-cpanel fs-1 text-center p-2">Winserver Share Control Panel</h3>
+				<h3 class="win-cpanel fs-1 text-center p-2">Winserver VPS Control Panel</h3>
 				<div class="d-flex justify-content-center">
 					<div class="col-md-2 text-center border font-weight-bold p-2">契約ドメイン</div>
 					<div class="col-md-2 text-center border font-weight-bold p-2">
-						<?= $webdomain; ?>
+						<?= $webip; ?>
 					</div>
 				</div>
 			  <div class="row justify-content-center mt-4">
@@ -61,5 +61,5 @@
     </div>
     <!-- End of Wrapper  -->
 <?php
-require_once('views/admin/share/footer.php');
+require_once('views/admin/vps/footer.php');
 ?>

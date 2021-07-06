@@ -1,8 +1,9 @@
 <?php
 if(!isset($_COOKIE['admin'])){header('location: /login');}
-if(!isset($_GET['server']) && !isset($_GET['setting'])){header('location: /admin');}
+if(!isset($_GET['server']) && !isset($_GET['setting']) and !isset($_GET['tab'])){header('location: /admin');}
 $webserver = $_GET['server'];
 $websetting = $_GET['setting'];
+$tab = $_GET['tab'];
 if(!isset($_GET['webid']) || $_GET['webid']==null){header("location: /admin/$webserver");}
 require_once("config/all.php");
 require_once("models/common.php");

@@ -50,7 +50,7 @@
                                       <td class="col-sm-3"><?=$vps['ip'] ?></td>
                                       <td class="col-sm-3">4 プラン</td>
                                       <td class="col-sm-2">
-                                        <a href="/admin/vps/panel?server=vps&setting=server&webid=<?= $vps['id'] ?>" class="btn btn-outline-primary btn-sm" target="_blank">設定</a>
+                                        <a href="/admin/vps/panel?server=vps&setting=server&tab=connection&webid=<?= $vps['id'] ?>" class="btn btn-outline-primary btn-sm" target="_blank">設定</a>
                                       </td>
                                       <td class="col-sm-2">
                                             <form action="" method = "post">

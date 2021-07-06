@@ -36,7 +36,7 @@ require_once('views/common_adminvps.php');
 	<div id="header" class="pt-3">
 	<div id="headerBox" class="boxHeader">
 		<div id="subNav">
-			<p id="logo"><a href="/admin/share?webid=<?=$webid?>"><img src="<?= call_ass() ?>img/common/header/logo.png" width="135" height="30" alt="Winserver" /></a></p>
+			<p id="logo"><a href="/admin/vps/panel?server=vps&setting=server&tab=connection&webid=<?=$webid?>"><img src="<?= call_ass() ?>img/common/header/logo.png" width="135" height="30" alt="Winserver" /></a></p>
 			<ul id="subNavMenu">
 				<li>
 					<form action="<?= call_ass() ?>logout" method="post" />

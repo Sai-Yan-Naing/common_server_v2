@@ -591,7 +591,7 @@ function allValidate() {
                         }
                     },
                     number:true,
-                    minlength: 6,
+                    minlength: 4,
                     maxlength: 16,
                 }
             },
@@ -604,8 +604,8 @@ function allValidate() {
                 authcode: {
                     number: "AuthCode must be number",
                     required: "Please enter AuthCode",
-                    minlength: "AuthCode must be between 6 and 16 characters long",
-                    maxlength: "AuthCode must be between 6 and 16 characters long"
+                    minlength: "AuthCode must be between 4 and 16 characters long",
+                    maxlength: "AuthCode must be between 4 and 16 characters long"
                 }
             },
             submitHandler: function(form) {

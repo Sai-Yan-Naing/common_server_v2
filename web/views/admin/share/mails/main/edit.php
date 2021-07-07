@@ -30,6 +30,7 @@ $getRow = $commons->getRow($query);
     </div>
 	<form action="/admin/share/mails?confirm&webid=<?=$webid?>" method="post" id="email_create">
 		<input type="hidden" name="action" value="edit">
+		<input type="hidden" name="email" value="<?= $getRow['email'] ?>">
 		<input type="hidden" name="act_id" value="<?= $getRow['id'] ?>">
     	<div class="form-group row mr-2 justify-content-center">
     		<span for="email" class="col-sm-3">メールアドレス</span>

@@ -23,9 +23,22 @@ class Domain
 			// die('no error');
 			$plan = 4;
 			$pass_encrypted = hash_hmac('sha256', $password, PASS_KEY);
-			$stmt = $this->pdo->prepare("INSERT INTO web_account (`domain`, `password`, `user`, `plan`, `customer_id`) VALUES (?, ?, ?, ?, ?)");
+			$temp["ID1-".time()] = ['type'=>'A','sub'=>'mail','target'=>IP];
+			$temp["ID2-".time()] = ['type'=>'A','sub'=>'www','target'=>IP];
+			$temp["ID3-".time()] = ['type'=>'A','sub'=>'','target'=>IP];
+			$temp["ID4-".time()] = ['type'=>'MX','sub'=>'','target'=>IP];
+
+			$temp1["app"] = ['php'=>DEFAULT_PHP,'dotnet'=>DEFAULT_DOTNET];
+			$dns = json_encode($temp);
+			$app_version = json_encode($temp1);
+			// echo "<pre>";
+			// print_r($dns);
+			// echo "<br>";
+			// print_r($app_version);
+			// die();
+			$stmt = $this->pdo->prepare("INSERT INTO web_account (`domain`, `password`, `user`, `plan`, `customer_id`,`dns`,`app_version`) VALUES (?, ?, ?, ?, ?, ?, ?)");
 			
-			if(!$stmt->execute(array($domain, $pass_encrypted, $ftp_user, $plan, $admin)))
+			if(!$stmt->execute(array($domain, $pass_encrypted, $ftp_user, $plan, $admin, $dns , $app_version)))
 			{
 				return false;
 			}

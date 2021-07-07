@@ -30,44 +30,42 @@
                         </li>
                     </ul>
                     <!-- Tab panes -->
-                    
                     <div class="tab-content">
                         <div id="page-body" class="tab-pane active pr-3 pl-3"><br>
-                            <form action="" method="post">
-                            	<div class="form-group row">
-                            		<label for="" class="col-sm-3 col-form-label">OS</label>
-                            		<div class="col-sm-8">
-                            			<span>Windows server 2019</span>
-                            		</div>
+                            <h6>サーバー負荷状況</h6>
+                            <div class="form-group row">
+                            	<div class="col-sm-4">
+                            		ポート
                             	</div>
-                            	<div class="form-group row">
-                            		<label for="" class="col-sm-3 col-form-label">契約プラン</label>
-                            		<div class="col-sm-8">
-                            			<span>SSD1902-16GB</span>
-                            		</div>
+                            	<div class="col-sm-6">
+                            		<input type="text" class="form-control" name="" readonly placeholder="/00GB">
                             	</div>
-                            	<div class="form-group row">
-                            		<label for="" class="col-sm-3 col-form-label">メモリ</label>
-                            		<div class="col-sm-8">
-                            			<span>GB</span>
-                            		</div>
-                            	</div>
-                            	<div class="form-group row">
-                            		<label for="" class="col-sm-3 col-form-label">ストレージ</label>
-                            		<div class="col-sm-8">
-                            			<span>GB</span>
-                            		</div>
-                            	</div>
-                            	<div class="form-group row">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-5">
-                                        <a href="" class="btn btn-outline-primary btn-sm">プラン変更依頼</a>
-                                        <a href="" class="btn btn-outline-primary btn-sm">OS初期化</a>
-                                    </div>
-                                    <div class="col-sm-4"></div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    CPU
                                 </div>
-                            </form>
-                            <div class="mb-4">※OS初期化の場合、サーバーの再設定まで少しお時間をいただきますので予めご了承下さい。</div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="" readonly placeholder="%">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                   ディスク読み書き
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" name="" readonly placeholder="1.2">
+                                </div>
+                                <div class="col-sm-2">
+                                    平均10以下であれば問題ありません。
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                ※詳細な負荷状況の確認については、対象サーバーにログインの上、パフォーマンスモニタにてログを採取もしくは、モニターでご確認いただきますようお願いいたします。
+                            </div>
+                            <div class="mb-4">
+                                パフォーマンスモニター及び、ログの採取方法についてはマニュアルページよりご確認お願いいたします。
+                            </div>
                         </div>
                     </div>
                 </div>

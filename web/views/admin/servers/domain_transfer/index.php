@@ -78,8 +78,8 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
+					  <div class="back-button mt-2"><a href="/admin"><button type="button" class="btn btn-outline-secondary">戻る</button></a></div>
         </div>
         <!--End of Page Content  -->
     </div>

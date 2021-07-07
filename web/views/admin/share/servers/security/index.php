@@ -130,7 +130,7 @@ $getWeb = $getweball->getWebaccount($domain);
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $file = file_get_contents("E:\detect.log");
+                                            $file = file_get_contents(SWAF_PATH);
                                             $filearr = explode("\n", $file);
                                             // echo "<pre>";
                                             // print_r($filearr);

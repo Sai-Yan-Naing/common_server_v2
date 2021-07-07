@@ -40,14 +40,6 @@
                                     <span>Winserverroot</span>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-4">
-                                    <label for="" class="col-form-label">PASSWORD</label>
-                                </div>
-                                <div class="col-sm-8">
-                                    <span>顧客DBから該当契約のパスワードを表示</span>
-                                </div>
-                            </div>
                             <h6>PASSWORD変更</h6>
                             <div class="form-group row">
                                 <div class="col-sm-4">

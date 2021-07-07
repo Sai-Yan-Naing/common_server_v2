@@ -70,7 +70,7 @@ $waf = $commons->getRow("SELECT * FROM waf WHERE domain='$webdomain'");
                                     <?php
                                     if($waf['usage']==1)
                                     {
-                                        $file = file_get_contents("E:\detect.log");
+                                        $file = file_get_contents(SWAF_PATH);
                                             $filearr = explode("\n", $file);
                                             // echo "<pre>";
                                             // print_r($filearr);
@@ -87,7 +87,9 @@ $waf = $commons->getRow("SELECT * FROM waf WHERE domain='$webdomain'");
                                             {
                                                 $filter = "BLOCKED";
                                             }
-                                                foreach (wafFilter($double,$filter) as $keys => $values) {
+                                            if(count(wafFilter($double,$filter,$webdomain))>0)
+                                            {
+                                                foreach (wafFilter($double,$filter,$webdomain) as $keys => $values) {
                                                     
                                                     wafAction($values);
                                                     $count++;
@@ -95,6 +97,11 @@ $waf = $commons->getRow("SELECT * FROM waf WHERE domain='$webdomain'");
                                                     {
                                                         break;
                                                     }
+                                                
+                                                }
+                                            }else{
+                                                
+                                                echo "<tr><td colspan='5'>なし</td></tr>";
                                             }
                                     }
                                         
@@ -161,11 +168,13 @@ $waf = $commons->getRow("SELECT * FROM waf WHERE domain='$webdomain'");
     
 }
 
-function wafFilter($double,$filter)
+function wafFilter($double,$filter,$webdomain)
     {
         $temp = [];
         foreach($double as $keys=>$values)
         {
+            if (strpos(implode(' ', $double[$keys]),$webdomain) !== false)
+            {
                 foreach($values as $key=>$value)
                 {
                     if(str_replace(":","",$value) == "ACTION$filter")
@@ -174,6 +183,7 @@ function wafFilter($double,$filter)
                     }
 
                 }
+            }
 
         }
         return $temp;

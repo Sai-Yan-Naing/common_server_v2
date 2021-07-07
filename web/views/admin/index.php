@@ -97,7 +97,7 @@
 							<div class="conButton">
                                 <!-- <a href="add_multi_domain.php" class="domainAdd btn btn-outline-primary btn-sm" role="button">マルチドメイン追加</a> -->
 								<button class="domainAdd btn btn-outline-primary btn-sm common_modal"  data-toggle="modal" data-target="#common_modal" gourl="/admin/add_multi_domain">マルチドメイン追加</button>
-								<a href="/admin/servers/domain_transfer"  class="domainAcq btn btn-outline-secondary btn-sm">ドメイン取得</a>
+								<a href="/admin/servers/domain_transfer"  class="domainAcq btn btn-outline-secondary btn-sm">ドメイン取得/移管</a>
                                 <a href="/admin/servers" class="addServer btn btn-outline-primary btn-sm">サーバー追加</a>
                                 <a href="/admin/servers?server=dns" class="addServer btn btn-outline-primary btn-sm">DNS情報</a>
 							</div>

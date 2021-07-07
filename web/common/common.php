@@ -274,7 +274,7 @@ function sizeFormat($bytes){
 
     function getPhpVersion()
     {
-        return fileList(GET_PHP_VERSION);
+        return fileList(PHP_ROOT_PATH);
     }
 
     function domainChecker($domain)

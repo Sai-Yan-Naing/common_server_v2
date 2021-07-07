@@ -19,7 +19,7 @@ if ($server == 'dns') {
     $sub = $_POST['sub'];
     $target = $_POST['target'];
     if ($action == 'new') {
-      // $addDns = $getweball->addDNS($getthis,$type,$sub,$target);
+      // $addDns = $getweball->addDNS($getRow,$type,$sub,$target);
       $temp = json_decode($getRow['dns'],true);
       $temp["ID-".time()] = ['type'=>$type,'sub'=>$sub,'target'=>$target];
       $result = json_encode($temp);
@@ -32,13 +32,13 @@ if ($server == 'dns') {
        }
       //  $fullname = "sai yannaing";
       //  $action = "add new";
-      //  $ty = $type."レコード".$sub.'.'.$getthis['domain'].'->'.$target;
+      //  $ty = $type."レコード".$sub.'.'.$getRow['domain'].'->'.$target;
        $subject ='=?UTF-8?B?'.base64_encode('DNS情報変更申請').'?=';
        $body = file_get_contents('views/mailer/admin/dns.php');
        $body = str_replace('$admin', $admin, $body);
        $body = str_replace('$type', $type, $body);
        $body = str_replace('$sub', $sub, $body);
-       $body = str_replace('$domain', $getthis['domain'], $body);
+       $body = str_replace('$domain', $getRow['domain'], $body);
        $body = str_replace('$target', $target, $body);
        $body = preg_replace('/\\\\/','', $body); //Strip backslashes
        $mail->sendMail($to=TO,$toName=TONAME,$subject,$body);
@@ -46,7 +46,7 @@ if ($server == 'dns') {
     }else if($action == 'edit')
     {
        $act_id = $_POST['act_id'];
-      //  $addDns = $getweball->editDNS($getthis,$sub,$target,$act_id);
+      //  $addDns = $getweball->editDNS($getRow,$sub,$target,$act_id);
        $temp = json_decode($getRow['dns'],true);
        $temp[$act_id]['sub'] = $_POST['sub'];
        $temp[$act_id]['target'] = $_POST['target'];
@@ -65,7 +65,7 @@ if ($server == 'dns') {
        $body = str_replace('$admin', $admin, $body);
        $body = str_replace('$type', $type, $body);
        $body = str_replace('$sub', $sub, $body);
-       $body = str_replace('$domain', $getthis['domain'], $body);
+       $body = str_replace('$domain', $getRow['domain'], $body);
        $body = str_replace('$target', $target, $body);
        $body = preg_replace('/\\\\/','', $body); //Strip backslashes
        $mail->sendMail($to=TO,$toName=TONAME,$subject,$body);
@@ -89,7 +89,7 @@ if ($server == 'dns') {
        $body = str_replace('$admin', $admin, $body);
        $body = str_replace('$type', $type, $body);
        $body = str_replace('$sub', $sub, $body);
-       $body = str_replace('$domain', $getthis['domain'], $body);
+       $body = str_replace('$domain', $getRow['domain'], $body);
        $body = str_replace('$target', $target, $body);
        $body = preg_replace('/\\\\/','', $body); //Strip backslashes
        $mail->sendMail($to=TO,$toName=TONAME,$subject,$body);
@@ -102,7 +102,7 @@ if ($server == 'dns') {
     //    if(isset($_GET['act_id']))
     //    {
     //       $act_id = $_GET['act_id'];
-    //       $dns = $getweball->getDNS($getthis,$act_id);
+    //       $dns = $getweball->getDNS($getRow,$act_id);
     //    }
     //    require("views/admin/servers/$server/$act.php");
     //    die();

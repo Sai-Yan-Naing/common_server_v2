@@ -138,23 +138,23 @@ die();
 // echo $_POST['path'];
 
    
-function delete_directory($dirname) {
-         if (is_dir($dirname))
-           $dir_handle = opendir($dirname);
-     if (!$dir_handle)
-          return false;
-     while($file = readdir($dir_handle)) {
-           if ($file != "." && $file != "..") {
-                if (!is_dir($dirname."/".$file))
-                     unlink($dirname."/".$file);
-                else
-                     delete_directory($dirname.'/'.$file);
-           }
-     }
-     closedir($dir_handle);
-     rmdir($dirname);
-     return true;
-}
+// function delete_directory($dirname) {
+//          if (is_dir($dirname))
+//            $dir_handle = opendir($dirname);
+//      if (!$dir_handle)
+//           return false;
+//      while($file = readdir($dir_handle)) {
+//            if ($file != "." && $file != "..") {
+//                 if (!is_dir($dirname."/".$file))
+//                      unlink($dirname."/".$file);
+//                 else
+//                      delete_directory($dirname.'/'.$file);
+//            }
+//      }
+//      closedir($dir_handle);
+//      rmdir($dirname);
+//      return true;
+// }
 
 function createFile($file)
 {
@@ -293,8 +293,6 @@ class FlxZipArchive extends ZipArchive
  {
        $this->addEmptyDir($name);
        $this->addDirDo($location, $name);
-
-	// die("hello1");
  } 
  private function addDirDo($location, $name) 
  {
@@ -391,7 +389,7 @@ function uncompressed($from, $to)
 		?>
 
 		<tr>
-          <th  class="align-baseline folder_click" foldername="<?php if($foldername!=null){ echo $foldername.'/'.$value;}else{echo $value;} ?>" style="cursor: pointer;">
+          <th  class="folder_click" foldername="<?php if($foldername!=null){ echo $foldername.'/'.$value;}else{echo $value;} ?>" style="cursor: pointer;">
           	<i class="fas fa-folder text-warning fa-lg"></i>
           	<span><?= $value ?></span>
           </th>
@@ -422,7 +420,7 @@ function uncompressed($from, $to)
         foreach ($files_list as $key => $value) {
             ?>
             <tr>
-              <th class="align-baseline open_file" style="cursor: pointer;" data-toggle="modal" <?php if (in_array(getFileExt($dir.'/'.$value), $ext)){ echo 'data-target="#open_file"'; } ?> file_name="<?= $value ?>" re_url="filemanager_confirm">
+              <th class="open_file" style="cursor: pointer;" data-toggle="modal" <?php if (in_array(getFileExt($dir.'/'.$value), $ext)){ echo 'data-target="#open_file"'; } ?> file_name="<?= $value ?>" re_url="filemanager_confirm">
               	<div><i class="fas fa-file text-secondary fa-lg"></i> <?= $value ?></div>
               </th>
               <th>

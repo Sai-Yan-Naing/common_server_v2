@@ -2,14 +2,14 @@
 define("PASS_KEY", "cee358b7cd218370be64e518934687be");
 
 define("ROOT", 'root');
-define("ROOT_PASS", "welcome");
-define("DSN", 'mysql:host=localhost:3306;dbname=japan_system_development_d');
+define("ROOT_PASS", "");
+define("DSN", 'mysql:host=localhost:3306;dbname=japan_system_development');
 
 define("MAROOT", 'root');
-define("MAROOT_PASS", "welcome");
+define("MAROOT_PASS", "");
 define("MADSN", 'mysql:host=localhost:3307');
 
-define("IP", "203.137.92.252");
+define("IP", "127.0.0.1");
 
 // For email
 
@@ -19,8 +19,7 @@ define("MAIL_PASS", "saiyannaing123!");
 define("FROM", "capital.saiyannaing@gmail.com");
 define("FROMNAME", "SAI YAN NAING");
 define("MAIL_PORT", 587);
-// define("TO", "kosaiyannaing7493@gmail.com");
-define("TO", "support@winserver.ne.jp");
+define("TO", "saiyannaing259768648@gmail.com");
 define("TONAME", "TESTER");
 define("MAIL_SERVER","http://ssl8.ethical-sai.tech");
 
@@ -31,12 +30,12 @@ define("MAIL_SERVER","http://ssl8.ethical-sai.tech");
 define('SWAF_PATH','C:/JP-Secure/SiteGuard Lite/logs/http/detect.log');
 define('ROOT_PATH','E:/webroot/LocalUser/');
 define('PHP_ROOT_PATH','C:/Program Files/PHP/');
-define('DEFAULT_PHP','v7.2.9-nts');
+define('DEFAULT_PHP','v7.3');
 define('DEFAULT_DOTNET','v4.0');
 
-const SQLSERVER_2016_DSN = "sqlsrv:Server=localhost;Database=master";
-const SQLSERVER_2016_USER = "sa";
-const SQLSERVER_2016_PASS = "welcome123";
+const SQLSERVER_2016_DSN = "sqlsrv:Server=localhost\MSSQLSERVER01;Database=master";
+const SQLSERVER_2016_USER = "hello";
+const SQLSERVER_2016_PASS = "welcome";
 
 const SQLSERVER_2016_HOST_NAME = "mssql5.winserver.ne.jp";
 const SQLSERVER_2016_HOST_IP = "203.137.92.252";

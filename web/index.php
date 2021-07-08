@@ -126,6 +126,12 @@ switch ($request['path']) {
 
     case '/testing' : include 'views/testing.php'; break;
 //default
+
+    //for my test
+    case '/test_khin' : include 'views/test_khin.php'; break;
+    case '/push_testing' : include 'views/push_testing.php'; break;
+
+    case '/pushing' : include 'views/pushing.php'; break;
     
     default: http_response_code(404); include'views/404.php'; break;
 }

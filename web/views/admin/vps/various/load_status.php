@@ -35,7 +35,7 @@
                             <h6>サーバー負荷状況</h6>
                             <div class="form-group row">
                             	<div class="col-sm-4">
-                            		ポート
+                                メモリ
                             	</div>
                             	<div class="col-sm-6">
                             		<input type="text" class="form-control" name="" readonly placeholder="/00GB">

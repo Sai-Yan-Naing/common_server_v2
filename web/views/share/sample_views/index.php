@@ -3,9 +3,9 @@ require_once("header.php");
 require_once('config/all.php');
 require_once('models/common.php');
 require_once('common/common.php');
-$domain = $_COOKIE['domain'];
+$webdomain = $webdomain;
 $getweball = new Common;
-$getWeb = $getweball->getWebaccount($domain);
+$getWeb = $getweball->getWebaccount($webdomain);
 ?>
 <!-- Start of Wrapper  -->
     

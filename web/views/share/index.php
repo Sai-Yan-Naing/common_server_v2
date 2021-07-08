@@ -24,13 +24,13 @@
                             <a href="/share/servers/sites/basic" class="nav-link">基本設定</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/share/servers/sites/application" class="nav-link">応用設定</a>
+                            <a href="/share/servers/sites/app" class="nav-link">応用設定</a>
                         </li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div id="page-body" class="tab-pane active pr-3 pl-3"><br>
-                            <form action="/share/appinstall" method="post" />
+                            <form action="/share/appinstall" method="post" id="app_install_form" />
                                 <div class="form-group row">
                                     <label for="application" class="col-sm-3 col-form-label">アプリケーション</label>
                                     <div class="col-sm-8">

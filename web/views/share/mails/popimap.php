@@ -1,8 +1,6 @@
 <?php
  require_once("views/share/header.php");
- require_once('config/all.php');
  require_once('models/email.php');
- $domain = $_COOKIE['domain'];
 $getEmail = new Email;
 $allmail=$getEmail->getAll($domain);
 ?>
@@ -24,10 +22,10 @@ $allmail=$getEmail->getAll($domain);
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs">
                             <li class="nav-item nav-border">
-                                <a class="nav-link active" href="/share/mails/popimap">ＰＯＰ/ＩＭＡＰ</a>
+                                <a class="nav-link active" href="/share/mails/popimap?webid=<?=$webid?>">ＰＯＰ/ＩＭＡＰ</a>
                             </li>
                             <li class="nav-item nav-border">
-                                <a class="nav-link" href="/share/mails/smtp">ＳＭＴＰ</a>
+                                <a class="nav-link" href="/share/mails/smtp?webid=<?=$webid?>">ＳＭＴＰ</a>
                             </li>
                         </ul>
 

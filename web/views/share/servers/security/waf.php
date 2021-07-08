@@ -1,0 +1,10 @@
+<?php
+    if(isset($_GET['confirm']))
+    {
+        require_once("views/share/servers/security/waf/confirm.php");
+        die();
+    }else{
+        require_once("views/share/servers/security/waf/index.php");
+        die();
+    }
+?>

@@ -3,3 +3,4 @@ test/*
 web/web.config
 web/config/all.php
 web/views/testing.php
+web/views/testing/*

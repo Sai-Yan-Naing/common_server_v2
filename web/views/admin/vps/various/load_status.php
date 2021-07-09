@@ -35,10 +35,10 @@
                             <h6>サーバー負荷状況</h6>
                             <div class="form-group row">
                             	<div class="col-sm-4">
-                            		ポート
+                                メモリ
                             	</div>
                             	<div class="col-sm-6">
-                            		<input type="text" class="form-control" name="" readonly placeholder="/00GB">
+                            		<input type="text" class="form-control" name="" readonly placeholder="3000MB">
                             	</div>
                             </div>
                             <div class="form-group row">
@@ -46,7 +46,10 @@
                                     CPU
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="" readonly placeholder="%">
+                                    Average of cpu usage : <span id="cpu_usage"><?= preg_replace('/\s+/', '', str_replace('LoadPercentage','',shell_exec('wmic cpu get loadpercentage'))) ?>%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" id="cpu" style="width:<?= preg_replace('/\s+/', '', str_replace('LoadPercentage','',shell_exec('wmic cpu get loadpercentage'))) ?>%"></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -74,3 +77,35 @@
         <!--End of Page Content  -->
     </div>
     <!-- End of Wrapper  -->
+<span style="display:none" id="cpu_usage_hide" usage="<?= cpu_usage(); ?>"></span>
+    <script>
+        $(document).ready(function(){
+            setInterval(function(){ 
+                usage('cpu');
+        }, 2000);
+        });
+
+        function usage($var)
+        {
+            $url = document.URL.split('/');
+	$url=$url[0]+"//"+$url[2];
+            $.ajax({
+                type: "POST",
+                url: $url+'/cpu_usage?case='+$var,
+                data: {},
+                success: function(data){
+                    if($var=='cpu')
+                    {
+                        $("#cpu_usage").html(data+ ' %');
+                        $("#cpu").css({"width":data+"%"})
+                    }
+                    
+                }
+            });
+        }
+    </script>
+    <?php
+    function cpu_usage()
+    {
+        return preg_replace('/\s+/', '', str_replace('LoadPercentage','',shell_exec('wmic cpu get loadpercentage')));
+    }

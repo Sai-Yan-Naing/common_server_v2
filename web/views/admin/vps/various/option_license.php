@@ -53,7 +53,7 @@
                                             <span>円</span>
                                         </div>
                                         <div class="col-sm-3">
-                                            <span><a href="" class="btn btn-success text-white">依頼</a></span>
+                                            <span><a href="" class="btn btn-sm btn-success text-white">依頼</a></span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -70,7 +70,7 @@
                                             <span>円</span>
                                         </div>
                                         <div class="col-sm-2">
-                                            <a href="" class="btn btn-success text-white">依頼</a>
+                                            <a href="" class="btn btn-sm btn-success text-white">依頼</a>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -87,7 +87,7 @@
                                             <span>円</span>
                                         </div>
                                         <div class="col-sm-2">
-                                            <a href="" class="btn btn-success text-white">依頼</a>
+                                            <a href="" class="btn btn-sm btn-success text-white">依頼</a>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -101,7 +101,7 @@
                                             <span>円</span>
                                         </div>
                                         <div class="col-sm-3">
-                                            <a href="" class="btn btn-success text-white">依頼</a>
+                                            <a href="" class="btn btn-sm btn-success text-white">依頼</a>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -115,7 +115,7 @@
                                             <span>円</span>
                                         </div>
                                         <div class="col-sm-3">
-                                            <a href="" class="btn btn-success text-white">依頼</a>
+                                            <a href="" class="btn btn-sm btn-success text-white">依頼</a>
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -129,7 +129,7 @@
                                             <span>円</span>
                                         </div>
                                         <div class="col-sm-3">
-                                            <a href="" class="btn btn-success text-white">依頼</a>
+                                            <a href="" class="btn btn-sm btn-success text-white">依頼</a>
                                         </div>
                                     </div>
                                 </div>

@@ -115,7 +115,7 @@
                                     <div class="form-group row">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-5">
-                                        <a href="" class="btn btn-success text-white">依頼</a>
+                                        <a href="" class="btn btn-sm btn-success text-white">依頼</a>
                                     </div>
                                     <div class="col-sm-4"></div>
                                 </div>

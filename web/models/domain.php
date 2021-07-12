@@ -12,21 +12,21 @@ class Domain
 	{
 		try{
 			$common = new Common;
-			if(strpos($common->alreadyExist("web_account",'domain',$domain), "not available"))
-			{
-				 return false;
-			}
-			if(strpos($common->alreadyExist("db_ftp",'ftp_user',$ftp_user), "not available"))
-			{
-				return false;
-			}
+			// if(strpos($common->alreadyExist("web_account",'domain',$domain), "not available"))
+			// {
+			// 	 return false;
+			// }
+			// if(strpos($common->alreadyExist("db_ftp",'ftp_user',$ftp_user), "not available"))
+			// {
+			// 	return false;
+			// }
 			// die('no error');
 			$plan = 4;
 			$pass_encrypted = hash_hmac('sha256', $password, PASS_KEY);
 			$temp["ID1-".time()] = ['type'=>'A','sub'=>'mail','target'=>IP];
 			$temp["ID2-".time()] = ['type'=>'A','sub'=>'www','target'=>IP];
 			$temp["ID3-".time()] = ['type'=>'A','sub'=>'','target'=>IP];
-			$temp["ID4-".time()] = ['type'=>'MX','sub'=>'','target'=>IP];
+			$temp["ID4-".time()] = ['type'=>'MX','sub'=>'','target'=>'mail.'.$domain];
 
 			$temp1["app"] = ['php'=>DEFAULT_PHP,'dotnet'=>DEFAULT_DOTNET];
 			$dns = json_encode($temp);

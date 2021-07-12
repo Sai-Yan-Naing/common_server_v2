@@ -47,6 +47,15 @@ function allValidate() {
             }
         }, "Please enter number and alphabet character only");
 
+        // allow special character
+        $.validator.addMethod('onlynumberalphabet', function(value){
+            var regex = /^[A-Za-z0-9]*$/;
+            if(regex.test(value))
+            {
+                return true;
+            }
+        }, "Please enter number and alphabet character only");
+
         $.validator.addMethod("nowhitespace", function(value, element) {
             return !/\s/.test(value);
         }, "Cannot enter white space");
@@ -590,7 +599,8 @@ function allValidate() {
                             return ($('#usdomain').val().substr($('#usdomain').val().length - 3) != '.jp')
                         }
                     },
-                    number:true,
+                    nowhitespace:true,
+                    onlynumberalphabet:true,
                     minlength: 4,
                     maxlength: 16,
                 }
@@ -602,7 +612,6 @@ function allValidate() {
                     required: "Please enter ドメイン名",
                 },
                 authcode: {
-                    number: "AuthCode must be number",
                     required: "Please enter AuthCode",
                     minlength: "AuthCode must be between 4 and 16 characters long",
                     maxlength: "AuthCode must be between 4 and 16 characters long"
@@ -620,7 +629,7 @@ function allValidate() {
             rules: {
                 domain: {
                     required: true,
-                    domain_search:true
+                    domain:true,
                 }
             },
 

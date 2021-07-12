@@ -14,8 +14,8 @@ if(!isset($_POST['domain']) && !isset($_POST['ftp_user']))
 	header('Location: admin');
 }
 $account = new Account;
-// $result = $account->addMultiDomain($domain, $web_dir, $ftp_user, $password, $token);
-// print_r($result);
+$result = $account->addMultiDomain($domain, $web_dir, $ftp_user, $password, $token);
+print_r($result);
 if($result[0])
 {
 	header('Location: admin');

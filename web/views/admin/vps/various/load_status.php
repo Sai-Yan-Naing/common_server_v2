@@ -77,7 +77,6 @@
         <!--End of Page Content  -->
     </div>
     <!-- End of Wrapper  -->
-<span style="display:none" id="cpu_usage_hide" usage="<?= cpu_usage(); ?>"></span>
     <script>
         $(document).ready(function(){
             setInterval(function(){ 
@@ -104,8 +103,4 @@
             });
         }
     </script>
-    <?php
-    function cpu_usage()
-    {
-        return preg_replace('/\s+/', '', str_replace('LoadPercentage','',shell_exec('wmic cpu get loadpercentage')));
-    }
+    

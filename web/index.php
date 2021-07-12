@@ -122,7 +122,7 @@ switch ($request['path']) {
     case '/share/various/backup' : include 'views/share/various/backup.php'; break;
 /* +++++++++++++++++++ end various setting +++++++++++++++++++++++ */
 //end share
-    case '/cpu_usage': include 'views/cpu_usage.php';
+    case '/cpu_usage': include 'views/cpu_usage.php'; break;
 
     case '/testing' : include 'views/testing.php'; break;
 //default

@@ -19,7 +19,6 @@ define("MAIL_PASS", "saiyannaing123!");
 define("FROM", "capital.saiyannaing@gmail.com");
 define("FROMNAME", "SAI YAN NAING");
 define("MAIL_PORT", 587);
-// define("TO", "kosaiyannaing7493@gmail.com");
 define("TO", "support@winserver.ne.jp");
 define("TONAME", "TESTER");
 define("MAIL_SERVER","http://ssl8.ethical-sai.tech");

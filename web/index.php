@@ -122,10 +122,9 @@ switch ($request['path']) {
     case '/share/various/backup' : include 'views/share/various/backup.php'; break;
 /* +++++++++++++++++++ end various setting +++++++++++++++++++++++ */
 //end share
-
+    case '/cpu_usage': include 'views/cpu_usage.php'; break;
 
     case '/testing' : include 'views/testing.php'; break;
 //default
-    
     default: http_response_code(404); include'views/404.php'; break;
 }

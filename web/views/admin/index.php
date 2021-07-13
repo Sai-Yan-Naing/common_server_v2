@@ -23,6 +23,7 @@
                 <div class="col-sm-11">
                     <!-- Nav tabs -->
                     <label for="" class="col-form-label">契約サービス</label>
+                    <button class="btn btn-success">hello</button>
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
                             <a href="/admin" class="nav-link active">共用サーバー</a>

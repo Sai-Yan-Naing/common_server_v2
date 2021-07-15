@@ -57,7 +57,41 @@
                                    ディスク読み書き
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="" readonly placeholder="1.2">
+                                    <!-- <input type="text" class="form-control" name="" readonly placeholder="1.2"> -->
+                                    <?php
+
+                                        $dir = "/";
+                                        $ds_free = disk_free_space($dir);
+                                        $ds_total = disk_total_space($dir);
+                                        $ds_used = $ds_total - $ds_free;
+                                        $ds_used_p = sprintf('%.2f',($ds_used/$ds_total)*100);
+                                        echo "<div id='disc'>" . $ds_used_p . " % </div>";
+                                        
+                                        echo '<br>';
+
+                                        $cmd = 'set';
+                                        echo "<pre>".shell_exec($cmd)."</pre>";
+
+                                        // $t = time();
+                                        // echo $t . "\n";
+                                        // echo '<br>';
+                                        // echo(date("y/m/d",$t));
+
+                                       // $freespace = disk_free_space("C:");
+                                       // $base = 1024;
+                                       // $disk = ($freespace / 1024)*100;
+                                       // echo $disk;
+                                       // echo '<br>';
+                                       // echo disk_total_space("C:");
+                                       // echo 'hello'; 
+                                       echo '<br>';
+
+                                       // $space = disk_total_space("C:");
+  
+                                       //  echo "C: drive has a total capacity
+                                       //  of $space bytes.";
+
+                                     ?>
                                 </div>
                                 <div class="col-sm-2">
                                     平均10以下であれば問題ありません。
@@ -87,7 +121,7 @@
         function usage($var)
         {
             $url = document.URL.split('/');
-	$url=$url[0]+"//"+$url[2];
+	        $url=$url[0]+"//"+$url[2];
             $.ajax({
                 type: "POST",
                 url: $url+'/cpu_usage?case='+$var,

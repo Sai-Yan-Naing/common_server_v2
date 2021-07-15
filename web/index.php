@@ -74,6 +74,7 @@ switch ($request['path']) {
 // ++++++++++++++++++++++++++++++ start vps +++++++++++++++++
 
     case '/admin/vps' : include 'views/admin/vps.php'; break;
+    case '/admin/vps-confirm' : include 'views/admin/vps_confirm.php'; break;
     case '/admin/vps/panel' : include 'views/admin/vps/index.php'; break;
 
 // ++++++++++++++++++++++++++++++ end vps +++++++++++++++++
@@ -124,7 +125,7 @@ switch ($request['path']) {
     // common validate route
     case '/validate' : include 'views/validate.php'; break;
 //end share
-    case '/cpu_usage': include 'views/cpu_usage.php'; break;
+    case '/usages': include 'views/usage.php'; break;
 
     case '/testing' : include 'views/testing.php'; break;
 //default

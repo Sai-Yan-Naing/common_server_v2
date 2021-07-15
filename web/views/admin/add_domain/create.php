@@ -11,7 +11,7 @@
         <div class="form-group row">
             <label for="domain" class="col-sm-2 col-form-label">ドメイン名</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="domain" column="domain" name="domain" placeholder="ドメイン名">
+                <input type="text" class="form-control checkit" id="domain" column="domain" table="web_account" remark="indb" name="domain" placeholder="ドメイン名">
             </div>
         </div>
         <div class="form-group row">
@@ -26,7 +26,7 @@
         <div class="form-group row">
             <label for="ftp_user" class="col-sm-2 col-form-label">FTPユーザー名</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="ftp_user" name="ftp_user" column="username" placeholder="1～255文字、半角英数小文字と_-.@">
+                <input type="text" class="form-control" id="ftp_user" name="ftp_user" column="user"  table="web_account" remark="winuser" placeholder="1～255文字、半角英数小文字と_-.@">
             </div>
         </div>
         <div class="form-group row">

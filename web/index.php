@@ -121,6 +121,8 @@ switch ($request['path']) {
     case '/share/various' : include 'views/share/various/main.php'; break;
     case '/share/various/backup' : include 'views/share/various/backup.php'; break;
 /* +++++++++++++++++++ end various setting +++++++++++++++++++++++ */
+    // common validate route
+    case '/validate' : include 'views/validate.php'; break;
 //end share
     case '/cpu_usage': include 'views/cpu_usage.php'; break;
 

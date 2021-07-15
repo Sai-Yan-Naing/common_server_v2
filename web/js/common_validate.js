@@ -1,56 +1,42 @@
-// Admin page
+// $(document).on('focusout','.checkit',function(){
+// 	$this = $(this);
+// 	if($this.val() == null || $this.val() =='') return;
+// 	var regex = /^([a-zA-Z0-9_.+-])+(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+// 	if($this.attr('id') =='domain' && !regex.test($this.val())) return;
+// 	// alert(1)
 
-// $(document).on("submit","#add_multiple_domain",function(){
-// 	data = synJsonMsg().add_multiple_domain;
-// 		console.log(data)
-// 	$required_id=[];
-// 	$required_msg=[];
-
-// 	$min_id=[];
-// 	$min_length=[];
-// 	$min_msg=[];
-
-// 	$max_id=[];
-// 	$max_length=[];
-// 	$max_msg=[];
-// 	$.each(data, function(key, value) {
-// 		if(value['required'])
+// 	$url = document.URL.split('/');
+// 	$url=$url[0]+"//"+$url[2];
+// 	checkIt($this,function(data){
+// 		if(data.status)
 // 		{
-// 			$required_id.push(key);
-// 	  		$required_msg.push(data[key]['message']['required']);
+// 			console.log('ok')
+// 		}else{
+// 			console.log('no')
 // 		}
-
-// 		if(data[key]['min'] !==undefined)
-// 		{
-// 			$min_id.push(key);
-// 			$min_length.push(data[key]['min'])
-// 			$min_msg.push(value['message']['min'])
-// 		}
-
-// 		if(data[key]['max'] !==undefined)
-// 		{
-// 			$max_id.push(key);
-// 			$max_length.push(key['max'])
-// 			$max_msg.push(value['message']['max'])
-// 		}
-	  
-// 	  // console.log(value['min'])
 // 	});
-// 	$required = required($required_id,$required_msg)
-// 	$min_l = minLength($min_id,$min_length,$min_msg)
-// 	$max_l = maxLength($max_id,$max_length,$max_msg)
-// 	if($required || $min_l || $max_l)
-// 	{
-// 		return false;
-// 	}
-
-// 	return true;
 // });
 
-// $(document).on('keyup',)
-
-
-
-
-
-     
+// function checkIt($this,callback)
+// {
+// 	$this.after('<span id="'+$this.attr("id")+'-error" class="text-primary">Loading......</span>');
+// 	var $ajax = $.ajax({
+// 	    type: "POST",
+// 	    url: $url+"/validate",
+// 		dataType: 'JSON',
+// 	    data: {table:$this.attr('table'),column:$this.attr('column'),checker:$this.val()}
+// 	});
+// 	$done = $ajax.done(function(data)
+// 	{	
+// 		callback(data);
+// 		$("#"+$this.attr("id")+"-error").remove();
+// 		if(data.status)
+// 		{
+// 			$this.after('<span id="'+$this.attr("id")+'-error" class="error">'+$this.val()+' is not available</span>');
+// 		}
+// 	})
+// 	$fail = $ajax.fail(function()
+// 	{
+// 		$this.after('<span id="'+$this.attr("id")+'-error" class="error">Internal server error</span>');
+// 	});
+// }

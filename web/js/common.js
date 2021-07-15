@@ -69,12 +69,60 @@ function allValidate() {
             }
         }, "Cannot enter special character")
 
+        $.validator.addMethod("alreadyexist",function(value,element){
+            $("#"+$(element).attr("id")+"-error").remove();
+            let result = false;
+            // sessionStorage.setItem("result", false);
+            var $ajax = $.ajax({
+                type: "POST",
+                url: $url+"/validate",
+                dataType: 'JSON',
+                beforeSend: function(){
+                    $(element).after('<label id="'+$(element).attr("id")+'-error" class="text-primary">Loading......</label>');
+                },
+                data: {table:$(element).attr('table'),column:$(element).attr('column'),checker:value, remark:$(element).attr('remark')}
+            });
+            $("#"+$(element).attr("id")+"-error").remove();
+            $done = $ajax.done(function(data)
+            {
+                console.log(data.status)
+                if(data['status'])
+                {
+                    $(element).after('<label id="'+$(element).attr("id")+'-error" class="error">'+$(element).val()+' is not available</label>');
+                    sessionStorage.setItem("result", true);
+                }else{
+                    $(element).after('<label id="'+$(element).attr("id")+'-error" class="text-success">'+$(element).val()+' is available</label>');
+                    sessionStorage.setItem("result", false);
+                }
+            })
+            $fail = $ajax.fail(function()
+            {
+                $(element).after('<span id="'+$(element).attr("id")+'-error" class="error">Internal server error</span>');
+            });
+            result =sessionStorage.getItem('result');
+            console.log(result+'result');
+            // sessionStorage.setItem("result", '');
+            return result;
+        },'');
+
         // for add multiple domain
         $("form[id='add_multiple_domain']").validate({
+            onkeyup: function(element) {
+                $("#"+$(element).attr("id")+"-error").remove();
+                var element_id = $(element).attr('id');
+                if (this.settings.rules[element_id].onkeyup !== false) {
+                  $.validator.defaults.onkeyup.apply(this, arguments);
+                }
+              },
+              focusout: function(element){
+                $("#"+$(element).attr("id")+"-error").remove(); 
+              },
             rules: {
                 domain: {
                     required: true,
                     domain:true,
+                    alreadyexist:true,
+                    onkeyup: false
                 },
                 web_dir: {
                     required: true,
@@ -87,7 +135,9 @@ function allValidate() {
                     nowhitespace:true,
                     nospecialchar: true,
                     minlength: 1,
-                    maxlength: 255
+                    maxlength: 255,
+                    alreadyexist:true,
+                    onkeyup: false
                 },
                 password: {
                     required: true,
@@ -119,7 +169,8 @@ function allValidate() {
                 },
             },
             submitHandler: function(form) {
-                form.submit();
+                alert(sessionStorage.getItem('result'));
+                // form.submit();
             }
         });
 
@@ -277,6 +328,13 @@ function allValidate() {
 
         // for add dir_path_create
         $("form[id='dir_path_create']").validate({
+            onkeyup: function(element) {
+                $("#"+$(element).attr("id")+"-error").remove();
+                var element_id = $(element).attr('id');
+                if (this.settings.rules[element_id].onkeyup !== false) {
+                  $.validator.defaults.onkeyup.apply(this, arguments);
+                }
+              },
             rules: {
                 dir_path: {
                     required: true,
@@ -289,7 +347,9 @@ function allValidate() {
                     nowhitespace:true,
                     nospecialchar: true,
                     minlength: 1,
-                    maxlength: 14
+                    maxlength: 14,
+                    alreadyexist:true,
+                    onkeyup: false
                 },
                 ftp_pass: {
                     required: true,
@@ -342,22 +402,33 @@ function allValidate() {
 
         // for add database_create
         $("form[id='database_create']").validate({
+            onkeyup: function(element) {
+                $("#"+$(element).attr("id")+"-error").remove();
+                var element_id = $(element).attr('id');
+                if (this.settings.rules[element_id].onkeyup !== false) {
+                  $.validator.defaults.onkeyup.apply(this, arguments);
+                }
+              },
             rules: {
                 db_name: {
                     required: true,
                     numberalphabet: true,
                     nowhitespace:true,
                     nospecialchar: true,
-                    minlength: 8,
-                    maxlength: 70
+                    minlength: 4,
+                    maxlength: 20,
+                    alreadyexist:true,
+                    onkeyup: false
                 },
                 db_user: {
                     required: true,
                     numberalphabet: true,
                     nowhitespace:true,
                     nospecialchar: true,
-                    minlength: 8,
-                    maxlength: 70
+                    minlength: 4,
+                    maxlength: 20,
+                    alreadyexist:true,
+                    onkeyup: false
                 },
                 db_pass: {
                     required: true,
@@ -371,13 +442,13 @@ function allValidate() {
             messages: {
                 db_name: {
                     required: "Please enter データベース名",
-                    minlength: "8～70文字、半角英数字記号",
-                    maxlength: "8～70文字、半角英数字記号"
+                    minlength: "4～20文字、半角英数字記号",
+                    maxlength: "4～20文字、半角英数字記号"
                 },
                 db_user: {
                     required: "Please enter ユーザー名",
-                    minlength: "8～70文字、半角英数字記号",
-                    maxlength: "8～70文字、半角英数字記号"
+                    minlength: "4～20文字、半角英数字記号",
+                    maxlength: "4～20文字、半角英数字記号"
                 },
                 db_pass: {
                     required: "Please enter パスワード",
@@ -394,6 +465,13 @@ function allValidate() {
 
         // for add ftp_create
         $("form[id='ftp_create']").validate({
+            onkeyup: function(element) {
+                $("#"+$(element).attr("id")+"-error").remove();
+                var element_id = $(element).attr('id');
+                if (this.settings.rules[element_id].onkeyup !== false) {
+                  $.validator.defaults.onkeyup.apply(this, arguments);
+                }
+              },
             rules: {
                 ftp_user: {
                     required: true,
@@ -401,7 +479,9 @@ function allValidate() {
                     nowhitespace:true,
                     nospecialchar: true,
                     minlength: 1,
-                    maxlength: 14
+                    maxlength: 14,
+                    alreadyexist:true,
+                    onkeyup: false
                 },
                 ftp_pass: {
                     required: true,

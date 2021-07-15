@@ -69,8 +69,8 @@
                                         
                                         echo '<br>';
 
-                                        $cmd = 'set';
-                                        echo "<pre>".shell_exec($cmd)."</pre>";
+                                        // $cmd = 'set';
+                                        // echo "<pre>".shell_exec($cmd)."</pre>";
 
                                         // $t = time();
                                         // echo $t . "\n";

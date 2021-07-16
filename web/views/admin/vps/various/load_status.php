@@ -50,7 +50,7 @@
                                 メモリ
                             	</div>
                                 <div class="col-sm-6">
-                                    Average of cpu usage : <span id="memory_usage"><?= $memory_usage ?>%</span>
+                                    Average of memory usage : <span id="memory_usage"><?= $memory_usage ?>%</span>
                                     <div class="progress">
                                         <div class="progress-bar <?php if($memory_usage<=60){ echo 'bg-success';}else if($memory_usage>60 and $memory_usage<80){ echo 'bg-warning';}else{echo 'bg-danger';} ?>" id="memory" style="width:<?= $memory_usage ?>%"></div>
                                     </div>
@@ -86,13 +86,13 @@
             setInterval(function(){ 
                 usage('cpu');
                 usage('memory');
-        }, 2500);
+        }, 3000);
         });
 
         function usage($var)
         {
             $url = document.URL.split('/');
-	$url=$url[0]+"//"+$url[2];
+	        $url=$url[0]+"//"+$url[2];
             $.ajax({
                 type: "POST",
                 url: $url+'/usages?case='+$var,
@@ -102,6 +102,16 @@
                     // {
                         $("#"+$var+"_usage").html(data+ ' %');
                         $("#"+$var).css({"width":data+"%"})
+                        $("#"+$var).removeClass();
+                        if(data<=60)
+                        {
+                            $("#"+$var).addClass("progress-bar bg-success");
+                        }else if(data>60 && data<=80)
+                        {
+                            $("#"+$var).addClass("progress-bar bg-warning");
+                        }else{
+                            $("#"+$var).addClass("progress-bar bg-danger");
+                        }
                     // }
                     
                 }

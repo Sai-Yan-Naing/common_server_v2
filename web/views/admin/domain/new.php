@@ -6,8 +6,9 @@
 <!-- Modal body -->
 <div class="modal-body">
 
-    <form action="/admin/multi_domain_confirm" method="post" id="add_multiple_domain" class="form-content">
+    <form action="/admin/multi_domain" method="post" id="add_multiple_domain" class="form-content">
         <input type="hidden" name="token" value="<?php echo $token ;?>">
+        <input type="hidden" name="confirm">
         <div class="form-group row">
             <label for="domain" class="col-sm-2 col-form-label">ドメイン名</label>
             <div class="col-sm-8">

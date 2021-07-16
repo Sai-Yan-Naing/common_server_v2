@@ -1,10 +1,11 @@
 <?php
  require_once("header.php");
  require_once('config/all.php');
- require_once('models/account.php');
+ require_once('models/common.php');
  require_once('common/common.php');
- $account = new Account;
- $multidomain=$account->getMultiDomain($_COOKIE['admin']);
+ $query = "SELECT * FROM web_account WHERE `customer_id` = '$_COOKIE[admin]' && `removal` is null";
+ $commons = new Common;
+ $multidomain=$commons->getAllRow($query);
 ?>
 <!-- Start of Wrapper  -->
     <div class="wrapper">
@@ -31,7 +32,6 @@
                             <a href="/admin/vps"class="nav-link">VPS/デスクトッププラン</a>
                         </li>
                     </ul>
-
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div id="shared-server" class="tab-pane active pr-3 pl-3 pb-3"><br>
@@ -59,7 +59,7 @@
                                             <a href="/admin/share?webid=<?= $domain['id'] ?>" class="btn btn-outline-primary btn-sm" target="_blank">設定</a>
                                         </td>
                                         <td class="col-sm-2">
-                                            <span><?php echo sizeFormat(folderSize("E:/webroot/LocalUser/$domain[user]")) ?></span>
+                                            <span><?php if($domain['origin']!='true'){ echo sizeFormat(folderSize("E:/webroot/LocalUser/".$multidomain[0]['user']."/$domain[user]"));}else{echo sizeFormat(folderSize("E:/webroot/LocalUser/$domain[user]"));} ?></span>
                                         </td>
                                         <td class="col-sm-1">
                                             <form action="/admin/app_setting/confirm" method = "post">
@@ -83,50 +83,23 @@
 
                                         <td class="col-sm-1">
                                             <!-- <a href="delete_website.php?domainid=<?php echo $domain['id'] ?>" class="btn btn-danger btn-sm">削除</a> -->
-                                            <button type="button" class="btn btn-danger btn-sm" disable>削除</button>
+                                            <?php if($domain['origin']!='true'){?>
+                                            <button type="button" class="btn btn-danger btn-sm common_dialog"  data-toggle="modal" data-target="#common_modal" gourl="/admin/multi_domain?act=delete&act_id=<?=$domain[id]?>">削除</button>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php
 							  	}
 							  	 ?>
 							  </tbody>
-							</table>
-                            
-                            
-                            
+							</table>                            
 							<div class="conButton">
                                 <!-- <a href="add_multi_domain.php" class="domainAdd btn btn-outline-primary btn-sm" role="button">マルチドメイン追加</a> -->
-								<button class="domainAdd btn btn-outline-primary btn-sm common_modal"  data-toggle="modal" data-target="#common_modal" gourl="/admin/add_multi_domain">マルチドメイン追加</button>
+								<button class="domainAdd btn btn-outline-primary btn-sm common_modal"  data-toggle="modal" data-target="#common_modal" gourl="/admin/multi_domain?act=new">マルチドメイン追加</button>
 								<a href="/admin/servers/domain_transfer"  class="domainAcq btn btn-outline-secondary btn-sm">ドメイン取得/移管</a>
                                 <a href="/admin/servers" class="addServer btn btn-outline-primary btn-sm">サーバー追加</a>
                                 <a href="/admin/servers?server=dns" class="addServer btn btn-outline-primary btn-sm">DNS情報</a>
 							</div>
-                        </div>
-                        <div id="vps-desktop" class="tab-pane fade"><br>
-                            <table class="table table-borderless">
-							  <thead>
-							    <tr>
-							      <th></th>
-							      <th></th>
-							      <th></th>
-							      <th>使用容量</th>
-							      <th>サイト</th>
-							      <th>アプリケーションプール</th>
-							      <th>削除</th>
-							    </tr>
-							  </thead>
-							  <tbody>
-							  	<tr>
-							  		<td></td>
-							  		<td></td>
-							  		<td></td>
-							  		<td></td>
-							  		<td></td>
-							  		<td></td>
-							  		<td></td>
-							  	</tr>
-							  </tbody>
-							</table>
                         </div>
                     </div>
                 </div>

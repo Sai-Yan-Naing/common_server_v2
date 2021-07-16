@@ -8,6 +8,7 @@ $checker = $_POST['checker'];
 $remark = $_POST['remark'];
 $status = ['table'=>$table,'column'=>$column,'chekcer'=>$checker,'remark'=>$remark];
 $check = new CommonValidate;
+// echo $checkresult = $check->checkInDb('web_account', 'user', 'saiyannaing');
 $checkresult = $check->checkInDb($table, $column, $checker);
 if($checkresult)
 {

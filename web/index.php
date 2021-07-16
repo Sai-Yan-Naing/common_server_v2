@@ -23,10 +23,8 @@ switch ($request['path']) {
     case '/domainChecker': include 'controllers/domainChecker.php'; break;
     // case '/admin/servers/action' : include 'views/admin/servers/action.php'; break;
 /*+++++++++++++++++++++++++++++++domain+++++++++++++++++*/
-    case '/admin/add_multi_domain' : include 'views/admin/add_domain/create.php'; break;
+    case '/admin/multi_domain' : include 'views/admin/domain/index.php'; break;
     // case '/admin/app_setting' : include 'views/admin/share/index.php'; break;
-    // controller
-    case '/admin/multi_domain_confirm' : include 'controllers/admin/multi_domain_confirm.php'; break;
     case '/admin/app_setting/confirm' : include 'controllers/admin/app_setting_confirm.php'; break;
     case '/admin/servers/dns_confirm' : include 'controllers/admin/confirm/dns.php'; break;
     case '/admin/servers/sitebinding' : include 'controllers/admin/confirm/sitebinding.php'; break;

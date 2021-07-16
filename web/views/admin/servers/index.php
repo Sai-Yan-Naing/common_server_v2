@@ -2,7 +2,7 @@
 require_once("views/admin/need.php");
 
 $getweball = new Common();
-$admin_q = "SELECT * FROM web_account WHERE customer_id='$admin'";
+$admin_q = "SELECT * FROM web_account WHERE customer_id='$admin'  && `removal` is null";
 $getAllRow = $getweball->getAllRow($admin_q);
 
  $server = $_GET['server'];

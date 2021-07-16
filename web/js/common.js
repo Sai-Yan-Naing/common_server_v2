@@ -169,8 +169,8 @@ function allValidate() {
                 },
             },
             submitHandler: function(form) {
-                alert(sessionStorage.getItem('result'));
-                // form.submit();
+                // alert(sessionStorage.getItem('result'));
+                form.submit();
             }
         });
 

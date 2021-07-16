@@ -69,8 +69,10 @@
                                         
                                         echo '<br>';
 
-                                        // $cmd = 'set';
-                                        // echo "<pre>".shell_exec($cmd)."</pre>";
+                                        // $exec_free = explode("\n", trim(shell_exec('free')));
+                                        // $get_mem = preg_split("/[\s]+/", $exec_free[1]);
+                                        // $mem = round($get_mem[2]/$get_mem[1]*100, 0) . '%';
+                                        // echo $mem;
 
                                         // $t = time();
                                         // echo $t . "\n";

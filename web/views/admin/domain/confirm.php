@@ -1,4 +1,5 @@
 <?php
+// die();
 require_once("config/all.php");
 require_once('models/common.php');
 $commons = new Common;
@@ -27,7 +28,7 @@ if(!isset($_POST['domain']) || !isset($_POST['ftp_user']))
 {
 	header('Location: /admin');
 }
-$query_origin = "SELECT * FROM web_account WHERE `customer_id` = '$_COOKIE[admin]' and `origin`='true'";
+$query_origin = "SELECT * FROM web_account WHERE `customer_id` = '$_COOKIE[admin]' and `origin`=1";
 $origin= $commons->getRow($query_origin);
 $origin_user= $origin['user'];
 $plan = 4;

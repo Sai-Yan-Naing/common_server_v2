@@ -14,7 +14,7 @@ if(isset($_POST['action']) and $_POST['action']=='new')
 		require_once('views/admin/share/servers/security/directory.php');
 		die();
 	}
-	if(!createDir($webuser.'/web/'.$dir_path))
+	if(!createDir($webrootuser.'/'.$webuser.'/web/'.$dir_path))
 	{
 		$error=$ftp_user." cannot create directory.";
 		require_once('views/admin/share/servers/security/directory.php');
@@ -46,7 +46,7 @@ if(isset($_POST['action']) and $_POST['action']=='new')
 		die();
 	}
 	Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/add_ftp.ps1" '. $ftp_user." "."noneed"." ".$webuser.'/web/'.$dir_path." "."noneed"." delete");
-	$dirname = "E:\webroot\LocalUser/$webuser/web/$dir_path";
+	$dirname = "E:\webroot\LocalUser/$webrootuser/$webuser/web/$dir_path";
 	if(is_dir($dirname)){
           //Directory does not exist, so lets create it.
           // @mkdir($path, 0755, true);

@@ -47,6 +47,7 @@ switch ($request['path']) {
     // end database
     case '/admin/share/servers/ftp' : include 'views/admin/share/servers/ftp/main.php'; break;
     case '/admin/share/servers/filemanager' : include 'views/admin/share/servers/filemanager/index.php'; break;
+    case '/admin/share/servers/filemanager/confirm' : include 'views/admin/share/servers/filemanager/confirm.php'; break;
     case '/admin/share/servers/analysis' : include 'views/admin/share/servers/analysis/index.php'; break;
     // controller
     case '/admin/share/servers/ftp/confirm' : include 'controllers/admin/share/ftp.php'; break;

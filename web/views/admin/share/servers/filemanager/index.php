@@ -18,7 +18,7 @@ $getWeb = $getweball->getWebaccount($domain);
                     <nav class="navbar navbar-expand-sm bg-success navbar-dark">
                       <ul class="navbar-nav mr-auto" id='dir_path'>
                         <li class="nav-item">
-                          <a class="nav-link folder_click text-white" foldername="" style="padding: 5px 0; cursor: pointer;">Home<i class="fa fa-home" aria-hidden="true"  style="padding:0 5px"></i><i class="fa fa-angle-right" style="padding:0 5px"></i></a>
+                          <a class="nav-link folder_click text-white" foldername="" style="padding: 5px 0; cursor: pointer;" webid="<?=$webid?>">Home<i class="fa fa-home" aria-hidden="true"  style="padding:0 5px"></i><i class="fa fa-angle-right" style="padding:0 5px"></i></a>
                         </li>
                       </ul>
                       <ul class="navbar-nav">
@@ -31,7 +31,12 @@ $getWeb = $getweball->getWebaccount($domain);
                     </nav>
                     <span id="common_path" path="" style="display: none;"></span>
                 <?php
-                    $dir    = 'E:/webroot/LocalUser/'.$webuser;
+                if($weborigin!=1){
+                  $dir    = 'E:/webroot/LocalUser/'.$webrootuser.'/'.$webuser;
+                }else{
+                  $dir    = 'E:/webroot/LocalUser/'.$webuser;
+                }
+                    
                     $myfiles = array_diff(scandir($dir,1), array('.', '..')); 
 
                     // $dir = '/master/files';
@@ -69,7 +74,7 @@ $getWeb = $getweball->getWebaccount($domain);
                             foreach ($directories as $key => $value) {
                             ?>
                                 <tr>
-                                  <th class="folder_click" foldername="<?= $value ?>" style="cursor: pointer;">
+                                  <th class="folder_click" foldername="<?= $value ?>" style="cursor: pointer;"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
                                     <i class="fas fa-folder text-warning fa-lg "></i> 
                                     <span><?= $value ?></span>
                                   </th>

@@ -8,7 +8,7 @@
     <div class="modal-body">
         <form action="/admin/share/servers/sites/app?confirm&webid=<?=$webid?>&act=web.config" method="post" id="web_config_fm">
             <div class="form-group">
-            <textarea class="text-white bg-dark web" name="web_config" id="webconfig" rows="25"><?php echo htmlspecialchars(getFile($webuser."/web/web.config")) ?></textarea>
+            <textarea class="text-white bg-dark web" name="web_config" id="webconfig" rows="25"><?php echo htmlspecialchars(getFile($webrootuser."/".$webuser."/web/web.config")) ?></textarea>
             </div>
         </form>
     </div>

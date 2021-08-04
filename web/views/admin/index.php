@@ -59,7 +59,7 @@
                                             <a href="/admin/share?webid=<?= $domain['id'] ?>" class="btn btn-outline-primary btn-sm" target="_blank">設定</a>
                                         </td>
                                         <td class="col-sm-2">
-                                            <span><?php if($domain['origin']!='true'){ echo sizeFormat(folderSize("E:/webroot/LocalUser/".$multidomain[0]['user']."/$domain[user]"));}else{echo sizeFormat(folderSize("E:/webroot/LocalUser/$domain[user]"));} ?></span>
+                                            <span><?php if($domain['origin']!=1){ echo sizeFormat(folderSize("E:/webroot/LocalUser/".$multidomain[0]['user']."/$domain[user]"));}else{echo sizeFormat(folderSize("E:/webroot/LocalUser/$domain[user]"));} ?></span>
                                         </td>
                                         <td class="col-sm-1">
                                             <form action="/admin/app_setting/confirm" method = "post">
@@ -83,7 +83,7 @@
 
                                         <td class="col-sm-1">
                                             <!-- <a href="delete_website.php?domainid=<?php echo $domain['id'] ?>" class="btn btn-danger btn-sm">削除</a> -->
-                                            <?php if($domain['origin']!='true'){?>
+                                            <?php if($domain['origin']!=1){?>
                                             <button type="button" class="btn btn-danger btn-sm common_dialog"  data-toggle="modal" data-target="#common_modal" gourl="/admin/multi_domain?act=delete&act_id=<?=$domain[id]?>">削除</button>
                                             <?php } ?>
                                         </td>

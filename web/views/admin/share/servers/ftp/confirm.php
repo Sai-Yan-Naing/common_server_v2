@@ -1,4 +1,5 @@
 <?php
+// die;
 include('views/admin/share/header.php');
 if(!isset($_POST['action']) || !isset($_POST['ftp_user'])){ header("location: /admin/share/servers/ftp?webid=$webid");}
 	$permission=$_POST['permission'];

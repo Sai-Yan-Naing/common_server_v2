@@ -27,7 +27,7 @@
 // 	    data: {table:$this.attr('table'),column:$this.attr('column'),checker:$this.val()}
 // 	});
 // 	$done = $ajax.done(function(data)
-// 	{	
+// 	{
 // 		callback(data);
 // 		$("#"+$this.attr("id")+"-error").remove();
 // 		if(data.status)
@@ -40,3 +40,21 @@
 // 		$this.after('<span id="'+$this.attr("id")+'-error" class="error">Internal server error</span>');
 // 	});
 // }
+$(document).on("change", "input[name='type']", function () {
+  if ($(this).val() == "MYSQL") {
+    $("#db_name").attr("table", "db_account");
+    $("#db_name").attr("remark", "mydbname");
+    $("#db_user").attr("table", "db_account");
+    $("#db_user").attr("remark", "mydbuser");
+  } else if ($(this).val() == "MSSQL") {
+    $("#db_name").attr("table", "db_account_for_mssql");
+    $("#db_name").attr("remark", "msdbname");
+    $("#db_user").attr("table", "db_account_for_mssql");
+    $("#db_user").attr("remark", "msdbuser");
+  } else {
+    $("#db_name").attr("table", "db_account_for_mariadb");
+    $("#db_name").attr("remark", "madbname");
+    $("#db_user").attr("table", "db_account_for_mariadb");
+    $("#db_user").attr("remark", "madbuser");
+  }
+});

@@ -5,7 +5,7 @@ if(!isset($_POST['action']) && !isset($_GET['for'])){header("location: /admin/sh
     $for = $_GET['for'];
     $temp = json_decode($webbasicsetting,true);
     $bass_dir = $_POST['bass_dir'];
-    $dir_path=$webuser.'/'.$bass_dir;
+    $dir_path=$webrootuser.'/'.$webuser.'/'.$bass_dir;
     if($for=='dir')
     {
         if($action == 'new')
@@ -54,7 +54,7 @@ if(!isset($_POST['action']) && !isset($_GET['for'])){header("location: /admin/sh
     }
     $_SESSION['error'] = false;
     $_SESSION['message'] = 'Success';
-    addBassman($webuser,$result);
+    addBassman($webrootuser.'/'.$webuser,$result);
     header("location: /admin/share/servers/sites/basic?webid=$webid");
     die();
 

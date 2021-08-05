@@ -8,6 +8,10 @@ $domain = $_COOKIE['domain'];
 $getweball = new Common;
 $getWeb = $getweball->getWebaccount($domain);
 $user = $getWeb['user'];
+
+// print_r('<pre>');
+// print_r($getWeb);
+// print_r('</pre>');
 // die();
 $app = $_POST["app"];
 $version = $_POST["app-version"];

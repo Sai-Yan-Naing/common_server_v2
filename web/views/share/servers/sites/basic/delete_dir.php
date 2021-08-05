@@ -1,7 +1,7 @@
 <?php
 require_once('views/common_share.php');
 $temp = json_decode($webbasicsetting);
-$dir_id = $_GET['dir_id'];
+$temp_key = $_GET['act_id'];
 ?>
 <!-- Modal Header -->
 <div class="modal-header">
@@ -10,10 +10,11 @@ $dir_id = $_GET['dir_id'];
 </div>
 <!-- Modal body -->
 <div class="modal-body">
-  <form action="/share/servers/sites/basic?confirm&for=dir" method="post" id="delete_bass_dir">
+  <form action="/share/servers/sites/basic?confirm&for=dir&webid=<?=$webid?>" method="post" id="delete_bass_dir">
     <input type="hidden" name="action" value="delete">
-    <input type="hidden" name="dir_id" value="<?= $dir_id ?>">
-    Are you sure to delete <b style="color: red"><?= $temp->$dir_id->url ?> </b> ?
+    <input type="hidden" name="dir_id" value="<?= $temp_key ?>">
+    <input type="hidden" name="bass_dir" value="<?= $temp->$temp_key->url ?>">
+    Are you sure to delete <b style="color: red"><?= $temp->$temp_key->url ?> </b> ?
       
   </form>
 </div>

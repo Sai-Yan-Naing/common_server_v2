@@ -41,20 +41,26 @@
 // 	});
 // }
 $(document).on("change", "input[name='type']", function () {
+  $action = $("#database_create").attr("action");
+  $action = $action.split("db=");
+  console.log($action);
   if ($(this).val() == "MYSQL") {
     $("#db_name").attr("table", "db_account");
     $("#db_name").attr("remark", "mydbname");
     $("#db_user").attr("table", "db_account");
     $("#db_user").attr("remark", "mydbuser");
+    $("#database_create").attr("action", $action[0] + "db=mysql");
   } else if ($(this).val() == "MSSQL") {
     $("#db_name").attr("table", "db_account_for_mssql");
     $("#db_name").attr("remark", "msdbname");
     $("#db_user").attr("table", "db_account_for_mssql");
     $("#db_user").attr("remark", "msdbuser");
+    $("#database_create").attr("action", $action[0] + "db=mssql");
   } else {
     $("#db_name").attr("table", "db_account_for_mariadb");
     $("#db_name").attr("remark", "madbname");
     $("#db_user").attr("table", "db_account_for_mariadb");
     $("#db_user").attr("remark", "madbuser");
+    $("#database_create").attr("action", $action[0] + "db=mariadb");
   }
 });

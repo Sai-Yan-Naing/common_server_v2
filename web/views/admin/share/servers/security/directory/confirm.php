@@ -1,7 +1,11 @@
 <?php
 include('views/admin/share/header.php');
 if(!isset($_POST['action']) || !isset($_POST['ftp_user'])){ header("location: /admin/share/servers/security/directory?webid=$webid"); die();}
-
+$originuser = '';
+if($weborigin!=1)
+{
+	$originuser = $webrootuser;
+}
 if(isset($_POST['action']) and $_POST['action']=='new')
 {
 	$ftp_user=$_POST['ftp_user'];
@@ -14,13 +18,13 @@ if(isset($_POST['action']) and $_POST['action']=='new')
 		require_once('views/admin/share/servers/security/directory.php');
 		die();
 	}
-	if(!createDir($webuser.'/web/'.$dir_path))
+	if(!createDir($webrootuser.'/'.$webuser.'/web/'.$dir_path))
 	{
 		$error=$ftp_user." cannot create directory.";
 		require_once('views/admin/share/servers/security/directory.php');
 		die();
 	}
-	Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/add_ftp.ps1" '. $ftp_user." ".$ftp_pass." ".$webuser.'/web/'.$dir_path." F"." new");
+	Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/ftp/add_ftp.ps1" '. $ftp_user." ".$ftp_pass." ".$webuser.'/web/'.$dir_path." F"." new ".$originuser);
 }else if(isset($_POST['action']) and $_POST['action']=='edit') {
 	 $ftp_user=$_POST['ftp_user'];
 	 $ftp_pass=$_POST['ftp_pass'];
@@ -33,7 +37,7 @@ if(isset($_POST['action']) and $_POST['action']=='new')
 		require_once('views/admin/share/servers/security/directory.php');
 		die();
 	 }
-	 Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/add_ftp.ps1" '. $ftp_user." ".$ftp_pass." ".$webuser.'/web/'.$dir_path." F"." edit");	
+	 Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/ftp/add_ftp.ps1" '. $ftp_user." ".$ftp_pass." ".$webuser.'/web/'.$dir_path." F"." edit ".$originuser);	
 }else{
 	$act_id=$_POST['act_id'];
 	$ftp_user=$_POST['ftp_user'];
@@ -45,8 +49,8 @@ if(isset($_POST['action']) and $_POST['action']=='new')
 		require_once('views/admin/share/servers/security/directory.php');
 		die();
 	}
-	Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/add_ftp.ps1" '. $ftp_user." "."noneed"." ".$webuser.'/web/'.$dir_path." "."noneed"." delete");
-	$dirname = "E:\webroot\LocalUser/$webuser/web/$dir_path";
+	Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/ftp/add_ftp.ps1" '. $ftp_user." "."noneed"." ".$webuser.'/web/'.$dir_path." "."noneed"." delete ".$originuser);
+	$dirname = "E:\webroot\LocalUser/$webrootuser/$webuser/web/$dir_path";
 	if(is_dir($dirname)){
           //Directory does not exist, so lets create it.
           // @mkdir($path, 0755, true);

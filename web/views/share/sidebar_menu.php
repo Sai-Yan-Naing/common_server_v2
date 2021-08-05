@@ -5,19 +5,19 @@
         <!--Start of Sidebar  -->
         <nav id="sidebar"  style="margin-top: 85px;">
             <ul class="list-unstyled components menu-sidebar">
-                <li class="<?php if($url[1]=='share'&& $url[2] =='' || $url[2]=='servers'){echo 'active';} ?>">
+                <li class="<?php if( strpos($url[1],'share') !==false && $url[2] =='' || $url[2]=='servers'){echo 'active';} ?>">
                     <a href="/share">
                         <span class="icon"><i class="fas fa-server"></i></span><br>
                         <span class="title">サーバー設定</span>
                     </a>
                 </li>
-                <li class="<?php if($url[2]=='mails'){echo 'active';} ?>">
+                <li class="<?php if(strpos($url[2],'mails') !==false){echo 'active';} ?>">
                     <a href="/share/mails">
                         <span class="icon"><i class="fas fa-envelope"></i></span><br>
                         <span class="title">ＭＡＩＬ設定</span>
                     </a>
                 </li>
-                <li class="<?php if($url[2]=='various'){echo 'active';} ?>">
+                <li class="<?php if(strpos($url[2],'various') !==false){echo 'active';} ?>">
                     <a href="/share/various">
                         <span class="icon"><i class="fas fa-cog"></i></span><br>
                         <span class="title">各種設定</span>

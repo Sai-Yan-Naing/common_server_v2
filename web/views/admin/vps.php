@@ -53,10 +53,10 @@
                                         <a href="/admin/vps/panel?server=vps&setting=server&tab=connection&webid=<?= $vps['id'] ?>" class="btn btn-outline-primary btn-sm" target="_blank">設定</a>
                                       </td>
                                       <td class="col-sm-2">
-                                            <form action="" method = "post">
-                                                <input type="hidden" name="app" value="site">
-                                                <input type="hidden" name="domain" value="">
-                                                <input type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="起動" data-off="停止" data-size="sm" <?php   ?> name='onoff'>
+                                            <form action="/admin/vps-confirm" method = "post">
+                                                <input type="hidden" name="confirm" value="post">
+                                                <input type="hidden" name="act_id" value="<?= $vps['id'] ?>">
+                                                <input type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="起動" data-off="停止" data-size="sm" name='onoff'   <?php if($vps['active']!=0){echo "checked";}  ?>  onchange="this.form.submit()">
                                             </form>
                                       </td>
                                       <td class="col-sm-2">

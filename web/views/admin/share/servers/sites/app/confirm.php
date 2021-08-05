@@ -50,12 +50,12 @@ $webappversion = json_decode($webappversion);
 
 function phpiniset($webuser)
 {?>
-    <textarea type="text" class="form-control" rows="5" cols="30" readonly><?= getFile($webrootuser."/".$webuser."/web/.user.ini")?>
+    <textarea type="text" class="form-control" rows="5" cols="30" readonly><?= getFile($webuser."/web/.user.ini")?>
                                         </textarea>
 <?php }
 function webconfigset($webuser)
 {?>
-    <textarea type="text" class="form-control" rows="5" cols="30" readonly><?= getFile($webrootuser."/".$webuser."/web/web.config")?>
+    <textarea type="text" class="form-control" rows="5" cols="30" readonly><?= getFile($webuser."/web/web.config")?>
                                         </textarea>
 <?php }
 ?>

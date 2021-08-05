@@ -17,7 +17,7 @@
                         <span class="title">ＭＡＩＬ設定</span>
                     </a>
                 </li>
-                <li class="<?php if($url[2]=='various'){echo 'active';} ?>">
+                <li class="<?php if(strpos($url[2],'various') !==false){echo 'active';} ?>">
                     <a href="/share/various">
                         <span class="icon"><i class="fas fa-cog"></i></span><br>
                         <span class="title">各種設定</span>

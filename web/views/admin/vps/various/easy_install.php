@@ -53,9 +53,9 @@
                                 </div>
                             </div>   
                             <div class="form-group row">
-                                <div class="col-sm-4"><button class="btn btn-primary">2016</button></div>
-                                <div class="col-sm-4"><button class="btn btn-primary">2018</button></div>
-                                <div class="col-sm-4"><button class="btn btn-primary">2019</button></div>
+                                <div class="col-sm-4"><button class="btn btn-sm btn-primary">2016</button></div>
+                                <div class="col-sm-4"><button class="btn btn-sm btn-primary">2018</button></div>
+                                <div class="col-sm-4"><button class="btn btn-sm btn-primary">2019</button></div>
                             </div>                              
                         </div>
                     </div>

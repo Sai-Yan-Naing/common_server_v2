@@ -92,7 +92,8 @@
 							  	}
 							  	 ?>
 							  </tbody>
-							</table>                            
+							</table>  
+                     
 							<div class="conButton">
                                 <!-- <a href="add_multi_domain.php" class="domainAdd btn btn-outline-primary btn-sm" role="button">マルチドメイン追加</a> -->
 								<button class="domainAdd btn btn-outline-primary btn-sm common_modal"  data-toggle="modal" data-target="#common_modal" gourl="/admin/multi_domain?act=new">マルチドメイン追加</button>

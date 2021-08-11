@@ -43,12 +43,12 @@
                             		<input type="text" class="form-control" name="" readonly="">
                             	</div>
                             	<div class="col-sm-3">
-                            		<span class="btn btn-success">
+                            		<span class="btn btn-sm btn-success">
                             			変更
                             		</span>
                             	</div>
                             	<div class="col-sm-3">
-                            		<span class="btn btn-success">
+                            		<span class="btn btn-sm btn-success">
                             			デフォルトに戻す
                             		</span>
                             	</div>
@@ -61,12 +61,12 @@
                             		<input type="text" class="form-control" name="" readonly="">
                             	</div>
                             	<div class="col-sm-3">
-                            		<span class="btn btn-success">
+                            		<span class="btn btn-sm btn-success">
                             			変更
                             		</span>
                             	</div>
                             	<div class="col-sm-3">
-                            		<span class="btn btn-success">
+                            		<span class="btn btn-sm btn-success">
                             			デフォルトに戻す
                             		</span>
                             	</div>
@@ -83,12 +83,12 @@
                             		<input type="text" class="form-control" name="" readonly="">
                             	</div>
                             	<div class="col-sm-3">
-                            		<span class="btn btn-success">
+                            		<span class="btn btn-sm btn-success">
                             			変更
                             		</span>
                             	</div>
                             	<div class="col-sm-3">
-                            		<span class="btn btn-success">
+                            		<span class="btn btn-sm btn-success">
                             			デフォルトに戻す
                             		</span>
                             	</div>
@@ -101,12 +101,12 @@
                             		<input type="text" class="form-control" name="" readonly="">
                             	</div>
                             	<div class="col-sm-3">
-                            		<a href="" class="btn btn-success text-white">
+                            		<a href="" class="btn btn-sm btn-success text-white">
                             			変更 
                             		</a>
                             	</div>
                             	<div class="col-sm-3">
-                            		<a href="" class="btn btn-success text-white">
+                            		<a href="" class="btn btn-sm btn-success text-white">
                             			デフォルトに戻す
                             		</a>
                             	</div>

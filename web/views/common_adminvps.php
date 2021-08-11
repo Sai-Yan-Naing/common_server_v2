@@ -13,6 +13,6 @@ $commons = new Common;
 $web_acc = $commons->getRow("SELECT * FROM vps_account WHERE id='$_GET[webid]' AND customer_id='$_COOKIE[admin]'");
 $webid = $web_acc['id'];
 $webip = $web_acc['ip'];
-$webuser = $web_acc['username'];
+$webvm_name = $web_acc['instance'];
 $webpass = $web_acc['password'];
 ?>

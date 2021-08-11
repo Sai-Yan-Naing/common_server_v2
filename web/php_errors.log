@@ -1,0 +1,27 @@
+[04-Jun-2021 09:36:41 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1049] Unknown database 'japan_system_development_v2' in E:\webroot\LocalUser\assistup\web\models\common.php:23
+Stack trace:
+#0 E:\webroot\LocalUser\assistup\web\models\common.php(23): PDO->__construct()
+#1 E:\webroot\LocalUser\assistup\web\views\admin\share\header.php(13): Common->getWebaccountById()
+#2 E:\webroot\LocalUser\assistup\web\views\admin\share\index.php(2): require_once('E:\\webroot\\Loca...')
+#3 E:\webroot\LocalUser\assistup\web\index.php(33): include('E:\\webroot\\Loca...')
+#4 {main}
+  thrown in E:\webroot\LocalUser\assistup\web\models\common.php on line 23
+[04-Jun-2021 09:36:59 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1049] Unknown database 'japan_system_development_v2' in E:\webroot\LocalUser\assistup\web\models\common.php:23
+Stack trace:
+#0 E:\webroot\LocalUser\assistup\web\models\common.php(23): PDO->__construct()
+#1 E:\webroot\LocalUser\assistup\web\views\admin\share\header.php(13): Common->getWebaccountById()
+#2 E:\webroot\LocalUser\assistup\web\views\admin\share\index.php(2): require_once('E:\\webroot\\Loca...')
+#3 E:\webroot\LocalUser\assistup\web\index.php(33): include('E:\\webroot\\Loca...')
+#4 {main}
+  thrown in E:\webroot\LocalUser\assistup\web\models\common.php on line 23
+[04-Jun-2021 09:37:38 UTC] PHP Warning:  session_start(): open_basedir restriction in effect. File(C:\WINDOWS\TEMP) is not within the allowed path(s): (E:\webroot\LocalUser\) in E:\webroot\LocalUser\assistup\web\models\account.php on line 2
+[04-Jun-2021 09:37:38 UTC] PHP Warning:  session_start(): Failed to initialize storage module: files (path: ) in E:\webroot\LocalUser\assistup\web\models\account.php on line 2
+[04-Jun-2021 09:37:43 UTC] PHP Warning:  session_start(): open_basedir restriction in effect. File(C:\WINDOWS\TEMP) is not within the allowed path(s): (E:\webroot\LocalUser\) in E:\webroot\LocalUser\assistup\web\models\account.php on line 2
+[04-Jun-2021 09:37:43 UTC] PHP Warning:  session_start(): Failed to initialize storage module: files (path: ) in E:\webroot\LocalUser\assistup\web\models\account.php on line 2
+[04-Jun-2021 09:37:49 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1049] Unknown database 'japan_system_development_v2' in E:\webroot\LocalUser\assistup\web\models\common.php:5
+Stack trace:
+#0 E:\webroot\LocalUser\assistup\web\models\common.php(5): PDO->__construct()
+#1 E:\webroot\LocalUser\assistup\web\views\share\database\mariadb.php(9): Common->getWebaccount()
+#2 E:\webroot\LocalUser\assistup\web\index.php(100): include('E:\\webroot\\Loca...')
+#3 {main}
+  thrown in E:\webroot\LocalUser\assistup\web\models\common.php on line 5

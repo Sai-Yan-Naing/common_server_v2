@@ -1,4 +1,5 @@
-<?php if(!isset($_COOKIE['domain'])){header('location: login');} ?>
+<?php session_start(); ?>
+<?php require_once('views/common_share.php'); ?>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <head>
@@ -36,7 +37,7 @@
 			<p id="logo"><a href="/share"><img src="<?= call_ass() ?>img/common/header/logo.png" width="135" height="30" alt="Winserver" /></a></p>
 			<ul id="subNavMenu">
 				<li>
-					<form action="<?= call_ass() ?>logout" method="get" />
+					<form action="<?= call_ass() ?>logout" method="post" />
 					<input type="hidden" name="user" value="domain">
 					<input type="submit" value="ログアウト" id="logout" />
 					</form>
@@ -45,7 +46,13 @@
 		</div>
 	</div>
 </div>
-
+<?php 
+if(isset($_SESSION['message']))
+{?>
+<div class="message_box <?php echo ($_SESSION['error'])?'text-danger':'text-success';  ?>">
+	<?= $_SESSION['message']; ?>
+</div>
+<?php } ?>
 <?php 
  function call_ass()
  {

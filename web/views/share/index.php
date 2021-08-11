@@ -24,13 +24,13 @@
                             <a href="/share/servers/sites/basic" class="nav-link">基本設定</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/share/servers/sites/application" class="nav-link">応用設定</a>
+                            <a href="/share/servers/sites/app" class="nav-link">応用設定</a>
                         </li>
                     </ul>
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div id="page-body" class="tab-pane active pr-3 pl-3"><br>
-                            <form action="/share/appinstall" method="post" />
+                            <form action="/share/appinstall" method="post" id="app_install_form" />
                                 <div class="form-group row">
                                     <label for="application" class="col-sm-3 col-form-label">アプリケーション</label>
                                     <div class="col-sm-8">
@@ -102,7 +102,7 @@
                                     <label for="database" class="col-sm-3 col-form-label">データベース</label>
                                     <label for="db-name" class="col-sm-3 col-form-label">データベース名</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="db_name" name="db_name" placeholder="データベース名">
+                                        <input type="text" class="form-control" id="db_name" name="db_name" placeholder="データベース名"  column="db_user" table="db_account" remark="mydbname">
                                         <label for="db_name" id="db_name_ex_error" class="error"></label>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                     <div class="col-sm-3"></div>
                                     <label for="db_user" class="col-sm-3 col-form-label">ユーザー名</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="db_user" name="db_user" placeholder="ユーザー名">
+                                        <input type="text" class="form-control" id="db_user" name="db_user" placeholder="ユーザー名"  column="db_user" table="db_account" remark="mydbuser">
                                         <label for="db_user" id="db_user_ex_error" class="error"></label>
                                     </div>
                                 </div>

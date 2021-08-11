@@ -37,8 +37,6 @@ class Backup
 			$data = $stmt1->fetch(PDO::FETCH_ASSOC);
 			return $data;
 	}
-
-	
 	
 }
 

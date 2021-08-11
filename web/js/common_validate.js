@@ -1,66 +1,66 @@
-// Admin page
+// $(document).on('focusout','.checkit',function(){
+// 	$this = $(this);
+// 	if($this.val() == null || $this.val() =='') return;
+// 	var regex = /^([a-zA-Z0-9_.+-])+(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+// 	if($this.attr('id') =='domain' && !regex.test($this.val())) return;
+// 	// alert(1)
 
-$(document).on("submit","#add_multiple_domain",function(){
-	data = synJsonMsg().add_multiple_domain;
-		// data1 = JSON.parse(synJsonMsg());
-		console.log(data)
-	$required_id=[];
-	$required_msg=[];
+// 	$url = document.URL.split('/');
+// 	$url=$url[0]+"//"+$url[2];
+// 	checkIt($this,function(data){
+// 		if(data.status)
+// 		{
+// 			console.log('ok')
+// 		}else{
+// 			console.log('no')
+// 		}
+// 	});
+// });
 
-	$min_id=[];
-	$min_length=[];
-	$min_msg=[];
-
-	$max_id=[];
-	$max_length=[];
-	$max_msg=[];
-	$.each(data, function(key, value) {
-		if(value['required'])
-		{
-			$required_id.push(key);
-	  		$required_msg.push(data[key]['message']['required']);
-		}
-
-		if(data[key]['min'] !==undefined)
-		{
-			$min_id.push(key);
-			$min_length.push(data[key]['min'])
-			$min_msg.push(value['message']['min'])
-		}
-
-		if(data[key]['max'] !==undefined)
-		{
-			$max_id.push(key);
-			$max_length.push(key['max'])
-			$max_msg.push(value['message']['max'])
-		}
-	  
-	  // console.log(value['min'])
-	});
-
-	// $required_id=[$domain,$web_dir,$ftp_user,$password];
-	// $required_msg=[$domain_required,$web_dir_required,$ftp_user_required,$password_required];
-
-	// $min_id=[$web_dir,$ftp_user,$password];
-	// $min_length=[$web_dir_minlength,$ftp_user_minlength,$password_minlength];
-	// $min_msg=[$web_dir_minmessage,$ftp_user_minmessage,$password_minmessage];
-
-	// $max_id=[$web_dir,$ftp_user,$password];
-	// $max_length=[$web_dir_maxlength,$ftp_user_maxlength,$password_maxlength];
-	// $max_msg=[$web_dir_maxmessage,$ftp_user_maxmessage,$password_maxmessage];
-	$var1 = required($required_id,$required_msg)
-	$var2 = minLength($min_id,$min_length,$min_msg)
-	$var3 = maxLength($max_id,$max_length,$max_msg)
-	if($var1 || $var2 || $var3)
-	{
-		return false;
-	}
-
-	return false;
+// function checkIt($this,callback)
+// {
+// 	$this.after('<span id="'+$this.attr("id")+'-error" class="text-primary">Loading......</span>');
+// 	var $ajax = $.ajax({
+// 	    type: "POST",
+// 	    url: $url+"/validate",
+// 		dataType: 'JSON',
+// 	    data: {table:$this.attr('table'),column:$this.attr('column'),checker:$this.val()}
+// 	});
+// 	$done = $ajax.done(function(data)
+// 	{
+// 		callback(data);
+// 		$("#"+$this.attr("id")+"-error").remove();
+// 		if(data.status)
+// 		{
+// 			$this.after('<span id="'+$this.attr("id")+'-error" class="error">'+$this.val()+' is not available</span>');
+// 		}
+// 	})
+// 	$fail = $ajax.fail(function()
+// 	{
+// 		$this.after('<span id="'+$this.attr("id")+'-error" class="error">Internal server error</span>');
+// 	});
+// }
+$(document).on("change", "input[name='type']", function () {
+  $action = $("#database_create").attr("action");
+  $action = $action.split("db=");
+  console.log($action);
+  if ($(this).val() == "MYSQL") {
+    $("#db_name").attr("table", "db_account");
+    $("#db_name").attr("remark", "mydbname");
+    $("#db_user").attr("table", "db_account");
+    $("#db_user").attr("remark", "mydbuser");
+    $("#database_create").attr("action", $action[0] + "db=mysql");
+  } else if ($(this).val() == "MSSQL") {
+    $("#db_name").attr("table", "db_account_for_mssql");
+    $("#db_name").attr("remark", "msdbname");
+    $("#db_user").attr("table", "db_account_for_mssql");
+    $("#db_user").attr("remark", "msdbuser");
+    $("#database_create").attr("action", $action[0] + "db=mssql");
+  } else {
+    $("#db_name").attr("table", "db_account_for_mariadb");
+    $("#db_name").attr("remark", "madbname");
+    $("#db_user").attr("table", "db_account_for_mariadb");
+    $("#db_user").attr("remark", "madbuser");
+    $("#database_create").attr("action", $action[0] + "db=mariadb");
+  }
 });
-
-
-
-
-
-     

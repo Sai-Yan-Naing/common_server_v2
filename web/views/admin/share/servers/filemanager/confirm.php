@@ -1,5 +1,6 @@
 
 <?php
+die('hello');
 require_once('views/common_adminshare.php');
 // require_once('common/common.php');
 // require_once("config/all.php");
@@ -17,7 +18,7 @@ require_once('views/common_adminshare.php');
 // using unlike() function 
    
 // $file_pointer = "E:\webroot\LocalUser\New Text Document.txt";
-// die($_POST['foldername']);
+die($_POST['foldername']);
 if($weborigin!=1){
     $dir = "E:\webroot\LocalUser/".$webrootuser.'/'.$webuser.'/';
     $dir2 = "E:\webroot\LocalUser/".$webrootuser.'/'.$webuser; 

@@ -3,7 +3,7 @@ require_once('views/common_adminshare.php');
 ?>
 <!-- Modal Header -->
 <div class="modal-header">
-  <h4 class="modal-title">Create Database</h4>
+  <h4 class="modal-title">データベース追加</h4>
   <button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 <!-- Modal body -->

@@ -128,6 +128,11 @@ $(document).on("change", "#upload_", function () {
 
 $(function () {
   $("#upload_newfile,#fm_common_modal_form").on("submit", function (e) {
+    if($("#upload_").val()=='' || $("#upload_").val()==null)
+    {
+      alert('Empty File cannot upload');
+    return false;
+    }
     if ($(this).attr("action") == "upload") {
       $size = $("#upload_")[0].files[0].size;
       if ($size > 2097152) {
@@ -135,25 +140,23 @@ $(function () {
         return false;
       }
     }
-    e.preventDefault();
     $url = document.URL.split("/");
     $url = $url[0] + "//" + $url[2];
-    $re_url = $(this).attr("re_url");
+    $gourl = $(this).attr("gourl");
+    $url = $url + $gourl;
     $action = $(this).attr("action");
     $common_path = $("#common_path").attr("path");
     $name = $(this).children().children("input").val();
     $modal = $(this).attr("modal");
 
     $this = $(this);
-
     $formdata = new FormData(this);
     $formdata.append("common_path", $common_path);
     $formdata.append("action", $action);
-    // alert($modal)
     //  event.preventDefault();
     $.ajax({
       type: "POST",
-      url: $url + "/share/servers/filemanager/confirm",
+      url: $url,
       data: $formdata,
       contentType: false,
       cache: false,
@@ -164,7 +167,6 @@ $(function () {
       },
       // data: {common_path:$common_path,name:$name, action:'upload'},
       success: function (data) {
-        // alert(data)
         document.getElementById("changebody").innerHTML = data;
         $($this).trigger("reset");
         $(".download_file").each(function (i, obj) {

@@ -158,7 +158,7 @@ $getWeb = $getweball->getWebaccount($domain);
             </button>
           </div>
           <div class="modal-body">
-            <form re_url="filemanager_confirm" action="upload" modal="upload_file" method="post" enctype="multipart/form-data" id="upload_newfile" style="position: relative;">
+            <form gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>" action="upload" modal="upload_file" method="post" enctype="multipart/form-data" id="upload_newfile" style="position: relative;">
               <label class="ps_absolute">Drag and Drop File here</label>
               <div style="position: relative; height: 200px">
                 <input type="file" class="form-control" name="fileToUpload" id="upload_">

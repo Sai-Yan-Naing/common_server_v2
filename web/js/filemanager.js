@@ -26,15 +26,16 @@ $(document).on("click", ".open_file", function () {
   $file_name = $(this).attr("file_name");
   var extension = $file_name.substr($file_name.lastIndexOf(".") + 1);
   var fileExtension = ["html", "css", "php", "js", "txt"];
-  $re_url = $(this).attr("re_url");
   $url = document.URL.split("/");
   $url = $url[0] + "//" + $url[2];
+  $gourl = $(this).attr("gourl");
+  $url = $url + $gourl;
   $common_path = $("#common_path").attr("path");
   if (fileExtension.indexOf(extension) > -1) {
     document.getElementById("file_open").innerHTML = $("#display_modal").html();
     $.ajax({
       type: "POST",
-      url: $url + "/share/servers/filemanager/confirm",
+      url: $url,
       data: {
         file_name: $file_name,
         common_path: $common_path,
@@ -52,15 +53,15 @@ $(document).on("click", ".open_file", function () {
 $(document).on("click", "#save_file", function () {
   $text_editor_open = $("#text_editor_open").val();
   $openfile_name = $(this).attr("file_name");
-  $re_url = $(this).attr("re_url");
   $url = document.URL.split("/");
   $url = $url[0] + "//" + $url[2];
-  // alert($openfile_name)
+  $gourl = $(this).attr("gourl");
+  $url = $url + $gourl;
   $common_path = $("#common_path").attr("path");
 
   $.ajax({
     type: "POST",
-    url: $url + "/share/servers/filemanager/confirm",
+    url: $url,
     data: {
       text_editor_open: $text_editor_open,
       openfile_name: $openfile_name,
@@ -68,8 +69,7 @@ $(document).on("click", "#save_file", function () {
       action: "save_file",
     },
     success: function (data) {
-      alert(data);
-      // document.getElementById("file_open").innerHTML = data;
+      alert("successfull saved");
     },
   });
 });

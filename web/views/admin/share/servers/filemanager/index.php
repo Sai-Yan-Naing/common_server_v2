@@ -113,7 +113,7 @@ $getWeb = $getweball->getWebaccount($domain);
                                     <?php echo sizeFormat(filesize($dir.'/'.$value)) ?>
                                   </th>
                                   <th class="d-flex justify-content-end" colspan="2">
-                                    <a href="filemanager_confirm.php?download=<?=$value?>&common_path=" class="btn text-success download_file">
+                                    <a href="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>&download=<?=$value?>&common_path=" class="btn text-success download_file">
                                       <i class="fa fa-download"></i>
                                     </a>
                                     <button class="btn text-success fm_common_c" action="zip"  file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">

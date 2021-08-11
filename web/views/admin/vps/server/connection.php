@@ -52,18 +52,6 @@
                             <div class="mb-4">
                                 <span>月次のキャンペーン内容をテキストで表示（顧客DBから参照）バナーはしつこいのでなし。テキストのみ</span>
                             </div>
-                            <div>
-                                <h6>Datas from mssql database</h6>
-                                <?php
-                                    $host = "localhost";
-                                    $username = "sa";
-                                    $password = "welcome123";
-                                    $database = "master";
-
-                                    mssql_connect($host, $username, $password);
-                                    mssql_select_db($database);
-                                ?>
-                            </div>
                         </div>
                     </div>
                 </div>

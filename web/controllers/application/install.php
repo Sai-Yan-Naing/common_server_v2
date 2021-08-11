@@ -1,13 +1,6 @@
 <?php
 include('views/share/header.php');
 require_once('models/mysql.php');
-require_once "common/common.php";
-require_once('models/common.php');
-$domain = $_COOKIE['domain'];
-$getweball = new Common;
-$getWeb = $getweball->getWebaccount($domain);
-$user = $getWeb['user'];
-// die();
 $app = $_POST["app"];
 $version = $_POST["app-version"];
 $url = $_POST["url"];

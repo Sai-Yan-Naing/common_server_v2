@@ -88,7 +88,7 @@ switch ($request['path']) {
     case '/share/servers/sites/basic' : include 'views/share/servers/sites/basic.php'; break;
     case "/share/servers/sites/app" : include 'views/share/servers/sites/app.php'; break;
     // controller
-    case '/change/app_version' : include 'controllers/application/app_version.php'; break;
+    case '/change/app_version' : include 'controllers/application/app_version.php'; break;
     case '/share/appinstall' : include 'controllers/application/install.php'; break;
     /*----------------- end sites setting ------------------*/
 

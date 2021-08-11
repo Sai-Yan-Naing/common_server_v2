@@ -1,14 +1,14 @@
 $(document).on("click", ".delete_filedir", function () {
   $path = $(this).attr("path");
-  $re_url = $(this).attr("re_url");
   $url = document.URL.split("/");
   $url = $url[0] + "//" + $url[2];
-
+  $gourl = $(this).attr("gourl");
+  $url = $url + $gourl;
   $common_path = $("#common_path").attr("path");
   $action = $(this).attr("action");
   $.ajax({
     type: "POST",
-    url: $url + "/share/servers/filemanager/confirm",
+    url: $url,
     data: { path: $path, common_path: $common_path, action: $action },
     success: function (data) {
       // alert(data)
@@ -128,12 +128,23 @@ $(document).on("change", "#upload_", function () {
 
 $(function () {
   $("#upload_newfile,#fm_common_modal_form").on("submit", function (e) {
-    if($("#upload_").val()=='' || $("#upload_").val()==null)
-    {
-      alert('Empty File cannot upload');
-    return false;
-    }
+    // var empty = true;
+    // $("input").each(function () {
+    //   if ($(this).val() != "") {
+    //     alert(1);
+    //     empty = false;
+    //     return false;
+    //   }
+    // });
+    // if (empty == true) {
+    //   alert("Invalid");
+    //   return false;
+    // }
     if ($(this).attr("action") == "upload") {
+      if ($("#upload_").val() == "" || $("#upload_").val() == null) {
+        alert("Empty File cannot upload");
+        return false;
+      }
       $size = $("#upload_")[0].files[0].size;
       if ($size > 2097152) {
         alert("File size is greater than 2MB");
@@ -175,6 +186,7 @@ $(function () {
         });
       },
     });
+    return false;
   });
 });
 

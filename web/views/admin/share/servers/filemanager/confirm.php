@@ -1,6 +1,6 @@
 
 <?php
-die('hello');
+// die('hello');
 require_once('views/common_adminshare.php');
 // require_once('common/common.php');
 // require_once("config/all.php");
@@ -18,7 +18,6 @@ require_once('views/common_adminshare.php');
 // using unlike() function 
    
 // $file_pointer = "E:\webroot\LocalUser\New Text Document.txt";
-die($_POST['foldername']);
 if($weborigin!=1){
     $dir = "E:\webroot\LocalUser/".$webrootuser.'/'.$webuser.'/';
     $dir2 = "E:\webroot\LocalUser/".$webrootuser.'/'.$webuser; 
@@ -269,7 +268,7 @@ function open_file($dir,$file_name)
 	?>
 
 		<div class="modal-header">
-            <button type="button" class="btn btn-success mr-3" id="save_file" file_name="<?= $file_name ?>"  re_url="filemanager_confirm">Save</button>
+            <button type="button" class="btn btn-success mr-3" id="save_file" file_name="<?= $file_name ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">Save</button>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -409,12 +408,12 @@ function uncompressed($from, $to)
        	  </th>
           <th class="d-flex justify-content-end" colspan="2">
           	<span class=""></span>
-            <button class="btn text-success fm_common_c" action="zip"  data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" re_url="filemanager_confirm">
+            <button class="btn text-success fm_common_c" action="zip"  data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
               Zip
             </button>
-            <button class="btn text-success fm_common_c" action="rename" file="dir" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" re_url="filemanager_confirm">Rename
+            <button class="btn text-success fm_common_c" action="rename" file="dir" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">Rename
             </button>
-          	<button class="btn text-danger delete_filedir" re_url="filemanager_confirm" path="<?=$value?>" action="delete_dir">
+          	<button class="btn text-danger delete_filedir" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>" path="<?=$value?>" action="delete_dir">
           		<i class="far fa-trash-alt"></i>
           	</button>
           </th>
@@ -425,7 +424,7 @@ function uncompressed($from, $to)
         foreach ($files_list as $key => $value) {
             ?>
             <tr>
-              <th class="open_file" style="cursor: pointer;" data-toggle="modal" <?php if (in_array(getFileExt($dir.'/'.$value), $ext)){ echo 'data-target="#open_file"'; } ?> file_name="<?= $value ?>" re_url="filemanager_confirm">
+              <th class="open_file" style="cursor: pointer;" data-toggle="modal" <?php if (in_array(getFileExt($dir.'/'.$value), $ext)){ echo 'data-target="#open_file"'; } ?> file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
               	<div><i class="fas fa-file text-secondary fa-lg"></i> <?= $value ?></div>
               </th>
               <th>
@@ -441,21 +440,21 @@ function uncompressed($from, $to)
               	<a href="filemanager_confirm.php?download=<?=$value?>" class="btn text-success download_file">
               		<i class="fa fa-download"></i>
               	</a>
-                <button class="btn text-success fm_common_c" action="zip"  data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" re_url="filemanager_confirm">
+                <button class="btn text-success fm_common_c" action="zip"  data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
                   Zip
                 </button>
                 <?php 
                   if(getFileExt($dir.'/'.$value)=="zip")
                   {?>
-                    <button  class="btn text-success fm_common_c" action="unzip" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" re_url="filemanager_confirm">
+                    <button  class="btn text-success fm_common_c" action="unzip" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
                     UnZip
                   </button>
                  <?php 
                   }
                   ?>
-                <button class="btn text-success fm_common_c" action="rename" file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" re_url="filemanager_confirm">Rename
+                <button class="btn text-success fm_common_c" action="rename" file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">Rename
                 </button>
-                <button class="btn text-danger delete_filedir" re_url="filemanager_confirm" path="<?=$value?>" action="delete_file">
+                <button class="btn text-danger delete_filedir" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>" path="<?=$value?>" action="delete_file">
                 	<i class="far fa-trash-alt"></i>
                 </button>
             </th>

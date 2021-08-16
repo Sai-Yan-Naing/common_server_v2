@@ -15,4 +15,6 @@ $webid = $web_acc['id'];
 $webip = $web_acc['ip'];
 $webuser = $web_acc['username'];
 $webpass = $web_acc['password'];
+$webpass = $web_acc['password'];
+$webactive = $web_acc['active'];
 ?>

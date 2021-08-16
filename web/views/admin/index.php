@@ -77,8 +77,11 @@
                                         </td>
 
                                         <td class="col-sm-2">
-                                            <a href="/admin/servers/sitebinding?id=<?=$domain[id]?>&act=new&site=<?=$domain[user]?>" class="btn btn-success btn-sm text-white">追加</a>
-                                            <a href="/admin/servers/sitebinding?id=<?=$domain[id]?>&act=delete&site=<?=$domain[user]?>" class="btn btn-danger btn-sm text-white">削除</a>
+                                            <?php if($domain['sitebinding']==0){?>
+                                            <a href="/admin/servers/sitebinding?act_id=<?=$domain[id]?>&act=new&site=<?=$domain[user]?>" class="btn btn-success btn-sm text-white">追加</a>
+                                            <?php }else{ ?>
+                                            <a href="/admin/servers/sitebinding?act_id=<?=$domain[id]?>&act=delete&site=<?=$domain[user]?>" class="btn btn-danger btn-sm text-white">削除</a>
+                                            <?php } ?>
                                         </td>
 
                                         <td class="col-sm-1">
@@ -92,7 +95,8 @@
 							  	}
 							  	 ?>
 							  </tbody>
-							</table>                            
+							</table>  
+                     
 							<div class="conButton">
                                 <!-- <a href="add_multi_domain.php" class="domainAdd btn btn-outline-primary btn-sm" role="button">マルチドメイン追加</a> -->
 								<button class="domainAdd btn btn-outline-primary btn-sm common_modal"  data-toggle="modal" data-target="#common_modal" gourl="/admin/multi_domain?act=new">マルチドメイン追加</button>

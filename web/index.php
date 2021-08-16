@@ -76,9 +76,13 @@ switch ($request['path']) {
     case '/admin/vps-confirm' : include 'views/admin/vps_confirm.php'; break;
     case '/admin/vps-delete' : include 'views/admin/vps_delete.php'; break;
     case '/admin/vps/panel' : include 'views/admin/vps/index.php'; break;
+    case '/admin/vps/onoff_confirm' : include 'views/admin/vps/onoff_confirm.php'; break;
     case '/admin/vps/backup/new' : include 'views/admin/vps/various/backup/new.php'; break;
     case '/admin/vps/backup/delete' : include 'views/admin/vps/various/backup/delete.php'; break;
+    case '/admin/vps/backup/restore' : include 'views/admin/vps/various/backup/restore.php'; break;
     case '/admin/vps/backup/confirm' : include 'views/admin/vps/various/backup/confirm.php'; break;
+    case '/admin/vps/option/confirm' : include 'views/admin/vps/various/option/confirm.php'; break;
+    case '/admin/vps/option/license_confirm' : include 'views/admin/vps/various/option/license_confirm.php'; break;
 
 // ++++++++++++++++++++++++++++++ end vps +++++++++++++++++
 

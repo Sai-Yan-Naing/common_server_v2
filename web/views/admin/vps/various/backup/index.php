@@ -72,8 +72,8 @@
                                     <td><?= $vps_backup['name'] ?></td>
                                     <td><?= $vps_backup['date'] ?></td>
                                     <td>
-                                        <button data-toggle="modal" data-target="#common_modal" class="btn btn-warning btn-sm"  gourl="/admin/share/various/backup?act=restore&webid=<?=$webid?>">リストア</button>
-                                        <button  data-toggle="modal" data-target="#common_modal" class="btn btn-danger btn-sm common_dialog"  gourl="/admin/vps/backup/delete?server=vps&setting=various&tab=backup&actn=delete&act_id=<?=$vps_backup[id]?>&webid=<?=$webid?>"><i class="fas fa-trash text-white"></i></button>
+                                        <button data-toggle="modal" data-target="#common_modal" class="btn btn-warning btn-sm common_dialog"  gourl="/admin/vps/backup/restore?server=vps&setting=various&tab=backup&act=restore&act_id=<?=$vps_backup[id]?>&webid=<?=$webid?>">リストア</button>
+                                        <button  data-toggle="modal" data-target="#common_modal" class="btn btn-danger btn-sm common_dialog"  gourl="/admin/vps/backup/delete?server=vps&setting=various&tab=backup&act=delete&act_id=<?=$vps_backup[id]?>&webid=<?=$webid?>"><i class="fas fa-trash text-white"></i></button>
                                     </td>
                                   </tr>
                                   <?php } ?>

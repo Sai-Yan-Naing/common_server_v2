@@ -14,7 +14,7 @@
             <div class="row">
                 <?php require("setting_menu.php") ?>
                 <div class="col-sm-9">
-                    <h3 class="win-cpanel fs-1 text-center font-weight-bold p-2">Winserver Share Control Panel</h3>
+                <h3 class="win-cpanel fs-1 text-center p-2">Winserver Share Control Panel</h3>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
@@ -71,7 +71,7 @@
                                 <div class="form-group row">
                                     <label for="url" class="col-sm-3 col-form-label">URL</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="url" name="url" placeholder="http(s)://ドメイン名/入力は任意">
+                                        <input type="text" class="form-control" id="url" name="url" placeholder="http(s)://ドメイン名/入力は任意" value="http://<?=$webdomain?>/">
                                     </div>
                                 </div>
                                 <div class="form-group row">

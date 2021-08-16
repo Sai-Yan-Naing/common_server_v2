@@ -15,4 +15,6 @@ $webid = $web_acc['id'];
 $webip = $web_acc['ip'];
 $webvm_name = $web_acc['instance'];
 $webpass = $web_acc['password'];
+$webpass = $web_acc['password'];
+$webactive = $web_acc['active'];
 ?>

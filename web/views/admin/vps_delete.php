@@ -19,7 +19,7 @@ $getRow = $commons->getRow($query);
     <input type="hidden" name="action" value="delete">
     <input type="hidden" name="act_id" value="<?= $getRow['id'] ?>">
     <input type="hidden" name="vm_name" value="<?= $getRow['instance'] ?>">
-    Are you sure to delete <b style="color: red"><?= $getRow['instance'] ?> </b> ?
+    Are you sure to delete <b style="color: red"><?= $getRow['ip'] ?> </b> ?
       
   </form>
 </div>

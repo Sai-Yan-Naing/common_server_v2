@@ -18,20 +18,25 @@ $getWeb = $getweball->getWebaccount($domain);
                     <nav class="navbar navbar-expand-sm bg-success navbar-dark">
                       <ul class="navbar-nav mr-auto" id='dir_path'>
                         <li class="nav-item">
-                          <a class="nav-link folder_click text-white" foldername="" style="padding: 5px 0; cursor: pointer;">Home<i class="fa fa-home" aria-hidden="true"  style="padding:0 5px"></i><i class="fa fa-angle-right" style="padding:0 5px"></i></a>
+                          <a class="nav-link folder_click text-white" foldername="" style="padding: 5px 0; cursor: pointer;"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">Home<i class="fa fa-home" aria-hidden="true"  style="padding:0 5px"></i><i class="fa fa-angle-right" style="padding:0 5px"></i></a>
                         </li>
                       </ul>
                       <ul class="navbar-nav">
                         <li class="mr-3" style="cursor: pointer;"><a data-toggle="modal" data-target="#upload_file"><i class="fas fa-upload text-light fa-lg"></i></a></li>
-                        <li class="mr-3" style="cursor: pointer;"><a class="fm_common_c" action="newDir"  data-toggle="modal" data-target="#fm_common_modal" file_name="" re_url="filemanager_confirm"><i class="fas fa-folder text-warning fa-lg"></i></a></li>
-                        <li class="mr-3" style="cursor: pointer;"><a class="fm_common_c" action="newFile"  data-toggle="modal" data-target="#fm_common_modal" file_name="" re_url="filemanager_confirm"><i class="fas fa-file text-white fa-lg"></i></a></li>
+                        <li class="mr-3" style="cursor: pointer;"><a class="fm_common_c" action="newDir"  data-toggle="modal" data-target="#fm_common_modal" file_name=""  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>"><i class="fas fa-folder text-warning fa-lg"></i></a></li>
+                        <li class="mr-3" style="cursor: pointer;"><a class="fm_common_c" action="newFile"  data-toggle="modal" data-target="#fm_common_modal" file_name=""  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>"><i class="fas fa-file text-white fa-lg"></i></a></li>
                         <li class="mr-3"></li>
                       </ul>
 
                     </nav>
                     <span id="common_path" path="" style="display: none;"></span>
                 <?php
-                    $dir    = 'E:/webroot/LocalUser/'.$webuser;
+                if($weborigin!=1){
+                  $dir    = 'E:/webroot/LocalUser/'.$webrootuser.'/'.$webuser;
+                }else{
+                  $dir    = 'E:/webroot/LocalUser/'.$webuser;
+                }
+                    
                     $myfiles = array_diff(scandir($dir,1), array('.', '..')); 
 
                     // $dir = '/master/files';
@@ -69,7 +74,7 @@ $getWeb = $getweball->getWebaccount($domain);
                             foreach ($directories as $key => $value) {
                             ?>
                                 <tr>
-                                  <th class="folder_click" foldername="<?= $value ?>" style="cursor: pointer;">
+                                  <th class="folder_click" foldername="<?= $value ?>" style="cursor: pointer;"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
                                     <i class="fas fa-folder text-warning fa-lg "></i> 
                                     <span><?= $value ?></span>
                                   </th>
@@ -78,12 +83,12 @@ $getWeb = $getweball->getWebaccount($domain);
                                   <th><?php echo sizeFormat(folderSize($dir.'/'.$value)) ?></th>
                                   <th class="d-flex justify-content-end" colspan="2">
                                     <span class=""></span>
-                                    <button class="btn text-success fm_common_c" action="zip" file="dir"  data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" re_url="filemanager_confirm">
+                                    <button class="btn text-success fm_common_c" action="zip" file="dir"  data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
                                       Zip
                                     </button>
-                                    <button class="btn text-success fm_common_c" action="rename" file="dir" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" re_url="filemanager_confirm">Rename
+                                    <button class="btn text-success fm_common_c" action="rename" file="dir" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">Rename
                                     </button>
-                                    <button class="btn text-danger delete_filedir" re_url="filemanager_confirm" path="<?=$value?>" action="delete_dir">
+                                    <button class="btn text-danger delete_filedir"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>" path="<?=$value?>" action="delete_dir">
                                       <i class="far fa-trash-alt"></i>
                                     </button>
                                   </th>
@@ -100,7 +105,7 @@ $getWeb = $getweball->getWebaccount($domain);
                                 ?>
                                 <tr>
                                   
-                                  <th class="open_file" style="cursor: pointer;" data-toggle="modal" <?php if (in_array($extension, $ext)){ echo 'data-target="#open_file"'; } ?> file_name="<?= $value ?>" re_url="filemanager_confirm"><div><i class="fas fa-file text-secondary fa-lg"></i> <?= $value ?></div></th>
+                                  <th class="open_file" style="cursor: pointer;" data-toggle="modal" <?php if (in_array($extension, $ext)){ echo 'data-target="#open_file"'; } ?> file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>"><div><i class="fas fa-file text-secondary fa-lg"></i> <?= $value ?></div></th>
                                 
                                   <th><?= date("Y-m-d h:i:sA", filemtime($dir.'/'.$value)) ?></th>
                                   <th><?= filetype($dir.'/'.$value)?></th>
@@ -108,24 +113,24 @@ $getWeb = $getweball->getWebaccount($domain);
                                     <?php echo sizeFormat(filesize($dir.'/'.$value)) ?>
                                   </th>
                                   <th class="d-flex justify-content-end" colspan="2">
-                                    <a href="filemanager_confirm.php?download=<?=$value?>&common_path=" class="btn text-success download_file">
+                                    <a href="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>&download=<?=$value?>&common_path=" class="btn text-success download_file">
                                       <i class="fa fa-download"></i>
                                     </a>
-                                    <button class="btn text-success fm_common_c" action="zip"  file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" re_url="filemanager_confirm">
+                                    <button class="btn text-success fm_common_c" action="zip"  file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
                                       Zip
                                     </button>
                                     <?php 
                                       if(getFileExt($dir.'/'.$value)=="zip")
                                       {?>
-                                        <button class="btn text-success fm_common_c" action="unzip" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" re_url="filemanager_confirm">
+                                        <button class="btn text-success fm_common_c" action="unzip" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
                                         UnZip
                                       </button>
                                      <?php 
                                       }
                                       ?>
-                                    <button class="btn text-success fm_common_c" action="rename" file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" re_url="filemanager_confirm">Rename
+                                    <button class="btn text-success fm_common_c" action="rename" file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">Rename
                                     </button>
-                                    <button class="btn text-danger delete_filedir" re_url="filemanager_confirm" path="<?=$value?>"  action="delete_file">
+                                    <button class="btn text-danger delete_filedir"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>" path="<?=$value?>"  action="delete_file">
                                       <i class="far fa-trash-alt"></i>
                                     </button>
                                   </th>
@@ -153,7 +158,7 @@ $getWeb = $getweball->getWebaccount($domain);
             </button>
           </div>
           <div class="modal-body">
-            <form re_url="filemanager_confirm" action="upload" modal="upload_file" method="post" enctype="multipart/form-data" id="upload_newfile" style="position: relative;">
+            <form gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>" action="upload" modal="upload_file" method="post" enctype="multipart/form-data" id="upload_newfile" style="position: relative;">
               <label class="ps_absolute">Drag and Drop File here</label>
               <div style="position: relative; height: 200px">
                 <input type="file" class="form-control" name="fileToUpload" id="upload_">
@@ -186,7 +191,7 @@ $getWeb = $getweball->getWebaccount($domain);
             </button>
           </div>
           <div class="modal-body">
-            <form re_url="filemanager_confirm" action="action" modal="fm_common_modal" method="post" id="fm_common_modal_form">
+            <form  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>" action="action" modal="fm_common_modal" method="post" id="fm_common_modal_form">
               <div class="form-group">
                 <label id="fm_form_label">Name</label>
                 <input type="text" class="form-control" name="fm_form_name">

@@ -29,26 +29,30 @@
                             <a href="/admin/vps/panel?server=vps&setting=various&tab=backup&webid=<?=$webid?>" class="nav-link">バックアップ</a>
                         </li>
                     </ul>
+                    <?php $cpu_usage = cpu_usage(); $memory_usage = memory_usage(); ?>
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div id="page-body" class="tab-pane active pr-3 pl-3"><br>
                             <h6>サーバー負荷状況</h6>
                             <div class="form-group row">
-                            	<div class="col-sm-4">
-                                メモリ
-                            	</div>
-                            	<div class="col-sm-6">
-                            		<input type="text" class="form-control" name="" readonly placeholder="3000MB">
-                            	</div>
-                            </div>
-                            <div class="form-group row">
                                 <div class="col-sm-4">
                                     CPU
                                 </div>
                                 <div class="col-sm-6">
-                                    Average of cpu usage : <span id="cpu_usage"><?= preg_replace('/\s+/', '', str_replace('LoadPercentage','',shell_exec('wmic cpu get loadpercentage'))) ?>%</span>
+                                    Average of cpu usage : <span id="cpu_usage"><?= $cpu_usage ?>%</span>
                                     <div class="progress">
-                                        <div class="progress-bar" id="cpu" style="width:<?= preg_replace('/\s+/', '', str_replace('LoadPercentage','',shell_exec('wmic cpu get loadpercentage'))) ?>%"></div>
+                                        <div class="progress-bar <?php if($cpu_usage<=60){ echo 'bg-success';}else if($cpu_usage>60 and $cpu_usage<80){ echo 'bg-warning';}else{echo 'bg-danger';} ?>" id="cpu" style="width:<?= $cpu_usage ?>%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                            	<div class="col-sm-4">
+                                メモリ
+                            	</div>
+                                <div class="col-sm-6">
+                                    Average of memory usage : <span id="memory_usage"><?= $memory_usage ?>%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar <?php if($memory_usage<=60){ echo 'bg-success';}else if($memory_usage>60 and $memory_usage<80){ echo 'bg-warning';}else{echo 'bg-danger';} ?>" id="memory" style="width:<?= $memory_usage ?>%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -81,23 +85,34 @@
         $(document).ready(function(){
             setInterval(function(){ 
                 usage('cpu');
-        }, 2000);
+                usage('memory');
+        }, 3000);
         });
 
         function usage($var)
         {
             $url = document.URL.split('/');
-	$url=$url[0]+"//"+$url[2];
+	        $url=$url[0]+"//"+$url[2];
             $.ajax({
                 type: "POST",
-                url: $url+'/cpu_usage?case='+$var,
+                url: $url+'/usages?case='+$var,
                 data: {},
                 success: function(data){
-                    if($var=='cpu')
-                    {
-                        $("#cpu_usage").html(data+ ' %');
-                        $("#cpu").css({"width":data+"%"})
-                    }
+                    // if($var=='cpu')
+                    // {
+                        $("#"+$var+"_usage").html(data+ ' %');
+                        $("#"+$var).css({"width":data+"%"})
+                        $("#"+$var).removeClass();
+                        if(data<=60)
+                        {
+                            $("#"+$var).addClass("progress-bar bg-success");
+                        }else if(data>60 && data<=80)
+                        {
+                            $("#"+$var).addClass("progress-bar bg-warning");
+                        }else{
+                            $("#"+$var).addClass("progress-bar bg-danger");
+                        }
+                    // }
                     
                 }
             });

@@ -63,6 +63,24 @@ class MySQL{
 				return false;
 				return true;
 	}
+	function importWP($sql,$db_name,$db_username,$pass){
+		try {
+			$pdo_account = new PDO('mysql:host=localhost;dbname='.$db_name, $db_username, $pass);
+			// echo $pdo_account->exec($sql);
+			if($pdo_account->exec($sql)==0){
+				return true;
+			}else{
+				return false;
+			}
 
+
+		} catch (PDOException $e) {
+			//print('Error ' . $e->getMessage());
+			$pdo_account = NULL;
+			return false;
+		}
+		$pdo_account = NULL;
+		return false;
+	}
 
 }

@@ -46,7 +46,7 @@
                                     <input type="password" class="form-control" name="" placeholder="12～40文字、英数記号大小文字組み合わせ">
                                 </div>
                                 <div class="col-sm-2">
-                                    <a href="" class="btn btn-success text-white">変更</a>
+                                    <a href="" class="btn btn-sm btn-success text-white">変更</a>
                                 </div>
                             </div>
                             <div class="mb-4">

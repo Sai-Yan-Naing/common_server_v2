@@ -1,4 +1,5 @@
 <?php
+// die;
 include('views/admin/share/header.php');
 if(!isset($_POST['action']) || !isset($_POST['ftp_user'])){ header("location: /admin/share/servers/ftp?webid=$webid");}
 	$permission=$_POST['permission'];
@@ -55,7 +56,13 @@ if($action=='new')
 		die();
 	}
 }
-Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/add_ftp.ps1" '. $ftp_user." ".$ftp_pass." ".$webuser." ".$per." ".$action);
+$originuser = '';
+if($weborigin!=1)
+{
+	$originuser = $webrootuser;
+}
+Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/ftp/add_ftp.ps1" '. $ftp_user." ".$ftp_pass." ".$webuser." ".$per." ".$action." ".$originuser);
+
 header("location: /admin/share/servers/ftp?webid=$webid");
 
 ?>

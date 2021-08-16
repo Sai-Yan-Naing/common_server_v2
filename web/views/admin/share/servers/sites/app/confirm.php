@@ -3,19 +3,19 @@ require_once('views/common_adminshare.php');
 $webappversion = json_decode($webappversion);
     if(isset($_GET['act']) && $_GET['act']=='web.config')
     {
-        $file = $webuser."/web/web.config";
+        $file = $webrootuser."/".$webuser."/web/web.config";
         $value = $_POST['web_config'];
         putFile($file,$value);
-        webconfigset($webuser);
+        webconfigset($webrootuser.'/'.$webuser);
         die();
     }
 
     if(isset($_GET['act']) && $_GET['act']=='.user.ini')
     {
-        $file = $webuser."/web/.user.ini";
+        $file = $webrootuser."/".$webuser."/web/.user.ini";
         $value = $_POST['php_ini'];
         putFile($file,$value);
-        phpiniset($webuser);
+        phpiniset($webrootuser.'/'.$webuser);
         die();
     }
 

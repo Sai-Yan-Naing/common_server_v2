@@ -42,12 +42,13 @@
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active p-3">
+                                    <form action="/admin/vps/option/confirm?&webid=<?=$webid?>" method="post" id="spec_option">
                                     <div class="form-group row">
                                         <div class="col-sm-3">
                                             メモリ追加
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" name="" readonly="" placeholder="GB">
+                                            <input type="text" class="form-control" name="memory" placeholder="GB">
                                         </div>
                                         <div class="col-sm-3">
                                             <span>月額</span>
@@ -61,7 +62,7 @@
                                             コア追加
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" name="" readonly="" placeholder="コア">
+                                            <input type="text" class="form-control" name="cpu" placeholder="コア">
                                         </div>
                                         <div class="col-sm-3">
                                             <span>月額</span>
@@ -75,7 +76,7 @@
                                             ディスク追加
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" name="" readonly="" placeholder="GB">
+                                            <input type="text" class="form-control" name="disk" placeholder="GB">
                                         </div>
                                         <div class="col-sm-3">
                                             <span>月額</span>
@@ -89,7 +90,7 @@
                                             IPアドレス追加
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" name="" readonly="" placeholder="個">
+                                            <input type="text" class="form-control" name="ip_address" placeholder="個">
                                         </div>
                                         <div class="col-sm-3">
                                             <span>月額</span>
@@ -103,7 +104,7 @@
                                             仮想スイッチ追加
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="text" class="form-control" name="" readonly="" placeholder="個">
+                                            <input type="text" class="form-control" name="virtual_switch" placeholder="個">
                                         </div>
                                         <div class="col-sm-3">
                                             <span>月額</span>
@@ -115,9 +116,10 @@
                                     <div class="form-group row">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-5">
-                                        <a href="" class="btn btn-success text-white">依頼</a>
+                                        <button type="submit" class="btn btn-sm btn-success text-white">依頼</button>
                                     </div>
                                     <div class="col-sm-4"></div>
+                                    </form>
                                 </div>
                                 </div>
                             </div>                                  

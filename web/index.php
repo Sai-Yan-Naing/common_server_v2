@@ -23,10 +23,8 @@ switch ($request['path']) {
     case '/domainChecker': include 'controllers/domainChecker.php'; break;
     // case '/admin/servers/action' : include 'views/admin/servers/action.php'; break;
 /*+++++++++++++++++++++++++++++++domain+++++++++++++++++*/
-    case '/admin/add_multi_domain' : include 'views/admin/add_domain/create.php'; break;
+    case '/admin/multi_domain' : include 'views/admin/domain/index.php'; break;
     // case '/admin/app_setting' : include 'views/admin/share/index.php'; break;
-    // controller
-    case '/admin/multi_domain_confirm' : include 'controllers/admin/multi_domain_confirm.php'; break;
     case '/admin/app_setting/confirm' : include 'controllers/admin/app_setting_confirm.php'; break;
     case '/admin/servers/dns_confirm' : include 'controllers/admin/confirm/dns.php'; break;
     case '/admin/servers/sitebinding' : include 'controllers/admin/confirm/sitebinding.php'; break;
@@ -49,6 +47,7 @@ switch ($request['path']) {
     // end database
     case '/admin/share/servers/ftp' : include 'views/admin/share/servers/ftp/main.php'; break;
     case '/admin/share/servers/filemanager' : include 'views/admin/share/servers/filemanager/index.php'; break;
+    case '/admin/share/servers/filemanager/confirm' : include 'views/admin/share/servers/filemanager/confirm.php'; break;
     case '/admin/share/servers/analysis' : include 'views/admin/share/servers/analysis/index.php'; break;
     // controller
     case '/admin/share/servers/ftp/confirm' : include 'controllers/admin/share/ftp.php'; break;
@@ -74,7 +73,16 @@ switch ($request['path']) {
 // ++++++++++++++++++++++++++++++ start vps +++++++++++++++++
 
     case '/admin/vps' : include 'views/admin/vps.php'; break;
+    case '/admin/vps-confirm' : include 'views/admin/vps_confirm.php'; break;
+    case '/admin/vps-delete' : include 'views/admin/vps_delete.php'; break;
     case '/admin/vps/panel' : include 'views/admin/vps/index.php'; break;
+    case '/admin/vps/onoff_confirm' : include 'views/admin/vps/onoff_confirm.php'; break;
+    case '/admin/vps/backup/new' : include 'views/admin/vps/various/backup/new.php'; break;
+    case '/admin/vps/backup/delete' : include 'views/admin/vps/various/backup/delete.php'; break;
+    case '/admin/vps/backup/restore' : include 'views/admin/vps/various/backup/restore.php'; break;
+    case '/admin/vps/backup/confirm' : include 'views/admin/vps/various/backup/confirm.php'; break;
+    case '/admin/vps/option/confirm' : include 'views/admin/vps/various/option/confirm.php'; break;
+    case '/admin/vps/option/license_confirm' : include 'views/admin/vps/various/option/license_confirm.php'; break;
 
 // ++++++++++++++++++++++++++++++ end vps +++++++++++++++++
 
@@ -121,8 +129,10 @@ switch ($request['path']) {
     case '/share/various' : include 'views/share/various/main.php'; break;
     case '/share/various/backup' : include 'views/share/various/backup.php'; break;
 /* +++++++++++++++++++ end various setting +++++++++++++++++++++++ */
+    // common validate route
+    case '/validate' : include 'views/validate.php'; break;
 //end share
-    case '/cpu_usage': include 'views/cpu_usage.php'; break;
+    case '/usages': include 'views/usage.php'; break;
 
     case '/testing' : include 'views/testing.php'; break;
 //default

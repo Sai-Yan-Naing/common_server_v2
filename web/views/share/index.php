@@ -102,7 +102,7 @@
                                     <label for="database" class="col-sm-3 col-form-label">データベース</label>
                                     <label for="db-name" class="col-sm-3 col-form-label">データベース名</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="db_name" name="db_name" placeholder="データベース名">
+                                        <input type="text" class="form-control" id="db_name" name="db_name" placeholder="データベース名"  column="db_user" table="db_account" remark="mydbname">
                                         <label for="db_name" id="db_name_ex_error" class="error"></label>
                                     </div>
                                 </div>
@@ -110,7 +110,7 @@
                                     <div class="col-sm-3"></div>
                                     <label for="db_user" class="col-sm-3 col-form-label">ユーザー名</label>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control" id="db_user" name="db_user" placeholder="ユーザー名">
+                                        <input type="text" class="form-control" id="db_user" name="db_user" placeholder="ユーザー名"  column="db_user" table="db_account" remark="mydbuser">
                                         <label for="db_user" id="db_user_ex_error" class="error"></label>
                                     </div>
                                 </div>

@@ -10,14 +10,15 @@ if($action=='new')
 	if(isExistBlackListIp($site,$ip))
 	{
 		$error = $ip." is already exist.";
-		include('views/share/servers/security/ip.php');
+		require('views/share/servers/security/ip.php');
 		die();
 	}
 	$temp["BID-".time()] = ['ip'=>$ip,'mask'=>'255.255.255.255','status'=>'BLOCKED'];
 	$result = json_encode($temp);
 	// print_r($result);
-	// die();
-	$qry = "UPDATE web_account SET `blacklist` = '$result' WHERE `id` = $webid[id]";
+	// die('123');
+	// die($qry = "UPDATE web_account SET `blacklist` = '$result' WHERE `id` = $webid");
+	$qry = "UPDATE web_account SET `blacklist` = '$result' WHERE `id` = $webid";
 	if(!$commons->doThis($qry))
 	{
 		$error = $ip." cannot insert to Database.";
@@ -30,7 +31,7 @@ if($action=='new')
 	$result = json_encode($temp);
 	// print_r($result);
 	// die();
-	$qry = "UPDATE web_account SET `blacklist` = '$result' WHERE `id` = $webid[id]";
+	$qry = "UPDATE web_account SET `blacklist` = '$result' WHERE `id` = $webid";
 	if(!$commons->doThis($qry))
 	{
 		$error = $ip." cannot delete to Database.";

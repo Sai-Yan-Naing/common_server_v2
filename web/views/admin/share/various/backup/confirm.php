@@ -16,7 +16,7 @@ if (!$webuser) {
         
     }else if(isset($_POST['action']) and $_POST['action']=="backup"){
     	// die(ROOT_PATH."$webuser");
-        $src = ROOT_PATH."$webuser";
+        $src = ROOT_PATH."$webrootuser/$webuser";
         $directory = "G:/backup/$webuser";
         $dst = "$directory/$webuser-$date";
         if(is_dir($directory)){
@@ -27,7 +27,7 @@ if (!$webuser) {
     	
     	$file = showFolder($dirname);
     	$src = "G:/backup/$webuser/$file/";
-        $dst = ROOT_PATH."$webuser";
+        $dst = ROOT_PATH."$webrootuser/$webuser";
         if(is_dir($dst)){
             deleteBackup($dst);
         }

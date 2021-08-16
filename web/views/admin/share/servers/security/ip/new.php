@@ -1,6 +1,6 @@
 <!-- Modal Header -->
 <div class="modal-header">
-  <h4 class="modal-title">Add to BlackList</h4>
+  <h4 class="modal-title">IPアクセス制限</h4>
   <button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 <!-- Modal body -->

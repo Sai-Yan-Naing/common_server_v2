@@ -17,7 +17,7 @@ if($action=='new')
 	$result = json_encode($temp);
 	// print_r($result);
 	// die();
-	$qry = "UPDATE web_account SET `blacklist` = '$result' WHERE `id` = $webid[id]";
+	$qry = "UPDATE web_account SET `blacklist` = '$result' WHERE `id` = $webid";
 	if(!$commons->doThis($qry))
 	{
 		$error = $ip." cannot insert to Database.";
@@ -30,7 +30,7 @@ if($action=='new')
 	$result = json_encode($temp);
 	// print_r($result);
 	// die();
-	$qry = "UPDATE web_account SET `blacklist` = '$result' WHERE `id` = $webid[id]";
+	$qry = "UPDATE web_account SET `blacklist` = '$result' WHERE `id` = $webid";
 	if(!$commons->doThis($qry))
 	{
 		$error = $ip." cannot delete to Database.";

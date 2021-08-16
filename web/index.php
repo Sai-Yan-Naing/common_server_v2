@@ -74,6 +74,7 @@ switch ($request['path']) {
 
     case '/admin/vps' : include 'views/admin/vps.php'; break;
     case '/admin/vps-confirm' : include 'views/admin/vps_confirm.php'; break;
+    case '/admin/vps-delete' : include 'views/admin/vps_delete.php'; break;
     case '/admin/vps/panel' : include 'views/admin/vps/index.php'; break;
     case '/admin/vps/onoff_confirm' : include 'views/admin/vps/onoff_confirm.php'; break;
     case '/admin/vps/backup/new' : include 'views/admin/vps/various/backup/new.php'; break;

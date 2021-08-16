@@ -3,7 +3,7 @@
  require_once('config/all.php');
  require_once('models/common.php');
  require_once('common/common.php');
- $query = "SELECT * from vps_account where customer_id='D000123'";
+ $query = "SELECT * from vps_account where customer_id='D000123' && `removal` is null";
  $commons = new Common;
  $getAllRow = $commons->getAllRow($query);
 ?>
@@ -54,13 +54,14 @@
                                       </td>
                                       <td class="col-sm-2">
                                             <form action="/admin/vps-confirm" method = "post">
+                                                <input type="hidden" name="action" value="onoff">
                                                 <input type="hidden" name="confirm" value="post">
                                                 <input type="hidden" name="act_id" value="<?= $vps['id'] ?>">
                                                 <input type="checkbox" data-toggle="toggle" data-onstyle="success" data-offstyle="danger" data-on="起動" data-off="停止" data-size="sm" name='onoff'   <?php if($vps['active']!=0){echo "checked";}  ?>  onchange="this.form.submit()">
                                             </form>
                                       </td>
                                       <td class="col-sm-2">
-                                        <button type="button" class="btn btn-danger btn-sm" disable>削除</button>
+                                        <button type="button" class="btn btn-danger btn-sm common_dialog"  data-toggle="modal" data-target="#common_modal" gourl="/admin/vps-delete?act=delete&act_id=<?=$vps[id]?>&vm_name=<?=$vps['instance']?>">削除</button>
                                       </td>
                                     </tr>
                                 <?php

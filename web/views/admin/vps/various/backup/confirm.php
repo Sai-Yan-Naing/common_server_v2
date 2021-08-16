@@ -37,7 +37,6 @@ $action = $_POST['action'];
             echo  $insert_q = "INSERT INTO vps_backup (ip, name, scheduler) VALUES ('$webip', '$backupname', 0)";
             // die('to instert');
         }
-       
         if(!$commons->doThis($insert_q))
         {
             echo $error="cannot create vps backup";

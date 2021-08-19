@@ -13,7 +13,7 @@ $getWeb = $getweball->getWebaccount($domain);
             <div class="row">
                 <?php require("views/admin/share/setting_menu.php") ?>
                 <div class="col-sm-9">
-                    <h3 class="win-cpanel fs-1 text-center p-2">Winserver Share Control Panel</h3>
+                    <h3 class="win-cpanel fs-1 font-weight-bold text-center p-2">Winserver Share Control Panel</h3>
                     <!-- Nav tabs -->
                     <nav class="navbar navbar-expand-sm bg-success navbar-dark">
                       <ul class="navbar-nav mr-auto" id='dir_path'>
@@ -62,11 +62,11 @@ $getWeb = $getweball->getWebaccount($domain);
                         <table class="table table-borderless table-hover">
                           <thead>
                             <tr>
-                              <th class="font-weight-bold">Name</th>
-                              <th class="font-weight-bold">Date Modified</th>
-                              <th class="font-weight-bold">Type</th>
-                              <th class="font-weight-bold">File size</th>
-                              <th colspan="2" class="text-center font-weight-bold">Action</th>
+                              <th class="font-weight-bold">ディレクトリ名</th>
+                              <th class="font-weight-bold">更新日時</th>
+                              <th class="font-weight-bold">ファイル形式</th>
+                              <th class="font-weight-bold">ファイル容量</th>
+                              <th colspan="2" class="text-center font-weight-bold">作業</th>
                             </tr>
                           </thead>
                           <tbody id="changebody">
@@ -84,9 +84,9 @@ $getWeb = $getweball->getWebaccount($domain);
                                   <th class="d-flex justify-content-end" colspan="2">
                                     <span class=""></span>
                                     <button class="btn text-success fm_common_c" action="zip" file="dir"  data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
-                                      Zip
+                                    圧縮
                                     </button>
-                                    <button class="btn text-success fm_common_c" action="rename" file="dir" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">Rename
+                                    <button class="btn text-success fm_common_c" action="rename" file="dir" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">名前変更
                                     </button>
                                     <button class="btn text-danger delete_filedir"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>" path="<?=$value?>" action="delete_dir">
                                       <i class="far fa-trash-alt"></i>
@@ -95,7 +95,7 @@ $getWeb = $getweball->getWebaccount($domain);
                                 </tr>
                                 <?php 
                               }
-                              $ext = array('html','css','php','js', 'txt');
+                              $ext = array('html','css','php','js', 'txt' , 'config' , 'sql', 'ini');
  
                               $protocol = ((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
                                
@@ -117,18 +117,18 @@ $getWeb = $getweball->getWebaccount($domain);
                                       <i class="fa fa-download"></i>
                                     </a>
                                     <button class="btn text-success fm_common_c" action="zip"  file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
-                                      Zip
+                                    圧縮
                                     </button>
                                     <?php 
                                       if(getFileExt($dir.'/'.$value)=="zip")
                                       {?>
                                         <button class="btn text-success fm_common_c" action="unzip" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
-                                        UnZip
+                                        解凍
                                       </button>
                                      <?php 
                                       }
                                       ?>
-                                    <button class="btn text-success fm_common_c" action="rename" file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">Rename
+                                    <button class="btn text-success fm_common_c" action="rename" file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">名前変更
                                     </button>
                                     <button class="btn text-danger delete_filedir"  gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>" path="<?=$value?>"  action="delete_file">
                                       <i class="far fa-trash-alt"></i>
@@ -152,22 +152,22 @@ $getWeb = $getweball->getWebaccount($domain);
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Upload File</h5>
+            <h5 class="modal-title">ファイルをアップロード</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <form gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>" action="upload" modal="upload_file" method="post" enctype="multipart/form-data" id="upload_newfile" style="position: relative;">
-              <label class="ps_absolute">Drag and Drop File here</label>
+              <label class="ps_absolute">ファイルをドラッグ＆ドロップしてください</label>
               <div style="position: relative; height: 200px">
                 <input type="file" class="form-control" name="fileToUpload" id="upload_">
               </div>
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-success" form="upload_newfile">Save</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+            <button type="submit" class="btn btn-success" form="upload_newfile">保存</button>
           </div>
         </div>
       </div>
@@ -204,8 +204,8 @@ $getWeb = $getweball->getWebaccount($domain);
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-success" form="fm_common_modal_form">save</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+            <button type="submit" class="btn btn-success" form="fm_common_modal_form">保存</button>
           </div>
         </div>
       </div>

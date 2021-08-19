@@ -11,7 +11,7 @@ require_once("views/admin/share/header.php");
             <div class="row">
                 <?php require("views/admin/share/various_menu.php") ?>
                 <div class="col-sm-9">
-                    <h3 class="win-cpanel fs-1 text-center p-2">Winserver Share Control Panel</h3>
+                    <h3 class="win-cpanel fs-1 font-weight-bold text-center p-2">Winserver Share Control Panel</h3>
                     <div class="contract">
                         <div class="server-info">
                             <h6 class="6">サーバー情報</h6>

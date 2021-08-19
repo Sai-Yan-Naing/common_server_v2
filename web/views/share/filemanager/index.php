@@ -17,7 +17,7 @@ $getWeb = $getweball->getWebaccount($webdomain);
             <div class="row">
                 <?php require("views/share/setting_menu.php") ?>
                 <div class="col-sm-9">
-                    <h3 class="win-cpanel fs-1 text-center p-2">Winserver Share Control Panel</h3>
+                    <h3 class="win-cpanel fs-1 font-weight-bold text-center p-2">Winserver Share Control Panel</h3>
                     <!-- Nav tabs -->
                     <nav class="navbar navbar-expand-sm bg-success navbar-dark">
                       <ul class="navbar-nav mr-auto" id='dir_path'>

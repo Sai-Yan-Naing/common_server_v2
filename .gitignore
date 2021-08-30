@@ -4,3 +4,7 @@ web/web.config
 web/config/all.php
 web/views/testing.php
 web/views/testing/*
+web/vendor1
+web/vendor
+web/composer.lock
+web/composer1.lock

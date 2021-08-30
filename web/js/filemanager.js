@@ -25,7 +25,16 @@ $(document).on("click", ".delete_filedir", function () {
 $(document).on("click", ".open_file", function () {
   $file_name = $(this).attr("file_name");
   var extension = $file_name.substr($file_name.lastIndexOf(".") + 1);
-  var fileExtension = ["html", "css", "php", "js", "txt"];
+  var fileExtension = [
+    "html",
+    "css",
+    "php",
+    "js",
+    "txt",
+    "config",
+    "sql",
+    "ini",
+  ];
   $url = document.URL.split("/");
   $url = $url[0] + "//" + $url[2];
   $gourl = $(this).attr("gourl");
@@ -98,10 +107,10 @@ $(document).on("click", ".fm_common_c", function () {
     }
     $label = "Name";
   } else if ($action == "newFile") {
-    $title = "Create a new File";
+    $title = "新規ファイル作成";
     $label = "Name";
   } else if ($action == "newDir") {
-    $title = "Create a new Directory";
+    $title = "新規ディレクトリ作成";
     $label = "Name";
   }
 

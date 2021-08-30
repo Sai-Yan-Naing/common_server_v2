@@ -65,6 +65,7 @@ if(isset($_POST['fm_form_name']) and $_POST['action']=='newFile')
 		$_dir=$dir;
 	}
 	open_file($_dir,$_POST['file_name'],$webid);
+	die();
 
 }else if(isset($_POST['text_editor_open']) and $_POST['action']=='save_file' )
 {
@@ -409,9 +410,9 @@ function uncompressed($from, $to)
           <th class="d-flex justify-content-end" colspan="2">
           	<span class=""></span>
             <button class="btn text-success fm_common_c" action="zip"  data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
-              Zip
+			圧縮
             </button>
-            <button class="btn text-success fm_common_c" action="rename" file="dir" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">Rename
+            <button class="btn text-success fm_common_c" action="rename" file="dir" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">名前変更
             </button>
           	<button class="btn text-danger delete_filedir" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>" path="<?=$value?>" action="delete_dir">
           		<i class="far fa-trash-alt"></i>
@@ -420,7 +421,7 @@ function uncompressed($from, $to)
         </tr>
         <?php 
     	}
-    	$ext = array('html','css','php','js', 'txt');         
+    	$ext = array('html','css','php','js', 'txt' , 'config' , 'sql', 'ini');        
         foreach ($files_list as $key => $value) {
             ?>
             <tr>
@@ -441,18 +442,18 @@ function uncompressed($from, $to)
               		<i class="fa fa-download"></i>
               	</a>
                 <button class="btn text-success fm_common_c" action="zip"  data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
-                  Zip
+				圧縮
                 </button>
                 <?php 
                   if(getFileExt($dir.'/'.$value)=="zip")
                   {?>
                     <button  class="btn text-success fm_common_c" action="unzip" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">
-                    UnZip
+                    解凍
                   </button>
                  <?php 
                   }
                   ?>
-                <button class="btn text-success fm_common_c" action="rename" file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">Rename
+                <button class="btn text-success fm_common_c" action="rename" file="file" data-toggle="modal" data-target="#fm_common_modal" file_name="<?= $value ?>" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>">名前変更
                 </button>
                 <button class="btn text-danger delete_filedir" gourl="/admin/share/servers/filemanager/confirm?webid=<?=$webid?>"  webid="<?=$webid?>" path="<?=$value?>" action="delete_file">
                 	<i class="far fa-trash-alt"></i>

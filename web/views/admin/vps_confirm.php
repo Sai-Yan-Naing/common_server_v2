@@ -7,6 +7,9 @@ $commons = new Common;
 $act_id=$_POST["act_id"];
 $action = $_POST['action'];
 $getvps = $commons->getRow("SELECT * FROM vps_account WHERE id='$act_id'");
+$host_ip = $getvps['host_ip'];
+$host_user = $getvps['host_user'];
+$host_password = $getvps['host_password'];
 $vm_name = $getvps['instance'];
 $today = date("Y-m-d H:i:s");
 if($action=='delete')
@@ -22,11 +25,11 @@ if($action=='delete')
 $onoff=$_POST["onoff"];
 // die('hello');
 $status =0;
-$action = 'turnoff';
+$action = 'shutdown';
 if(isset($onoff))
 {
 	$status=1;
-	$action = 'turnon';
+	$action = 'startup';
 }
 
 $update_q = "UPDATE vps_account SET active='$status' WHERE id='$act_id'";
@@ -39,7 +42,12 @@ die();
 }
 // echo $action;
 // die();
-Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/manage_vm/vm.ps1" '. $vm_name." ".$action);
+// $action = 'shutdown';
+// $host_ip = '210.146.10.219';
+// $host_user = 'administrator';
+// $host_password = 'np3FUyEDiPRf';
+// $vm_name = '20210720sai';
+echo Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts\vm_manager\hyper-v_init.ps1" '.$action." ".$host_ip." ".$host_user." ".$host_password." ". $vm_name);
 header("location: /admin/vps");
 
 ?>

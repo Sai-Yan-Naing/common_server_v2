@@ -1,14 +1,14 @@
 $(document).on("click", ".delete_filedir", function () {
   $path = $(this).attr("path");
-  $re_url = $(this).attr("re_url");
   $url = document.URL.split("/");
   $url = $url[0] + "//" + $url[2];
-
+  $gourl = $(this).attr("gourl");
+  $url = $url + $gourl;
   $common_path = $("#common_path").attr("path");
   $action = $(this).attr("action");
   $.ajax({
     type: "POST",
-    url: $url + "/share/servers/filemanager/confirm",
+    url: $url,
     data: { path: $path, common_path: $common_path, action: $action },
     success: function (data) {
       // alert(data)
@@ -25,16 +25,26 @@ $(document).on("click", ".delete_filedir", function () {
 $(document).on("click", ".open_file", function () {
   $file_name = $(this).attr("file_name");
   var extension = $file_name.substr($file_name.lastIndexOf(".") + 1);
-  var fileExtension = ["html", "css", "php", "js", "txt"];
-  $re_url = $(this).attr("re_url");
+  var fileExtension = [
+    "html",
+    "css",
+    "php",
+    "js",
+    "txt",
+    "config",
+    "sql",
+    "ini",
+  ];
   $url = document.URL.split("/");
   $url = $url[0] + "//" + $url[2];
+  $gourl = $(this).attr("gourl");
+  $url = $url + $gourl;
   $common_path = $("#common_path").attr("path");
   if (fileExtension.indexOf(extension) > -1) {
     document.getElementById("file_open").innerHTML = $("#display_modal").html();
     $.ajax({
       type: "POST",
-      url: $url + "/share/servers/filemanager/confirm",
+      url: $url,
       data: {
         file_name: $file_name,
         common_path: $common_path,
@@ -52,15 +62,15 @@ $(document).on("click", ".open_file", function () {
 $(document).on("click", "#save_file", function () {
   $text_editor_open = $("#text_editor_open").val();
   $openfile_name = $(this).attr("file_name");
-  $re_url = $(this).attr("re_url");
   $url = document.URL.split("/");
   $url = $url[0] + "//" + $url[2];
-  // alert($openfile_name)
+  $gourl = $(this).attr("gourl");
+  $url = $url + $gourl;
   $common_path = $("#common_path").attr("path");
 
   $.ajax({
     type: "POST",
-    url: $url + "/share/servers/filemanager/confirm",
+    url: $url,
     data: {
       text_editor_open: $text_editor_open,
       openfile_name: $openfile_name,
@@ -68,8 +78,7 @@ $(document).on("click", "#save_file", function () {
       action: "save_file",
     },
     success: function (data) {
-      alert(data);
-      // document.getElementById("file_open").innerHTML = data;
+      alert("successfull saved");
     },
   });
 });
@@ -98,10 +107,10 @@ $(document).on("click", ".fm_common_c", function () {
     }
     $label = "Name";
   } else if ($action == "newFile") {
-    $title = "Create a new File";
+    $title = "新規ファイル作成";
     $label = "Name";
   } else if ($action == "newDir") {
-    $title = "Create a new Directory";
+    $title = "新規ディレクトリ作成";
     $label = "Name";
   }
 
@@ -128,32 +137,46 @@ $(document).on("change", "#upload_", function () {
 
 $(function () {
   $("#upload_newfile,#fm_common_modal_form").on("submit", function (e) {
+    // var empty = true;
+    // $("input").each(function () {
+    //   if ($(this).val() != "") {
+    //     alert(1);
+    //     empty = false;
+    //     return false;
+    //   }
+    // });
+    // if (empty == true) {
+    //   alert("Invalid");
+    //   return false;
+    // }
     if ($(this).attr("action") == "upload") {
+      if ($("#upload_").val() == "" || $("#upload_").val() == null) {
+        alert("Empty File cannot upload");
+        return false;
+      }
       $size = $("#upload_")[0].files[0].size;
       if ($size > 2097152) {
         alert("File size is greater than 2MB");
         return false;
       }
     }
-    e.preventDefault();
     $url = document.URL.split("/");
     $url = $url[0] + "//" + $url[2];
-    $re_url = $(this).attr("re_url");
+    $gourl = $(this).attr("gourl");
+    $url = $url + $gourl;
     $action = $(this).attr("action");
     $common_path = $("#common_path").attr("path");
     $name = $(this).children().children("input").val();
     $modal = $(this).attr("modal");
 
     $this = $(this);
-
     $formdata = new FormData(this);
     $formdata.append("common_path", $common_path);
     $formdata.append("action", $action);
-    // alert($modal)
     //  event.preventDefault();
     $.ajax({
       type: "POST",
-      url: $url + "/share/servers/filemanager/confirm",
+      url: $url,
       data: $formdata,
       contentType: false,
       cache: false,
@@ -164,7 +187,6 @@ $(function () {
       },
       // data: {common_path:$common_path,name:$name, action:'upload'},
       success: function (data) {
-        // alert(data)
         document.getElementById("changebody").innerHTML = data;
         $($this).trigger("reset");
         $(".download_file").each(function (i, obj) {
@@ -173,6 +195,7 @@ $(function () {
         });
       },
     });
+    return false;
   });
 });
 

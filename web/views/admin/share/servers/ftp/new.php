@@ -3,7 +3,7 @@ require_once('views/common_adminshare.php');
 ?>
 <!-- Modal Header -->
 <div class="modal-header">
-  <h4 class="modal-title">Create FTP user</h4>
+  <h4 class="modal-title">FTPユーザー追加</h4>
   <button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 <!-- Modal body -->
@@ -33,17 +33,17 @@ require_once('views/common_adminshare.php');
               <div class="form-group">
                   <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="full_control" name="permission[]" value="F">Full Control
+                <input type="checkbox" class="form-check-input" id="full_control" name="permission[]" value="F">フルコントロール
               </label>
             </div>
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="checkbox" class="form-check-input permission" name="permission[]" value="R">Read
+                <input type="checkbox" class="form-check-input permission" name="permission[]" value="R">読み
               </label>
             </div>
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="checkbox" class="form-check-input permission" name="permission[]" value="W">Write
+                <input type="checkbox" class="form-check-input permission" name="permission[]" value="W">書き
               </label>
             </div>
                   <label for="permission" id="permission_error" class="error"></label>

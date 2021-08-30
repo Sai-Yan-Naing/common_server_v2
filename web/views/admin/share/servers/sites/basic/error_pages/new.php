@@ -3,7 +3,7 @@ require_once('views/common_adminshare.php');
 ?>
 <!-- Modal Header -->
 <div class="modal-header">
-  <h4 class="modal-title">Add Error page</h4>
+  <h4 class="modal-title">エラーページ追加</h4>
   <button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 <!-- Modal body -->

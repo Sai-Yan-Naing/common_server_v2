@@ -74,7 +74,19 @@ switch ($request['path']) {
 
     case '/admin/vps' : include 'views/admin/vps.php'; break;
     case '/admin/vps-confirm' : include 'views/admin/vps_confirm.php'; break;
+    case '/admin/vps-delete' : include 'views/admin/vps_delete.php'; break;
     case '/admin/vps/panel' : include 'views/admin/vps/index.php'; break;
+    case '/admin/vps/onoff_confirm' : include 'views/admin/vps/onoff_confirm.php'; break;
+    case '/admin/vps/backup/new' : include 'views/admin/vps/various/backup/new.php'; break;
+    case '/admin/vps/backup/delete' : include 'views/admin/vps/various/backup/delete.php'; break;
+    case '/admin/vps/backup/restore' : include 'views/admin/vps/various/backup/restore.php'; break;
+    case '/admin/vps/backup/confirm' : include 'views/admin/vps/various/backup/confirm.php'; break;
+    case '/admin/vps/option/confirm' : include 'views/admin/vps/various/option/confirm.php'; break;
+    case '/admin/vps/option/license_confirm' : include 'views/admin/vps/various/option/license_confirm.php'; break;
+    case '/admin/vps/easy_install/confirm' : include 'views/admin/vps/various/easy_install/confirm.php'; break;
+    case '/admin/vps/firewall/confirm' : include 'views/admin/vps/various/firewall/confirm.php'; break;
+    case '/admin/vps/server/confirm' : include 'views/admin/vps/server/confirm.php'; break;
+
 
 // ++++++++++++++++++++++++++++++ end vps +++++++++++++++++
 
@@ -88,7 +100,7 @@ switch ($request['path']) {
     case '/share/servers/sites/basic' : include 'views/share/servers/sites/basic.php'; break;
     case "/share/servers/sites/app" : include 'views/share/servers/sites/app.php'; break;
     // controller
-    case '/change/app_version' : include 'controllers/application/app_version.php'; break;
+    case '/change/app_version' : include 'controllers/application/app_version.php'; break;
     case '/share/appinstall' : include 'controllers/application/install.php'; break;
     /*----------------- end sites setting ------------------*/
 

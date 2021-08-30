@@ -234,11 +234,19 @@ function allValidate() {
           required: true,
         },
         email: {
-          required: true,
+          required: {
+            depends: function (element) {
+              return $("#phone").val() == "";
+            },
+          },
           email: true,
         },
         phone: {
-          required: true,
+          required: {
+            depends: function (element) {
+              return $("#email").val() == "";
+            },
+          },
           numberalphabet: true,
           nowhitespace: true,
           nospecialchar: true,
@@ -268,11 +276,11 @@ function allValidate() {
         },
         subject: {
           required: "Please enter subject",
-          minlength: "Phone number must be at least 8 characters long",
+          minlength: "Subject must be at least 8 characters long",
         },
         message: {
           required: "Please enter message",
-          minlength: "Phone number must be at least 8 characters long",
+          minlength: "Message must be at least 8 characters long",
         },
       },
       submitHandler: function (form) {

@@ -6,7 +6,7 @@ $getRow = $commons->getRow($query);
 ?>
 <!-- Modal Header -->
 <div class="modal-header">
-  <h4 class="modal-title">Edit FTP user</h4>
+  <h4 class="modal-title">FTPユーザー編集</h4>
   <button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 <!-- Modal body -->
@@ -38,17 +38,17 @@ $getRow = $commons->getRow($query);
               <div class="form-group">
                   <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" id="full_control" name="permission[]" <?php if(in_array("F", explode(",",$getRow['permission']))) {echo "checked";} ?> value="F">Full Control
+                <input type="checkbox" class="form-check-input" id="full_control" name="permission[]" <?php if(in_array("F", explode(",",$getRow['permission']))) {echo "checked";} ?> value="F">フルコントロール
               </label>
             </div>
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="checkbox" class="form-check-input permission" name="permission[]" value="R" <?php if(in_array("R", explode(",",$getRow['permission']))) {echo "checked";} ?>>Read
+                <input type="checkbox" class="form-check-input permission" name="permission[]" value="R" <?php if(in_array("R", explode(",",$getRow['permission']))) {echo "checked";} ?>>読み
               </label>
             </div>
             <div class="form-check-inline">
               <label class="form-check-label">
-                <input type="checkbox" class="form-check-input permission" name="permission[]" value="W" <?php if(in_array("W", explode(",",$getRow['permission']))) {echo "checked";} ?>>Write
+                <input type="checkbox" class="form-check-input permission" name="permission[]" value="W" <?php if(in_array("W", explode(",",$getRow['permission']))) {echo "checked";} ?>>書き
               </label>
             </div>
                   <label for="permission" id="permission_error" class="error"></label>

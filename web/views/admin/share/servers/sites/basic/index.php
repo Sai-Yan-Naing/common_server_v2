@@ -14,7 +14,7 @@
             <div class="row">
                 <?php require("views/admin/share/setting_menu.php") ?>
                 <div class="col-sm-9">
-                    <h3 class="win-cpanel fs-1 text-center font-weight-bold p-2">Winserver Share Control Panel</h3>
+                <h3 class="win-cpanel fs-1 font-weight-bold text-center p-2">Winserver Share Control Panel</h3>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
@@ -33,7 +33,7 @@
                             <div class="d-flex mt-5">
                                 <p class="col-sm-2">エラーページ</p>
                                 <div>
-                                    <button class="btn btn-success btn-sm common_dialog" type="button" data-toggle="modal" data-target="#common_modal" gourl="/admin/share/servers/sites/basic?act=new&webid=<?=$webid?>&error_pages"><span class="add-db-icon"><i class="fas fa-plus"></i></span>Add new error</button>
+                                    <button class="btn btn-success btn-sm common_dialog" type="button" data-toggle="modal" data-target="#common_modal" gourl="/admin/share/servers/sites/basic?act=new&webid=<?=$webid?>&error_pages"><span class="add-db-icon"><i class="fas fa-plus"></i></span>エラーページ追加</button>
                                 </div>
                             </div>
                             <div>
@@ -53,7 +53,7 @@
                                             <td><?php echo $ep->statuscode; ?></td>
                                             <td><?php echo $ep->url; ?></td>
                                             <td class="d-flex">
-                                                <button edit_id="<?= $key;?>" class="pr-2 btn btn-warning btn-sm common_dialog" data-toggle="modal" data-target="#common_modal" gourl="/admin/share/servers/sites/basic?act=edit&webid=<?=$webid?>&error_pages&act_id=<?=$key?>">Edit</button>
+                                                <button edit_id="<?= $key;?>" class="pr-2 btn btn-warning btn-sm common_dialog" data-toggle="modal" data-target="#common_modal" gourl="/admin/share/servers/sites/basic?act=edit&webid=<?=$webid?>&error_pages&act_id=<?=$key?>">編集</button>
                                                 <form action="/admin/share/servers/sites/basic?confirm&act=&webid=<?=$webid?>&error_pages&act_id=<?=$key?>" method = "post" class="ml-2">
                                                     <input type="hidden" name="action" value="onoff">
                                                     <input type="hidden" name="act_id" value="<?=$key;?>">
@@ -68,7 +68,7 @@
                                 </table>
                             </div>
                             <div class="row">
-                                <label for="basic-auth" class="col-sm-2 col-form-label">BASIC認</label>
+                                <label for="basic-auth" class="col-sm-2 col-form-label">BASIC認証</label>
                                     <div class="added-basic">
                                         <button class="btn btn-success btn-sm common_dialog" type="button" data-toggle="modal" data-target="#common_modal" gourl="/admin/share/servers/sites/basic?act=new_dir&webid=<?=$webid?>"><span class="add-db-icon"><i class="fas fa-plus"></i></span>BASIC認証追加</button>
                                     </div>

@@ -3,14 +3,14 @@ require_once('views/common_adminshare.php');
 ?>
 <!-- Modal Header -->
 <div class="modal-header">
-  <h4 class="modal-title">Server Backup</h4>
+  <h4 class="modal-title">サーバーバックアップ</h4>
   <button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 <!-- Modal body -->
 <div class="modal-body">
 	<form action="/admin/share/various/backup?confirm&webid=<?=$webid?>" method = "post" id="autobackup">
         <input type="hidden" name="action" value="backup">
-        Are you sure to backup server <b style="color: green"><?=$webdomain ?> </b> ?
+        <b style="color: green"><?=$webdomain ?> </b> をバックアップしますか ?
     </form>
 </div>
 <!-- Modal footer -->

@@ -13,7 +13,7 @@ require_once('views/common_adminshare.php');
       <div class="row justify-content-center">
           <label for="bass_dir" class="col-sm-2 text-right p-2">対象ディレクトリ</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" column="bass_dir" id="bass_dir" name="bass_dir" placeholder="Please enter directory">
+            <input type="text" class="form-control" column="bass_dir" id="bass_dir" name="bass_dir" placeholder="ディクレトリパスを入力して下さい。">
           </div>
       </div>
   </form>

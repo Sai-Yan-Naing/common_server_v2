@@ -14,7 +14,7 @@
             <div class="row">
                 <?php require("views/share/setting_menu.php") ?>
                 <div class="col-sm-9">
-                    <h3 class="win-cpanel fs-1 text-center font-weight-bold p-2">Winserver Share Control Panel</h3>
+                    <h3 class="win-cpanel fs-1 font-weight-bold text-center font-weight-bold p-2">Winserver Share Control Panel</h3>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">

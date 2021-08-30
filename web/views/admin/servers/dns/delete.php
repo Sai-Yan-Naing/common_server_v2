@@ -1,6 +1,6 @@
 <!-- Modal Header -->
 <div class="modal-header">
-  <h4 class="modal-title">Delete DNS</h4>
+  <h4 class="modal-title">削除 DNS</h4>
   <button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 <!-- Modal body -->
@@ -15,6 +15,6 @@
 </div>
 <!-- Modal footer -->
 <div class="modal-footer d-flex justify-content-center">
-  <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">No</button>
-  <button type="submit" class="btn btn-danger btn-sm" form="delete_dns">Delete</button>
+  <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">キャンセル</button>
+  <button type="submit" class="btn btn-danger btn-sm" form="delete_dns">削除</button>
 </div>

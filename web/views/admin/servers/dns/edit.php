@@ -1,6 +1,6 @@
 <!-- Modal Header -->
 <div class="modal-header">
-  <h4 class="modal-title">Edit Record</h4>
+  <h4 class="modal-title">レコード編集</h4>
   <button type="button" class="close" data-dismiss="modal">&times;</button>
 </div>
 <!-- Modal body -->

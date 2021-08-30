@@ -22,7 +22,7 @@ class Mailer
 		    $this->mail->SMTPAuth   = true;
 		    $this->mail->Username   = MAIL_USER;
 		    $this->mail->Password   = MAIL_PASS;
-		    $this->mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+		    $this->mail->SMTPSecure = SMTPSecure;
 		    $this->mail->Port       = MAIL_PORT;
 
 		    //Recipients

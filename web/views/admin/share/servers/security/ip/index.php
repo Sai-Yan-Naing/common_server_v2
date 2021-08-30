@@ -12,7 +12,7 @@ $webblacklist = json_decode($webblacklist);
             <div class="row">
                 <?php require("views/admin/share/setting_menu.php") ?>
                 <div class="col-sm-9">
-                    <h3 class="win-cpanel fs-1 text-center p-2">Winserver Share Control Panel</h3>
+                    <h3 class="win-cpanel fs-1 font-weight-bold text-center p-2">Winserver Share Control Panel</h3>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs">
                         <li class="nav-item">
@@ -37,7 +37,7 @@ $webblacklist = json_decode($webblacklist);
                                     <span>IPアクセス制限</span>
                                 </div>
                                 <div class="col-sm-9">
-                                    <button class="btn btn-success btn-sm common_modal" type="button" data-toggle="modal" data-target="#common_modal" gourl="/admin/share/servers/security/ip?act=new&webid=<?=$webid?>"><span class="add-db-icon"><i class="fas fa-plus"></i></span>Add Blacklist</button>
+                                    <button class="btn btn-success btn-sm common_modal" type="button" data-toggle="modal" data-target="#common_modal" gourl="/admin/share/servers/security/ip?act=new&webid=<?=$webid?>"><span class="add-db-icon"><i class="fas fa-plus"></i></span>ブラックリストに追加</button>
                                 </div>
                             </div>
                             <div class="mt-4">

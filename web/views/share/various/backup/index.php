@@ -17,7 +17,7 @@ $get_backup = $backup->checkScheduler($webdomain);
                 <?php require("views/share/various_menu.php") ?>
                 <!-- backup -->
                 <div class="col-sm-9">
-                    <h3 class="win-cpanel fs-1 text-center p-2">Winserver Share Control Panel</h3>
+                    <h3 class="win-cpanel fs-1 font-weight-bold text-center p-2">Winserver Share Control Panel</h3>
                     <div class="rcontent">
                         <div class="mb-3">バックアップ</div>
                         <div class="row">

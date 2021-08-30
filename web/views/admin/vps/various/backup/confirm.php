@@ -5,17 +5,16 @@
 $date = date('d-m-Y-his');
 $backupname = $date.'-'.$webip;
 $dirname = "C:/Hyper-V/Backup/$backupname/";
-// die($dirname);
-$action = $_POST['action'];
-// $getvps = $commons->getRow("SELECT * FROM vps_account WHERE ip='$webip'");
-// $vm_name = $getvps['instance'];
-// if (!$webuser) {
-// 	die('error');
-// }
-// die($_POST['user']);
+
+$host_ip = $webvmhost_ip;
+$host_user = $webvmhost_user;
+$host_password = $webvmhost_password;
+$vm_name = $webvm_name;
+
         $getvpsbackup = $commons->getRow("SELECT * FROM vps_backup WHERE ip='$webip'");
 	if(isset($_POST['action']) and $_POST['action']=="delete"){
         // die('delete');
+        $action = "delete_dir";
         $act_id=$_POST['act_id'];
         $delete_q = "DELETE FROM vps_backup WHERE id='$act_id'";
         if(!$commons->doThis($delete_q))
@@ -25,11 +24,11 @@ $action = $_POST['action'];
             die();
         }
         // $backup_vmname = $_POST['backup_vmname'];
-        echo $dirname = "C:/Hyper-V/Backup/$getvpsbackup[name]/";
-        delete_directory($dirname);
+        echo $del_dir = "C:/Hyper-V/Backup/$getvpsbackup[name]/";
+        echo  Shell_Exec('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts\vm_manager\hyper-v_init.ps1" '.$action." ".$host_ip." ".$host_user." ".$host_password." ". $vm_name." ". $dirname." ". $del_dir);
     }else if(isset($_POST['action']) and $_POST['action']=="backup"){
-        $dirname = "C:/Hyper-V/Backup/$getvpsbackup[name]/";
-        delete_directory($dirname);
+        
+        $del_dir = "C:/Hyper-V/Backup/$getvpsbackup[name]/";
         if($getvpsbackup['id']!=null){
             $insert_q = "UPDATE vps_backup SET name='$backupname'WHERE ip='$webip'";
             // die('alread exit');
@@ -45,7 +44,9 @@ $action = $_POST['action'];
         $dirname = "C:/Hyper-V/Backup/$backupname/";
         // echo $webvm_name;
         // die('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/manage_vm/vm.ps1" '. $webvm_name." ".$action." ".$dirname);
-        Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/manage_vm/vm.ps1" '. $webvm_name." ".$action." ".$dirname);
+        // Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/manage_vm/vm.ps1" '. $webvm_name." ".$action." ".$dirname);
+        $action = 'export_vm';
+        echo Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts\vm_manager\hyper-v_init.ps1" '.$action." ".$host_ip." ".$host_user." ".$host_password." ". $vm_name." ". $dirname." ". $del_dir);
     }else if(isset($_POST['action']) and $_POST['action']=="restore"){
         $act_id=$_POST['act_id'];
         $dirname = "C://Hyper-V//Backup//$getvpsbackup[name]//$webvm_name";
@@ -72,7 +73,7 @@ $action = $_POST['action'];
         // $commons->doThis($insert_q);
         // $ext = pathinfo($files_list, PATHINFO_EXTENSION);
         // die("D:\\$webvm_name.vhdx");
-        unlink("D:\\$webvm_name.vhdx");
+        // unlink("D:\\$webvm_name.vhdx");
         // die();
         // $dirname = "C:/Hyper-V/Backup/12-08-2021-010001-127.0.0.11/202189wind2019/Virtual Machines/41EE1485-F007-4668-81DD-D0F3AD95A830.vmcx";
         // print_r($dirname."\\".$backupfile);
@@ -81,7 +82,9 @@ $action = $_POST['action'];
         $getvps = $commons->getRow("SELECT * FROM vps_account WHERE ip='$webip'");
         $active = $getvps['active'];
         // die($active);
-        echo Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/manage_vm/vm.ps1" '. $webvm_name." ".$action." ".$dirname." ".$backupfile." ".$active);
+        // echo Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts/manage_vm/vm.ps1" '. $webvm_name." ".$action." ".$dirname." ".$backupfile." ".$active);
+        $action = 'restore_backup';
+        echo Shell_Exec ('powershell.exe -executionpolicy bypass -NoProfile -File "E:\scripts\vm_manager\hyper-v_init.ps1" '.$action." ".$host_ip." ".$host_user." ".$host_password." ". $vm_name." ". $dirname." ". $del_dir." ".$backupfile);
         // die('restore');
     }else if(isset($_POST['action']) and $_POST['action']=="auto_backup")
     {

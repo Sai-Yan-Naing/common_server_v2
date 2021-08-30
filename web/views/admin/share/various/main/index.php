@@ -35,8 +35,8 @@ require_once("views/admin/share/header.php");
                                 <div class="form-group row">
                                     <label for="capacity-used" class="col-sm-3 col-form-label">使用ディスク容量</label>
                                     <!--<div class="col-sm-4" ><progress id="capacity-used" max="100" value="70"> </progress></div>-->
-                                    <div class="col-sm-4" id="chartContainer" style="height: 300px; width: 100%;"> </div>
-                                    <div class="col-sm-4"><span class="gb"> <?= sizeFormat(folderSize(ROOT_PATH."$webuser"))?></span></div>
+                                    <!-- <div class="col-sm-4" id="chartContainer" style="height: 300px; width: 100%;"> </div> -->
+                                    <div class="col-sm-4"><span><?php if($weborigin!=1){ echo sizeFormat(folderSize("E:/webroot/LocalUser/".$webrootuser."/$webuser"));}else{echo sizeFormat(folderSize("E:/webroot/LocalUser/$webuser"));} ?></span></div>
                                 </div>
                             <form action="/admin/share/various?confirm&webid=<?=$webid?>" method = "post" id="site-onoff">
                                 <input type="hidden" name="app" value="site">
@@ -80,7 +80,7 @@ require_once("views/admin/share/header.php");
         <!--End of Page Content  -->
     </div>
 <!-- End of Wrapper  -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
         window.onload = function () {
             var chart = new CanvasJS.Chart("chartContainer",
             {
@@ -104,7 +104,7 @@ require_once("views/admin/share/header.php");
 
         chart.render();
         }
-    </script>
+    </script> -->
 <?php
 require_once('views/admin/share/footer.php');
 ?>

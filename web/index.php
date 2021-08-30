@@ -83,6 +83,10 @@ switch ($request['path']) {
     case '/admin/vps/backup/confirm' : include 'views/admin/vps/various/backup/confirm.php'; break;
     case '/admin/vps/option/confirm' : include 'views/admin/vps/various/option/confirm.php'; break;
     case '/admin/vps/option/license_confirm' : include 'views/admin/vps/various/option/license_confirm.php'; break;
+    case '/admin/vps/easy_install/confirm' : include 'views/admin/vps/various/easy_install/confirm.php'; break;
+    case '/admin/vps/firewall/confirm' : include 'views/admin/vps/various/firewall/confirm.php'; break;
+    case '/admin/vps/server/confirm' : include 'views/admin/vps/server/confirm.php'; break;
+
 
 // ++++++++++++++++++++++++++++++ end vps +++++++++++++++++
 

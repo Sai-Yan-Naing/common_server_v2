@@ -37,9 +37,6 @@
                                 <div class="col-sm-4">
                                     <label for="" class="col-form-label">IIS　インストール</label>
                                 </div>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" name="" readonly value="インストール">
-                                </div>
                             </div> 
                             <div class="mb-4">
                                 ※デフォルトの構成にて自動でインストールされます。
@@ -48,17 +45,23 @@
                                 <div class="col-sm-4">
                                     <label for="" class="col-form-label">SQＬ Server Express Edition</label>
                                 </div>
-                                <div class="col-sm-7">
-                                    <input type="text" class="form-control" name="" readonly value="インストール">
-                                </div>
                             </div>   
                             <div class="form-group row">
-                                <div class="col-sm-4"><button class="btn btn-sm btn-primary">2016</button></div>
-                                <div class="col-sm-4"><button class="btn btn-sm btn-primary">2018</button></div>
-                                <div class="col-sm-4"><button class="btn btn-sm btn-primary">2019</button></div>
-                            </div>                              
+                                <div class="col-sm-4"><button  type="submit" class="btn btn-sm btn-success" form="sql_2016">2016</button></div>
+                                <div class="col-sm-4"><button  type="submit" class="btn btn-sm btn-success" form="sql_2017">2017</button></div>
+                                <div class="col-sm-4"><button  type="submit" class="btn btn-sm btn-success" form="sql_2019">2019</button></div>
+                            </div>                          
                         </div>
                     </div>
+                    <form action="/admin/vps/easy_install/confirm?server=vps&setting=various&tab=easy_install&action=new&webid=<?=$webid?>" id="sql_2016" method="post">
+                        <input type="hidden" value="2016">
+                    </form>
+                    <form action="/admin/vps/easy_install/confirm?server=vps&setting=various&tab=easy_install&action=new&webid=<?=$webid?>" id="sql_2017" method="post">
+                        <input type="hidden" value="2017">
+                    </form>
+                    <form action="/admin/vps/easy_install/confirm?server=vps&setting=various&tab=easy_install&action=new&webid=<?=$webid?>" id="sql_2019" method="post">
+                        <input type="hidden" value="2019">
+                    </form>
                 </div>
             </div>
         </div>

@@ -24,6 +24,7 @@
                     
                     <div class="tab-content">
                         <div id="page-body" class="tab-pane active pr-3 pl-3"><br>
+                        <form action="/admin/vps/server/confirm?server=vps&setting=various&tab=connection&webid=<?=$webid?>" method="post">
                             <div class="form-group row">
                                 <div class="col-sm-4">
                                     <label for="" class="col-form-label">グローバルIPアドレス</label>
@@ -37,18 +38,19 @@
                                     <label for="" class="col-form-label">管理者ID</label>
                                 </div>
                                 <div class="col-sm-8">
-                                    <span>Winserverroot</span>
+                                    <span><?= WINSERVERROOT ?></span>
                                 </div>
                             </div>
                             <h6>PASSWORD変更</h6>
                             <div class="form-group row">
                                 <div class="col-sm-4">
-                                    <input type="password" class="form-control" name="" placeholder="12～40文字、英数記号大小文字組み合わせ">
+                                    <input type="password" class="form-control" name="password" placeholder="12～40文字、英数記号大小文字組み合わせ">
                                 </div>
                                 <div class="col-sm-2">
-                                    <a href="" class="btn btn-sm btn-success text-white">変更</a>
+                                    <button type="submit" class="btn btn-sm btn-success text-white">変更</button>
                                 </div>
                             </div>
+                            </form>
                             <div class="mb-4">
                                 <span>月次のキャンペーン内容をテキストで表示（顧客DBから参照）バナーはしつこいのでなし。テキストのみ</span>
                             </div>

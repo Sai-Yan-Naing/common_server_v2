@@ -31,7 +31,7 @@
 							      <input type="text" class="form-control" id="phone" placeholder="電話番号を入力してください" name="phone">
 							    </div>
 							    <div class="col-md-6">
-							      <label class="font-weight-bold" for="subject">メッセージ:</label>
+							      <label class="font-weight-bold" for="subject">件名:</label>
 							      <input type="text" class="form-control" id="pwd" placeholder="件名を入力してください" name="subject">
 							    </div>
 						    </div>

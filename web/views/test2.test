@@ -1,0 +1,18 @@
+test 210.146.10.219 administrator np3FUyEDiPRf 20210719TEST administrator welcome123! sqlserver
+
+install_sqlserver 210.146.10.219 administrator np3FUyEDiPRf 20210719TEST administrator welcome123! install_sqlserver 3390 no
+
+install_sqlserver 210.146.10.219 administrator np3FUyEDiPRf vps_test administrator welcome123! install_sqlserver 3390 no
+
+Copy-Item "D:\testing.txt"
+
+-Destination "D:\hello" -Recurse
+
+Copy-Item -Path D:\testing.txt -ToSession $session -Destination 'C:\'
+
+.\change_fw.ps1 loadstatus 210.146.10.219 administrator np3FUyEDiPRf testvm administrator welcome123! cpu
+
+ iisinstall 210.146.10.219 administrator np3FUyEDiPRf testvm japansys bmbivPanKuQ5AVe iisinstall
+
+
+ iisinstall 210.146.10.219 administrator np3FUyEDiPRf testvm administrator welcome123! iisinstall
